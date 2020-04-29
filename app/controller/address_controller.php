@@ -1,6 +1,6 @@
 <?php
 
-require_once(__ROOT__ . "controller/Controller.php");
+require_once(__ROOT__ . "controller/controller.php");
 
 class AddressController extends controller
 {
@@ -31,7 +31,7 @@ class AddressController extends controller
   
   public function deleteAdd()
   {
-    $address_id = $_REQUEST ['$address_id'];
+    $address_id = $_REQUEST ['address_id'];
     $this->model->deleteAddress($address_id);
   }
 

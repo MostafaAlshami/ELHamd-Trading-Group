@@ -17,7 +17,7 @@ class AddressController extends controller
     $this->model->insertCompany($name, $email, $url, $phoneNumber);
   }
 
-  public function insertComp(company_id)
+  public function editComp(company_id)
   {
     $company_id = $_REQUEST[''];
     $name = $_REQUEST['name'];

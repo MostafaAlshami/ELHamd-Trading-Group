@@ -54,6 +54,15 @@ class Company extends model
   function set($phoneNumber) {
     return $this->phoneNumber = $phoneNumber;
   } 
+
+  /*function get() {
+    return $this->phoneNumber; 
+  }
+  function set($phoneNumber) {
+    return $this->phoneNumber = $phoneNumber;
+  } */
+
+
   
   
 

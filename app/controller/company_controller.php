@@ -24,8 +24,8 @@ class AddressController extends controller
     $email = $_REQUEST['email'];
     $url = $_REQUEST['url'];
     $phoneNumber = $_REQUEST['phoneNumber'];
-    //$address  = $_REQUEST[''];
-    //$type = $_REQUEST[''];
+    //$address  = $_REQUEST['address'];
+    //$type = $_REQUEST['type'];
 
     $this->model->editCompany($company_id, $name, $email, $url, $phoneNumber);
   }

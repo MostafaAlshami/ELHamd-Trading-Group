@@ -56,11 +56,18 @@ class Company extends model
   } 
 
   /*function get() {
-    return $this->phoneNumber; 
+    return $this->address; 
   }
-  function set($phoneNumber) {
-    return $this->phoneNumber = $phoneNumber;
-  } */
+  function set($address) {
+    return $this->address = $address;
+  } 
+  function get() {
+    return $this->type; 
+  }
+  function set($type) {
+    return $this->type = $type;
+  } 
+  */
 
 
   

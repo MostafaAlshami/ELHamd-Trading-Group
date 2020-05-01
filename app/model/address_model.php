@@ -53,10 +53,10 @@ class Address extends Model
   }
   function setCity($city){
     return $this->city = $city;
-    }
+  }
 
   function getDistrict() {
-     return $this->district;
+    return $this->district;
   }
   function setDistrict($district){
     return $this->district = $district;
@@ -110,7 +110,7 @@ class Address extends Model
     }
   }
 
-  function insertAddress($address_id, $country, $city, $district, $street, $building, $postcode)
+  function insertAddress($country, $city, $district, $street, $building, $postcode)
   {
     $country = $this->dbh->getConn()->real_escape_string($country);
     $city = $this->dbh->getConn()->real_escape_string($city);
@@ -133,8 +133,8 @@ class Address extends Model
     }
     //FIX AND TEST
     //array_push($this->fruits, new Fruit("0","test","1.0"));
-    }
   }
+
 
 
   function editAddress($address_id, $country, $city, $district, $street, $building, $postcode)
@@ -147,7 +147,8 @@ class Address extends Model
     $postcode = $this->dbh->getConn()->real_escape_string($postcode);
 
    $sql = "UPDATE address SET country = '$country', city = '$city', district = '$district',
-                              street = '$street', building = '$building', postcode = '$postcode'  WHERE ID = $address_id"; 
+                              street = '$street', building = '$building', postcode = '$postcode'  
+                              WHERE address_id = $address_id"; 
 
     ///CHECK echos
     if($this->dbh->query($sql) === true)
@@ -158,12 +159,12 @@ class Address extends Model
     {  
       echo "ERROR: Could not execute $sql. " . $conn->error;
     }
-    }
+  }
 
 
   function deleteAddress($address_id)
   {
-    $sql="DELETE FROM address WHERE ID = $address_id";
+    $sql = "DELETE FROM address WHERE address_id = $address_id";
        
     ///CHECK echos
     if($this->dbh->query($sql) === true)
@@ -177,9 +178,8 @@ class Address extends Model
   }
 
 
-      
 
-
+  
 
 }
-?>    
+?>   

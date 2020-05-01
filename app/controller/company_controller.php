@@ -6,15 +6,14 @@ class AddressController extends controller
 {
   public function insertComp()
   {
-    //$company_id = $_REQUEST[''];
     $name = $_REQUEST['name'];
     $email = $_REQUEST['email'];
     $url = $_REQUEST['url'];
     $phoneNumber = $_REQUEST['phoneNumber'];
+    $type = $_REQUEST['type'];
     //$address  = $_REQUEST[''];
-    //$type = $_REQUEST[''];
 
-    $this->model->insertCompany($name, $email, $url, $phoneNumber);
+    $this->model->insertCompany($name, $email, $url, $phoneNumber, $type);
   }
 
   public function editComp(company_id)
@@ -24,10 +23,10 @@ class AddressController extends controller
     $email = $_REQUEST['email'];
     $url = $_REQUEST['url'];
     $phoneNumber = $_REQUEST['phoneNumber'];
-    //$address  = $_REQUEST['address'];
-    //$type = $_REQUEST['type'];
+    $type = $_REQUEST['type'];
+    //$address  = $_REQUEST[''];
 
-    $this->model->editCompany($company_id, $name, $email, $url, $phoneNumber);
+    $this->model->editCompany($company_id, $name, $email, $url, $phoneNumber, $type);
   }
 
   public function deleteComp()

@@ -13,7 +13,7 @@ class AddressController extends controller
     $building = $_REQUEST['building'];
     $postcode = $_REQUEST['postcode']; 
 
-    $this->model->insertAddress($address_id, $country, $city, $district, $street, $building, $postcode);
+    $this->model->insertAddress($country, $city, $district, $street, $building, $postcode);
   }  
 
   public function editAdd()

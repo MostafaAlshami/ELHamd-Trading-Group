@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Shipping Lines</title>
+    <title>Companies</title>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="shlines.html">
+                        <a href="shippinglines.html">
                             <i class="now-ui-icons files_box"></i>
                             <p>Shipping Lines</p>
                         </a>
@@ -134,47 +134,6 @@
 
             <div class="content">
 
-                <div class="row">
-                    <div class=" col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-category"></h5>
-                                <h4 class="card-title">Shipping Lines</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class=" text-primary">
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Number</th>
-                                            <th>City</th>    
-                                            <th class="text-right"></th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>CRM</td>
-                                                <td>crm@gmail.com</td>
-                                                <td>01180054675</td>
-                                                <td>Cairo</td>
-                                                <td class="text-right"><a class="btn" href="">Edit</a></td>    
-                                            </tr>
-                                            <tr>
-                                                <td>Aramex</td>
-                                                <td>aramex@gmail.com</td>
-                                                <td>01180054675</td>
-                                                <td>Alex</td>   
-                                                 <td class="text-right"> <a class="btn" href="">Edit</a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <button class=" btn">Add Shipping Line</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 

@@ -1,13 +1,29 @@
+<?php
+require_once(__ROOT__ . "view/View.php");
+
+class Empviewpage extends View{
+	
+    public function output()
+    {
+        
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Shipping Lines</title>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'name='viewport' />
+    <title>
+        Employees
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
@@ -15,15 +31,23 @@
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
     <div class="wrapper ">
         <div class="sidebar" data-color="orange">
-            <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
+            <!--
+          Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+      -->
             <div class="logo">
-                <a href="#" class="simple-text logo-mini">HT</a>
-                <a href="#" class="simple-text logo-normal"> ELHamd Trading</a>    
+                <a href="#" class="simple-text logo-mini">
+                    HT
+                </a>
+                <a href="#" class="simple-text logo-normal">
+                    ELHamd Trading
+                </a>
             </div>
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <ul class="nav">
@@ -33,29 +57,29 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-
                     <li>
+                        <a href="./user.html">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+
+                    <li class="active ">
                         <a href="employees.html">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>Employees</p>
                         </a>
                     </li>
-                    <li class="active ">
+                    <li>
                         <a href="companies.html">
                             <i class="now-ui-icons files_box"></i>
                             <p>Companies</p>
                         </a>
                     </li>
                     <li>
-                        <a href="shlines.html">
+                        <a href="allContracts.html">
                             <i class="now-ui-icons files_box"></i>
-                            <p>Shipping Lines</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contracts.html">
-                            <i class="now-ui-icons files_box"></i>
-                            <p>Contracts</p>
+                            <p>All Contracts</p>
                         </a>
                     </li>
 
@@ -74,7 +98,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo"></a>
+                        <a class="navbar-brand" href="#pablo">Dashboard</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -129,47 +153,79 @@
                     </div>
                 </div>
             </nav>
+
             <div class="panel-header panel-header-sm">
             </div>
-
             <div class="content">
 
                 <div class="row">
                     <div class=" col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-category"></h5>
-                                <h4 class="card-title">Shipping Lines</h4>
+                                <h5 class="card-category">All Persons List</h5>
+                                <h4 class="card-title"> Employees Stats</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Number</th>
-                                            <th>City</th>    
-                                            <th class="text-right"></th>
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                Mobile
+                                            </th>
+
+                                            <th class="text-right">
+                                                Salary
+                                            </th>
+                                            <th class="text-center">
+                                                View
+                                            </th>
+                                            <th class="text-center">
+                                                Edit
+                                            </th>
                                         </thead>
                                         <tbody>
+                                        <!-- <?php
+                                        
+                                            // $q = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID";
+                                            
+                                            // $result = mysqli_query($conn, $q);
+                                            // if(mysqli_num_rows($result) > 0)
+                                            // {
+                                            //     while($row = mysqli_fetch_array($result))
+                                            //     {
+                                            //             $firstName = $row['name'];
+                                            //             $lastName = $row['name'];
+                                            //             $mobile = $row['mobile'];
+                                            //             $salary = $row['salary'];
+                                            ?>
+                                        -->
                                             <tr>
-                                                <td>CRM</td>
-                                                <td>crm@gmail.com</td>
-                                                <td>01180054675</td>
-                                                <td>Cairo</td>
-                                                <td class="text-right"><a class="btn" href="">Edit</a></td>    
+                                                <td>
+                                                    <?php echo $firstName;?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $mobile; ?>
+                                                </td>
+
+                                                <td class="text-right">
+                                                <?php echo $salary; ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a class="btn" href="empView.php">View</a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a class="btn" href="editEmployee.html">Edit</a>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>Aramex</td>
-                                                <td>aramex@gmail.com</td>
-                                                <td>01180054675</td>
-                                                <td>Alex</td>   
-                                                 <td class="text-right"> <a class="btn" href="">Edit</a></td>
-                                            </tr>
+                                        <?php } 
+                                            }
+                                        ?>
+                                            
                                         </tbody>
                                     </table>
-
-                                    <button class=" btn">Add Shipping Line</button>
                                 </div>
                             </div>
                         </div>
@@ -191,6 +247,15 @@
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+        <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+        <script src="../assets/demo/demo.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Javascript method's body can be found in assets/js/demos.js
+                demo.initDashboardPageCharts();
+
+            });
+        </script>
 </body>
 
 </html>

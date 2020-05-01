@@ -83,9 +83,10 @@ class Address extends Model
     return $this->postcode = $postcode;
   }
 
+
   function readAddress($address_id)
   {
-    $sql = "SELECT * FROM address where ID =" .$address_id;
+    $sql = "SELECT * FROM address where address_id =" .$address_id;
     $db = $this->connect();
     $result = $db->query($sql);
 
@@ -109,6 +110,7 @@ class Address extends Model
       $this->postcode = "";
     }
   }
+
 
   function insertAddress($country, $city, $district, $street, $building, $postcode)
   {

@@ -88,9 +88,35 @@ class Company extends model
   
 
 
-
   function readCompany()
-  {}
+  {
+    $sql = "SELECT * FROM company WHERE company_id=" .$company_id;
+    $db = $this->connect;
+    $result = $db->query($sql);
+
+    if($result->num_rows == 1)
+    {
+      $row = $db->fetchRow();
+      $this->company_name = $row["company_name"];
+      $this->email = $row["email"];
+      $this->url = $row["url"];
+      $this->phoneNumber = $row["phoneNumber"];
+      $this->type = $row["type"];
+      //address
+    }
+    else
+    {
+      $this->company_name = "";
+      $this->email = "";
+      $this->url = "";
+      $this->phoneNumber = "";
+      $this->type = "";
+      //address
+    }
+
+
+  }
+
 
   function insertCompany()
   {

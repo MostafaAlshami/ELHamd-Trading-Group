@@ -2,7 +2,7 @@
 
 require_once(__ROOT__ . "controller/controller.php");
 
-class AddressController extends controller
+class CompanyController extends Controller
 {
   public function insertComp()
   {

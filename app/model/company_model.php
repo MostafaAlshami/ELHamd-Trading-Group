@@ -4,7 +4,7 @@
 
 <?php
 
-class Company extends model
+class Company extends Model
 {
   private $company_id;
   private $company_name;

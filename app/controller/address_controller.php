@@ -2,7 +2,7 @@
 
 require_once(__ROOT__ . "controller/controller.php");
 
-class AddressController extends controller
+class AddressController extends Controller
 {
   public function insertAdd()
   {

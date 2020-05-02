@@ -154,6 +154,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>Abu Auf</td>
+                                                <td> <?php $this->model->getName() ?>  </td>
                                                 <td>abuauf@hotmail.com</td>
                                                 <td>01180054675</td>
                                                 <td>Cairo</td>

@@ -36,45 +36,38 @@ class Company extends Model
   }
 
 
-  function get() {
-    return $this->company_id; 
-  }
-  function set($company_id) {
-    return $this->company_id = $company_id;
-  }
-
-  function get() {
+  function getName() {
     return $this->company_name; 
   }
-  function set($company_name) {
+  function setName($company_name) {
     return $this->company_name = $company_name;
   }  
 
-  function get() {
+  function getEmail() {
     return $this->email; 
   }
-  function set($email) {
+  function setEmail($email) {
     return $this->email = $email;
   }  
 
-  function get() {
+  function getURL() {
     return $this->url; 
   }
-  function set($url) {
+  function setURL($url) {
     return $this->url = $url;
   }  
 
-  function get() {
+  function getPhoneNumber() {
     return $this->phoneNumber; 
   }
-  function set($phoneNumber) {
+  function setNumber($phoneNumber) {
     return $this->phoneNumber = $phoneNumber;
   } 
 
-  function get() {
+  function getType() {
     return $this->type; 
   }
-  function set($type) {
+  function setType($type) {
     return $this->type = $type;
   } 
   

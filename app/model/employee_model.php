@@ -17,7 +17,7 @@ class Employee extends Model{
 
   function __construct($empid,$empfirstname="",$emplastname="",$birthdate="",$mobile="",$address="",$edudegree="",$empdata="",$salary="",$email="") {
     $this->empid = $empid;
-	    $this->db = $this->connect();
+	    $this->dbh = $this->connect();
 
     if(""===$empname){
       $this->readUser($empid);
@@ -240,12 +240,12 @@ class Employee extends Model{
     function readEmployee($empid)
     {
         $sql = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID WHERE user.emp_ID='$id'";
-        $db = $this->connect();
-        $result = $db->query($sql);
+        $dbh = $this->connect();
+        $result = $dbh->query($sql);
 
         if($result->num_rows == 1)
         {
-          $row = $db->fetchRow();
+          $row = $dbh->fetchRow();
           $this->empfirstname = $row["First_Name"];
           $this->emplastname = $row["Last_Name"];
           $this->address = $row["address"];

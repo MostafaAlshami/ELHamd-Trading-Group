@@ -14,7 +14,7 @@ class Employees extends Model {
 
   function fillArray() {
     $this->employees = array();
-    $this->db = $this->connect();
+    $this->dbh = $this->connect();
     $result = $this->readEmployees();
 
     while ($row = $result->fetch_assoc())
@@ -32,7 +32,7 @@ class Employees extends Model {
   function readEmployees(){
     $sql = "SELECT * FROM employee";
     
-    $result = $this->db->query($sql);
+    $result = $this->dbh->query($sql);
     if ($result->num_rows > 0){
         return $result;
     }

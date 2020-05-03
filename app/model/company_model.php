@@ -15,10 +15,21 @@ class Company extends Model
   //private $address;  
 
 
+  /*function __construct()
+  {
+    $this->company_id = "";  
+    $this->company_name = ""; 
+    $this->email = ""; 
+    $this->url = ""; 
+    $this->phoneNumber = ""; 
+    $this->type = ""; 
+  }*/
+
+
   function __construct($company_id, $company_name="", $email="", $url="", $phoneNumber="", $type=""/*, $address=""*/)
   {
-    $this->company_id = $company_id   
-    $this->db = $this->connect();
+    $this->company_id = $company_id;   
+    $this->dbh = $this->connect();
 
     if("" === $company_name)
     {
@@ -31,7 +42,7 @@ class Company extends Model
       $this->url = $url;
       $this->phoneNumber = $phoneNumber;
       $this->type = $type;
-      $this->address = $address;
+      //$this->address = $address;
     }
   }
 
@@ -83,18 +94,18 @@ class Company extends Model
 
   function readCompany()
   {
-    $sql = "SELECT * FROM company WHERE company_id=" .$company_id;
-    $db = $this->connect;
-    $result = $db->query($sql);
+    $sql = "SELECT company_name, email, url, phoneNumber  FROM company WHERE company_id=".$company_id;
+    $dbh = $this->connect();
+    $result = $dbh->query($sql);
 
     if($result->num_rows == 1)
     {
-      $row = $db->fetchRow();
+      $row = $dbh->fetchRow();
       $this->company_name = $row["company_name"];
       $this->email = $row["email"];
       $this->url = $row["url"];
       $this->phoneNumber = $row["phoneNumber"];
-      $this->type = $row["type"];
+      //$this->type = $row["type"];
       //address
     }
     else
@@ -103,7 +114,7 @@ class Company extends Model
       $this->email = "";
       $this->url = "";
       $this->phoneNumber = "";
-      $this->type = "";
+      //$this->type = "";
       //address
     }
 

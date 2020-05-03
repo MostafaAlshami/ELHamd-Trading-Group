@@ -17,7 +17,7 @@ class Address extends Model
   function __construct($address_id, $country="", $city="", $district="", $street="", $building="", $postcode="")
   {
     $this->address_id = $address_id   
-    $this->db = $this->connect();
+    $this->dbh = $this->connect();
 
     if("" === $country)
     {
@@ -87,12 +87,12 @@ class Address extends Model
   function readAddress($address_id)
   {
     $sql = "SELECT * FROM address where address_id =" .$address_id;
-    $db = $this->connect();
-    $result = $db->query($sql);
+    $dbh = $this->connect();
+    $result = $dbh->query($sql);
 
     if($result->num_rows == 1)
     {
-      $row = $db->fetchRow();
+      $row = $dbh->fetchRow();
       $this->country = $row["country"];
       $this->city = $row["city"];
       $this->district = $row["district"];

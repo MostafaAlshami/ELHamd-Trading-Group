@@ -34,30 +34,7 @@ class CompanyController extends Controller
     $company_id = $_REQUEST ['company_id'];
     $this->model->deleteCompany($company_id);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 ?>    

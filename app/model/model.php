@@ -4,16 +4,16 @@ require_once("../app/db/dbh.php");
 
 abstract class Model
 {
-    protected $db;
+    protected $dbh;
     protected $conn;
 
     public function connect()
     {
         if(null === $this->conn)
         {
-            $this->db = new Dbh();
+            $this->dbh = new Dbh();
         }
-        return $this->db;
+        return $this->dbh;
     }
 }
 ?>

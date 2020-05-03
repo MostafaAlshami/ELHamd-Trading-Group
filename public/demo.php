@@ -2,6 +2,7 @@
 require_once(__ROOT__ . "model/company_model.php");
 require_once(__ROOT__ . "controller/company_controller.php");
 require_once(__ROOT__ . "view/companyProfile.php");
+
 $company_id = 1;
 $model = new Company($company_id);
 $controller = new CompanyController($model);

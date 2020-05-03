@@ -99,9 +99,9 @@ class Company extends Model
   
     //Problem in  line 104 108
 
-  function readCompany()
+  function readCompany($company_id)
   {
-    $sql = "SELECT company_name, email, url, phoneNumber  FROM company WHERE company_id='1'";
+    $sql = "SELECT company_name, email, url, phoneNumber  FROM company WHERE company_id=".$company_id;
     $dbh = $this->connect();
     $result = $dbh->query($sql);
 

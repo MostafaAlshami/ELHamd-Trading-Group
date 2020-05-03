@@ -47,6 +47,13 @@ class Company extends Model
   }
 
 
+  function getID() {
+    return $this->company_id; 
+  }
+  function setID($company_id) {
+    return $this->company_id = $company_id;
+  }  
+
   function getName() {
     return $this->company_name; 
   }

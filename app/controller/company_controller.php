@@ -11,7 +11,7 @@ class CompanyController extends Controller
     $url = $_REQUEST['url'];
     $phoneNumber = $_REQUEST['phoneNumber'];
     $type = $_REQUEST['type'];
-    //$address  = $_REQUEST[''];
+    $address  = $_REQUEST['address'];
 
     $this->model->insertCompany($company_name, $email, $url, $phoneNumber, $type);
   }
@@ -24,7 +24,7 @@ class CompanyController extends Controller
     $url = $_REQUEST['url'];
     $phoneNumber = $_REQUEST['phoneNumber'];
     $type = $_REQUEST['type'];
-    //$address  = $_REQUEST[''];
+    $address  = $_REQUEST['address'];
 
     $this->model->editCompany($company_id, $company_name, $email, $url, $phoneNumber, $type);
   }

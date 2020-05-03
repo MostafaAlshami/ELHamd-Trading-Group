@@ -15,9 +15,10 @@ class Employee extends Model{
     private $salary;
     private $email;
 
-  function __construct($empid,$empfirstname="",$emplastname="",$birthdate="",$mobile="",$address="",$edudegree="",$empdata="",$salary="",$email="") {
+  function __construct($empid,$empfirstname="",$emplastname="",$birthdate="",$mobile="",$address="",$edudegree="",$empdata="",$salary="",$email="") 
+  {
     $this->empid = $empid;
-	    $this->dbh = $this->connect();
+	$this->dbh = $this->connect();
 
     if(""===$empname){
       $this->readUser($empid);

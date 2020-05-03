@@ -90,7 +90,7 @@ class Company extends Model
   } */
 
   
-
+    //Problem in  line 97 and 101
 
   function readCompany()
   {

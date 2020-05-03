@@ -130,12 +130,11 @@ $view = new companyprofile($controller, $model);
                               <h4 class="card-title">Company Profile</h4>
                             </div>
                             <div class="card-body">
-                        
-
-
-                                <!----CARD HERE--><?php
-                                                   echo $view->output();
-                                                   ?>
+                    
+                                <!----CARD HERE: echo output function from view classes-->
+                                <?php
+                                    echo $view->output();
+                                ?>
 
 
                             </div>

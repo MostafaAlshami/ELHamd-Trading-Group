@@ -3,6 +3,7 @@ require_once(__ROOT__ . "view/View.php");
 
 class CompanyProfile extends View
 {
+    //edit strings
 
     public function output()
     {

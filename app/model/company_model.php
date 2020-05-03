@@ -101,7 +101,7 @@ class Company extends Model
 
   function readCompany()
   {
-    $sql = "SELECT company_name, email, url, phoneNumber  FROM company WHERE company_id=".$company_id;
+    $sql = "SELECT company_name, email, url, phoneNumber  FROM company WHERE company_id='1'";
     $dbh = $this->connect();
     $result = $dbh->query($sql);
 

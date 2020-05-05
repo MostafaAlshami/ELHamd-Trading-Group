@@ -9,11 +9,11 @@ class CompanyController extends Controller
     $company_name = $_REQUEST['company_name'];
     $email = $_REQUEST['email'];
     $url = $_REQUEST['url'];
-    $phoneNumber = $_REQUEST['phoneNumber'];
-    $type = $_REQUEST['type'];
+    $phoneNumber = $_REQUEST['phoneNumber']; 
     $address  = $_REQUEST['address'];
+    $type = $_REQUEST['type'];
 
-    $this->model->insertCompany($company_name, $email, $url, $phoneNumber, $type);
+    $this->model->insertCompany($company_name, $email, $url, $phoneNumber, $address, $type);
   }
 
   public function editComp()
@@ -23,16 +23,16 @@ class CompanyController extends Controller
     $email = $_REQUEST['email'];
     $url = $_REQUEST['url'];
     $phoneNumber = $_REQUEST['phoneNumber'];
-    $type = $_REQUEST['type'];
     $address  = $_REQUEST['address'];
-
-    $this->model->editCompany($company_id, $company_name, $email, $url, $phoneNumber, $type);
+    $type = $_REQUEST['type'];
+    
+    $this->model->editCompany($company_id, $company_name, $email, $url, $phoneNumber, $address, $type);
   }
 
-  public function deleteComp()
+  public function deleteComp($company_id)
   {
     $company_id = $_REQUEST ['company_id'];
-    $this->model->deleteCompany($company_id);
+    $this->model->getCompany($company_id)->deleteCompany($company_id);
   }
 }
 

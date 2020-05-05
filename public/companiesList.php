@@ -1,12 +1,26 @@
 <?php  define('__ROOT__', "../app/"); 
 require_once(__ROOT__ . "model/company_model.php");
+require_once(__ROOT__ . "model/companies_model.php");
 require_once(__ROOT__ . "controller/company_controller.php");
-require_once(__ROOT__ . "view/companyProfile.php");
+require_once(__ROOT__ . "view/companies_view.php");
 
-$company_id = 1;
-$model = new Company($company_id);
+$model = new Companies();
 $controller = new CompanyController($model);
-$view = new companyprofile($controller, $model);
+$view = new CompaniesView($controller, $model);
+
+
+if (isset($_GET['action']) && !empty($_GET['action'])) 
+{
+    switch($_GET['action'])
+    {
+		case 'insert':
+			$controller->insert();
+			echo $view->output();
+			break;
+
+    }
+}
+
 
 ?>
 
@@ -50,11 +64,11 @@ $view = new companyprofile($controller, $model);
                     <li class="active "> 
                         <a href="companies.html"> <i class="now-ui-icons files_box"></i> <p>Companies</p></a> 
                     </li>
+                    <li> 
+                        <a href="companies.html"> <i class="now-ui-icons files_box"></i> <p>Shipping Lines</p></a> 
+                    </li>
                     <li>
-                        <a href="contracts.html">
-                            <i class="now-ui-icons files_box"></i>
-                            <p>Contracts</p>
-                        </a>
+                        <a href="contracts.html"><i class="now-ui-icons files_box"></i><p>Contracts</p></a>                              
                     </li>
                 </ul>
             </div>
@@ -124,11 +138,11 @@ $view = new companyprofile($controller, $model);
             <div class="content">
 
                 <div class="row">
-                    <div class=" col-md-6">    
+                    <div class=" col-md-12">    
                         <div class="card">
                             <div class="card-header">
                               <h5 class="card-category"></h5>
-                              <h4 class="card-title">Company Profile</h4>
+                              <h4 class="card-title">Companies</h4>
                             </div>
                             <div class="card-body">
                     

@@ -35,6 +35,34 @@ class Company extends Model
   }
 
 
+  function readCompany($company_id)
+  {
+    $sql = "SELECT company_name, email, url, phoneNumber, address  FROM company WHERE company_id=".$company_id;
+    $dbh = $this->connect();
+    $result = $dbh->query($sql);
+
+    if($result->num_rows == 1)
+    {
+      $row = $dbh->fetchRow();
+      $this->company_name = $row["company_name"];
+      $this->email = $row["email"];
+      $this->url = $row["url"];
+      $this->phoneNumber = $row["phoneNumber"];
+      $this->address = $row["address"];
+    }
+    else
+    {
+      $this->company_name = "";
+      $this->email = "";
+      $this->url = "";
+      $this->phoneNumber = "";
+      $this->address = "";
+      //$this->type = "";
+    }
+
+  }
+
+
 
   function getID() {
     return $this->company_id; 
@@ -78,44 +106,16 @@ class Company extends Model
     $this->type = $type;
   } 
   
-  function get() {
+  function getAddress() {
     return $this->address; 
   }
-  function set($address) {
+  function setAddress($address) {
     $this->address = $address;
   }
 
 
 
-  function readCompany($company_id)
-  {
-    $sql = "SELECT company_name, email, url, phoneNumber, address  FROM company WHERE company_id=".$company_id;
-    $dbh = $this->connect();
-    $result = $dbh->query($sql);
-
-    if($result->num_rows == 1)
-    {
-      $row = $dbh->fetchRow();
-      $this->company_name = $row["company_name"];
-      $this->email = $row["email"];
-      $this->url = $row["url"];
-      $this->phoneNumber = $row["phoneNumber"];
-      $this->address = $row["address"];
-    }
-    else
-    {
-      $this->company_name = "";
-      $this->email = "";
-      $this->url = "";
-      $this->phoneNumber = "";
-      $this->address = "";
-      //$this->type = "";
-    }
-
-  }
-
-
-  function insertCompany()
+  function editCompany($company_id, $company_name, $email, $url, $phoneNumber, $address, $type)
   {
     $company_name = $this->dbh->getConn()->real_escape_string($company_name);
     $email = $this->dbh->getConn()->real_escape_string($email);
@@ -123,37 +123,11 @@ class Company extends Model
     $phoneNumber = $this->dbh->getConn()->real_escape_string($phoneNumber);
     $address = $this->dbh->getConn()->real_escape_string($address);
     $type = $this->dbh->getConn()->real_escape_string($type);
-    
-
-    $sql = "INSERT INTO company (company_name, email, url, phoneNumber, type)
-            VALUES ('$company_name', '$email', '$url', '$phoneNumber', '$type')";
-    
-    ///CHECK echos
-    if($this->dbh->query($sql) === true)
-    {
-    echo "Records inserted successfully.";
-    }
-    else
-    {  
-      echo "ERROR: Could not execute $sql. " . $conn->error;
-    }
-    //FIX AND TEST
-    //array_push($this->fruits, new Fruit("0","test","1.0"));
-  }
-
-
-  function editCompany($company_id, $company_name, $email, $url, $phoneNumber, $type ,$address)
-  {
-    $company_name = $this->dbh->getConn()->real_escape_string($company_name);
-    $email = $this->dbh->getConn()->real_escape_string($email);
-    $url = $this->dbh->getConn()->real_escape_string($url);
-    $phoneNumber = $this->dbh->getConn()->real_escape_string($phoneNumber);
-    $address = $this->dbh->getConn()->real_escape_string($address);
-    $type = $this->dbh->getConn()->real_escape_string($type);
-
+    //DO WE NEED TO EDIT THE TYPE??
 
     $sql = "UPDATE company SET company_name = '$company_name', email = '$email',
-            url = '$url', phoneNmber = '$phoneNumber', type = '$type'
+            url = '$url', phoneNmber = '$phoneNumber', address = 'address',
+            type = '$type'
             WHERE company_id = $company_id";
 
     ///CHECK echos
@@ -168,7 +142,7 @@ class Company extends Model
   }
 
   
-  function deleteCompany()
+  function deleteCompany( $company_id)
   {
     $sql = "DELETE FROM company WHERE Ccompany_id = $company_id";
 

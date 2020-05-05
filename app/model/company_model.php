@@ -7,14 +7,14 @@
 class Company extends Model
 {
   private $company_id;
-  private $company_name;
+  private $company_name; 
+  private $type;
   private $email;
   private $url;
   private $phoneNumber;
-  private $type;
   private $address;  
 
-  function __construct($company_id, $company_name="", $email="", $url="", $phoneNumber="", $type="", $address="")
+  function __construct($company_id, $company_name="", $type="", $email="", $url="", $phoneNumber="", $address="")
   {
     $this->company_id = $company_id;   
     $this->dbh = $this->connect();
@@ -26,10 +26,11 @@ class Company extends Model
     else
     {
       $this->company_name = $company_name;
+      $this->type = $type;
       $this->email = $email;
       $this->url = $url;
       $this->phoneNumber = $phoneNumber;
-      $this->type = $type;
+      
       $this->address = $address;
     }
   }
@@ -37,7 +38,7 @@ class Company extends Model
 
   function readCompany($company_id)
   {
-    $sql = "SELECT company_name, email, url, phoneNumber, address  FROM company WHERE company_id=".$company_id;
+    $sql = "SELECT *  FROM company WHERE company_id=".$company_id;
     $dbh = $this->connect();
     $result = $dbh->query($sql);
 
@@ -45,6 +46,7 @@ class Company extends Model
     {
       $row = $dbh->fetchRow();
       $this->company_name = $row["company_name"];
+      $this->type = $row["type"];
       $this->email = $row["email"];
       $this->url = $row["url"];
       $this->phoneNumber = $row["phoneNumber"];
@@ -53,11 +55,11 @@ class Company extends Model
     else
     {
       $this->company_name = "";
+      $this->type = "";
       $this->email = "";
       $this->url = "";
       $this->phoneNumber = "";
       $this->address = "";
-      //$this->type = "";
     }
 
   }
@@ -77,6 +79,13 @@ class Company extends Model
   function setName($company_name) {
     $this->company_name = $company_name;
   }  
+
+  function getType() {
+    return $this->type; 
+  }
+  function setType($type) {
+    $this->type = $type;
+  } 
 
   function getEmail() {
     return $this->email; 
@@ -99,13 +108,6 @@ class Company extends Model
     $this->phoneNumber = $phoneNumber;
   } 
 
-  function getType() {
-    return $this->type; 
-  }
-  function setType($type) {
-    $this->type = $type;
-  } 
-  
   function getAddress() {
     return $this->address; 
   }
@@ -115,19 +117,18 @@ class Company extends Model
 
 
 
-  function editCompany($company_id, $company_name, $email, $url, $phoneNumber, $address, $type)
+  function editCompany($company_id, $type, $company_name, $email, $url, $phoneNumber, $address)
   {
     $company_name = $this->dbh->getConn()->real_escape_string($company_name);
+    $type = $this->dbh->getConn()->real_escape_string($type); //DO WE NEED TO EDIT THE TYPE??
     $email = $this->dbh->getConn()->real_escape_string($email);
     $url = $this->dbh->getConn()->real_escape_string($url);
     $phoneNumber = $this->dbh->getConn()->real_escape_string($phoneNumber);
     $address = $this->dbh->getConn()->real_escape_string($address);
-    $type = $this->dbh->getConn()->real_escape_string($type);
-    //DO WE NEED TO EDIT THE TYPE??
 
-    $sql = "UPDATE company SET company_name = '$company_name', email = '$email',
-            url = '$url', phoneNmber = '$phoneNumber', address = 'address',
-            type = '$type'
+
+    $sql = "UPDATE company SET company_name = '$company_name',type = '$type', email = '$email',
+            url = '$url', phoneNmber = '$phoneNumber', address = 'address',      
             WHERE company_id = $company_id";
 
     ///CHECK echos

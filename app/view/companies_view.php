@@ -7,8 +7,6 @@ class CompaniesView extends View
     {
         $str = "";
 
-        
-
         $str.=' <div class="table-responsive"> <table class="table"> ';
         $str.=' <thead class=" text-primary"> ';
         $str.=' <th> Comapny </th> ';  
@@ -27,36 +25,15 @@ class CompaniesView extends View
             $str.=' <td>  '.$Company->getPhoneNumber().'  </td> ';
             $str.=' <td>  '.$Company->getURL().'  </td> ';
             $str.=' <td>  '.$Company->getAddress().'  </td> ';
-            $str.=' <td class="text-right"><a class="btn" href="CompanyProfile.php"> Edit </a></td> ';   //check href
+            $str.=' <td class="text-right"><a class="btn" href="editCompany.php"> Edit </a></td> ';   //check href
             $str.=' </tr> ';
         }
 
-        /*<input type="text" name="Comapny_name" placeholder=" "/>*/
-        
-
-        $str.=' <tr>';
-        $str.='<form action="companies_model.php?action=insert" method="post">';
-        $str.=' <td> <input type="email" class="form-control" placeholder=""> </td> ';
-        $str.=' <td> <input type="email" class="form-control" placeholder=""> </td> ';
-        $str.=' <td> <input type="email" class="form-control" placeholder=""> </td> ';
-        $str.=' <td> <input type="email" class="form-control" placeholder=""> </td> ';
-        $str.=' <td> <input type="email" class="form-control" placeholder=""> </td> ';
-
-        //ACTION??
-        $str.=' <td  class="text-right"> <button class=" btn" type="submit" formaction=" "> Add </button> </td>';
-                      
-        //$str.="<td><input type='submit' value='insert'/></td>";
-
-        $str.="</form>";
-        $str.=' </tr> ';
-        
-
         $str.=' </tbody> ';
         $str.=' </table> ';
-       // $str.=' <button class=" btn">Add Company</button> '; //ADD COMPANY ACTION HERE
+        $str.=' <a class="btn" href="addCompany.php"> Add Company </a> '; //ADD COMPANY ACTION HERE
         $str.=' </div> ';
   
-
         return $str;
     }
 

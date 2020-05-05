@@ -9,7 +9,7 @@ $controller = new CompanyController($model);
 $view = new CompaniesView($controller, $model);
 
 
-if (isset($_GET['action']) && !empty($_GET['action'])) 
+/*if (isset($_GET['action']) && !empty($_GET['action'])) 
 {
     switch($_GET['action'])
     {
@@ -19,7 +19,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 			break;
 
     }
-}
+}*/
 
 
 ?>
@@ -34,7 +34,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title> Company Profile </title>
+    <title> Companies </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -56,19 +56,19 @@ if (isset($_GET['action']) && !empty($_GET['action']))
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="./dashboard.html"> <i class="now-ui-icons design_app"> </i> <p>Dashboard</p></a> 
+                        <a href=" "> <i class="now-ui-icons design_app"> </i> <p>Dashboard</p></a> 
                     </li>
                     <li>
-                        <a href="employees.html"> <i class="now-ui-icons users_single-02"></i><p>Employees</p></a>
+                        <a href=" "> <i class="now-ui-icons users_single-02"></i><p>Employees</p></a>
                     </li>
                     <li class="active "> 
-                        <a href="companies.html"> <i class="now-ui-icons files_box"></i> <p>Companies</p></a> 
+                        < <a href="companiesList.php"> <i class="now-ui-icons files_box"></i> <p>Companies</p></a> 
                     </li>
                     <li> 
-                        <a href="companies.html"> <i class="now-ui-icons files_box"></i> <p>Shipping Lines</p></a> 
+                        <a href=" "> <i class="now-ui-icons files_box"></i> <p>Shipping Lines</p></a> 
                     </li>
                     <li>
-                        <a href="contracts.html"><i class="now-ui-icons files_box"></i><p>Contracts</p></a>                              
+                        <a href=" "><i class="now-ui-icons files_box"></i><p>Contracts</p></a>                              
                     </li>
                 </ul>
             </div>

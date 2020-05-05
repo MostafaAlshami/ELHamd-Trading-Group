@@ -19,8 +19,8 @@ class COmpanies extends model
         $result = $this->readCompanies();
         while($row = $result->fetch_assoc())
         {
-            array_push($this->companies, new Company($row["company_id"], $row["company_name"], $row["email"],
-                                                     $row["url"], $row["phoneNumber"],$row["type"], $row["address"]));
+            array_push($this->companies, new Company($row["company_id"], $row["company_name"], $row["type"], $row["email"],
+                                                     $row["url"], $row["phoneNumber"], $row["address"]));
         }
     }
 
@@ -59,18 +59,19 @@ class COmpanies extends model
 
 
      
-    function insertCompany($company_name, $email, $url, $phoneNumber, $address, $type)
+    function insertCompany($company_name, $type, $email, $url, $phoneNumber, $address)
     {
         $company_name = $this->dbh->getConn()->real_escape_string($company_name);
+        $type = $this->dbh->getConn()->real_escape_string($type);
         $email = $this->dbh->getConn()->real_escape_string($email);
         $url = $this->dbh->getConn()->real_escape_string($url);
         $phoneNumber = $this->dbh->getConn()->real_escape_string($phoneNumber);
         $address = $this->dbh->getConn()->real_escape_string($address);
-        $type = $this->dbh->getConn()->real_escape_string($type);
+       
     
 
-        $sql = "INSERT INTO company (company_name, email, url, phoneNumber, address, type)
-                VALUES ('$company_name', '$email', '$url', '$phoneNumber', '$address', '$type')";
+        $sql = "INSERT INTO company (company_name, type, email, url, phoneNumber, address)
+                VALUES ('$company_name', '$type', '$email', '$url', '$phoneNumber', '$address')";
     
        ///CHECK echos
        if($this->dbh->query($sql) === true)
@@ -83,7 +84,7 @@ class COmpanies extends model
           echo "ERROR: Could not execute $sql. " . $conn->error;
        }
        //FIX AND TEST
-       //array_push($this->fruits, new Fruit("0","test","1.0"));
+       //array_push($this->Companies, new Comapny( , , , , , ));
   }
 
 

@@ -6,28 +6,30 @@ class CompanyController extends Controller
 {
   public function insertComp()
   {
-    $company_name = $_REQUEST['company_name'];
+    $company_name = $_REQUEST['company_name'];  
+    $type = $_REQUEST['type'];
     $email = $_REQUEST['email'];
     $url = $_REQUEST['url'];
     $phoneNumber = $_REQUEST['phoneNumber']; 
     $address  = $_REQUEST['address'];
-    $type = $_REQUEST['type'];
-
-    $this->model->insertCompany($company_name, $email, $url, $phoneNumber, $address, $type);
+  
+    $this->model->insertCompany($company_name, $type, $email, $url, $phoneNumber, $address);
   }
+
 
   public function editComp()
   {
     $company_id = $_REQUEST['company_id'];
+    $type = $_REQUEST['type'];
     $company_name = $_REQUEST['company_name'];
     $email = $_REQUEST['email'];
     $url = $_REQUEST['url'];
     $phoneNumber = $_REQUEST['phoneNumber'];
     $address  = $_REQUEST['address'];
-    $type = $_REQUEST['type'];
     
-    $this->model->editCompany($company_id, $company_name, $email, $url, $phoneNumber, $address, $type);
+    $this->model->getCompany($company_id)->editCompany($company_id, $company_name, $type, $email, $url, $phoneNumber, $address);
   }
+
 
   public function deleteComp($company_id)
   {

@@ -3,7 +3,7 @@
 require_once(__ROOT__ . "controller/controller.php");
 
 class ProductController extends Controller
-{
+{ 
   public function insertPr()
   {
     $prname = $_REQUEST['prname'];

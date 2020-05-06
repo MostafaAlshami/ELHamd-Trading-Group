@@ -4,6 +4,7 @@ require_once(__ROOT__ . "model/product_model.php");
 
 class Products extends Model {
 	private $products;
+	private $db;
 	function __construct() {
 		$this->fillArray();
 	}
@@ -13,16 +14,17 @@ class Products extends Model {
 		$this->db = $this->connect();
 		$result = $this->readProducts();
 		while ($row = $result->fetch_assoc()) {
-			array_push($this->products, new Product($row["ID"],$row["name"],$row["description"],$row["pic"],$row["origin"]));
+			array_push($this->products, new Product($row["ID"]));
 		}
 	}
 
 	function getProducts() {
 		return $this->products;
+
 	}
 
 	function readProducts(){
-		$sql = "SELECT * FROM product";
+		$sql = "SELECT * FROM product ";
 
 		$result = $this->db->query($sql);
 		if ($result->num_rows > 0){

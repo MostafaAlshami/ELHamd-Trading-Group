@@ -6,153 +6,108 @@
 
 class Product extends Model 
 {
-  private $prid;
-  private $prname;
-  private $prorigin;
-  private $prdesc;
-  private $prstorage;
+  private $ID;
+  private $name;
+  private $origin;
+  private $description;
 
- 
-  public function getPrid()
+
+   function __construct($ID, $name="", $origin="", $description="")
   {
-    return $this->prid;
-  }
-
-  /**
-   * Set the value of prid
-   *
-   * @return  self
-   */ 
-  public function setPrid($prid)
-  {
-    $this->prid = $prid;
-
-    return $this;
-  }
-   /**
-   * Get the value of prname
-   */ 
-  public function getPrname()
-  {
-    return $this->prname;
-  }
-
-  /**
-   * Set the value of prname
-   *
-   * @return  self
-   */ 
-  public function setPrname($prname)
-  {
-    $this->prname = $prname;
-
-    return $this;
-  }
-  
-  /**
-   * Get the value of prorigin
-   */ 
-  public function getProrigin()
-  {
-    return $this->prorigin;
-  }
-
-  /**
-   * Set the value of prorigin
-   *
-   * @return  self
-   */ 
-  public function setProrigin($prorigin)
-  {
-    $this->prorigin = $prorigin;
-
-    return $this;
-  }
-
-  /**
-   * Get the value of prdesc
-   */ 
-  public function getPrdesc()
-  {
-    return $this->prdesc;
-  }
-
-  /**
-   * Set the value of prdesc
-   *
-   * @return  self
-   */ 
-  public function setPrdesc($prdesc)
-  {
-    $this->prdesc = $prdesc;
-
-    return $this;
-  }
-
-  /**
-   * Get the value of prstorage
-   */ 
-  public function getPrstorage()
-  {
-    return $this->prstorage;
-  }
-
-  /**
-   * Set the value of prstorage
-   *
-   * @return  self
-   */ 
-  public function setPrstorage($prstorage)
-  {
-    $this->prstorage = $prstorage;
-
-    return $this;
-  }
-  }
-
-
-}
-
-  function __construct($prid, $prname="", $prorigin="", $prdesc="", $prstorage="")
-  {
-    $this->prid = $prid;   
+    $this->ID = $ID;   
     $this->db = $this->connect();
 
-    if("" === $prname)
+    if(""===$name)
     {
-      $this->readProduct($prid);
+      $this->readProduct($ID);
     }
     else
     {
-      $this->prorigin = $prorigin;
-      $this->prdesc = $prdesc;
-      $this->prstorage = $prstorage;
+      $this->origin = $origin;
+      $this->description = $description;
     }
+  }
+  
+  public function getID()
+  {
+    return $this->ID;
+  }
+
+
+  public function setID($ID)
+  {
+    $this->ID = $ID;
+
+    return $this;
+  }
+
+  public function getname()
+  {
+    return $this->name;
+  }
+
+ 
+  public function setname($name)
+  {
+    $this->name = $name;
+
+    return $this;
+  }
+  
+
+  public function getorigin()
+  {
+    return $this->origin;
   }
 
   
-  function readProduct($prid)
+  public function setorigin($origin)
   {
-    $sql = "SELECT * FROM product where ID =" .$prid;
-    $db = $this->connect();
-    $result = $db->query($sql);
+    $this->origin = $origin;
 
+    return $this;
+  }
+
+ 
+  public function getdescription()
+  {
+    return $this->description;
+  }
+
+  public function setdescription($description)
+  {
+    $this->description = $description;
+
+    return $this;
+  }
+
+  
+  function readProduct($ID)
+  {
+    $sql = "SELECT * FROM product where ID =" .$ID;
+    $db = $this->connect();
+    $result = $db->query($sql); 
     if($result->num_rows == 1)
     {
       $row = $db->fetchRow();
-      $this->prid = $row["ID"];
-      $this->prname = $row["name"];
-      $this->prdesc = $row["description"];
-      $this->prorigin = $row["origin"];
-    
+      $this->name = $row["name"];
+      $this->description = $row["description"];
+      $this->origin = $row["origin"];
     }
     else
     {
-      $this->prid = "";
-      $this->prname = "";
-      $this->prdesc = "";
-      $this->prorigin = "";
+      $this->name = "";
+      $this->description = "";
+      $this->origin = "";
     }
+  }
+
+
+
+
+
+  
+  
   }
 
 

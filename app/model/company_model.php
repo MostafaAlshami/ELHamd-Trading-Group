@@ -30,6 +30,7 @@ class Company extends Model
       $this->email = $email;
       $this->url = $url;
       $this->phoneNumber = $phoneNumber;
+      
       $this->address = $address;
     }
   }
@@ -69,49 +70,49 @@ class Company extends Model
     return $this->company_id; 
   }
   function setID($company_id) {
-    return $this->company_id = $company_id;
+    $this->company_id = $company_id;
   }  
 
   function getName() {
     return $this->company_name; 
   }
   function setName($company_name) {
-    return $this->company_name = $company_name;
+    $this->company_name = $company_name;
   }  
 
   function getType() {
     return $this->type; 
   }
   function setType($type) {
-    return $this->type = $type;
+    $this->type = $type;
   } 
 
   function getEmail() {
     return $this->email; 
   }
   function setEmail($email) {
-    return $this->email = $email;
+    $this->email = $email;
   }  
 
   function getURL() {
     return $this->url; 
   }
   function setURL($url) {
-    return $this->url = $url;
+    $this->url = $url;
   }  
 
   function getPhoneNumber() {
     return $this->phoneNumber; 
   }
   function setNumber($phoneNumber) {
-    return $this->phoneNumber = $phoneNumber;
+    $this->phoneNumber = $phoneNumber;
   } 
 
   function getAddress() {
     return $this->address; 
   }
   function setAddress($address) {
-    return $this->address = $address;
+    $this->address = $address;
   }
 
 

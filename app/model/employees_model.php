@@ -5,18 +5,14 @@
 
 <?php 
 
-class Employees extends Model 
-{
-  public $employees;
-  private $dbh;
-
-  function __construct() 
-  {
+class Employees extends Model {
+    public $employees;
+    private $dbh;
+  function __construct() {
       $this->fillArray();
   }
 
-  function fillArray() 
-  {
+  function fillArray() {
     $this->employees = array();
     $this->dbh = $this->connect();
     $result = $this->readEmployees();
@@ -24,33 +20,28 @@ class Employees extends Model
     while ($row = $result->fetch_assoc())
     {
      array_push($this->employees, new Employee($row["ID"],$row["First_Name"],$row["Last_Name"],$row["email"],$row["address"],$row["mobile"],$row["DOB"],$row["degree"],
-                                               $row["emp_date"],$row["salary"]));
+                                                    $row["emp_date"],$row["salary"]));
     }
     
   }
 
-  function getEmployees() 
-  {
+  function getEmployees() {
     return $this->employees;
   }
 
-  function readEmployees()
-  {
+  function readEmployees(){
     $sql = "SELECT * FROM employee";
     
     $result = $this->dbh->query($sql);
-    if ($result->num_rows > 0)
-    {
-      return $result;
+    if ($result->num_rows > 0){
+        return $result;
     }
-    else 
-    {
-      return false;
+    else {
+        return false;
     }
   }
 
-  function insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$salary)
-  {
+  function insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$salary){
     $first_name = $this->dbh->getConn()->real_escape_string($first_name);
     $last_name = $this->dbh->getConn()->real_escape_string($last_name);
     $email = $this->dbh->getConn()->real_escape_string($email);
@@ -72,8 +63,8 @@ class Employees extends Model
    {  
      echo "ERROR: Could not execute $sql. " . $conn->error;
    }
-  }
 
+}
 
   function editEmployee($id,$first_name,$last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$salary)
   {
@@ -87,9 +78,8 @@ class Employees extends Model
     $EmpDate = $this->dbh->getConn()->real_escape_string($EmpDate);
     $salary = $this->dbh->getConn()->real_escape_string($salary);
 
-    $sql = "UPDATE employee SET `First_Name`='$first_name', `Last_Name`='$last_name', `email`='$email',
-                                `address`='$address',`mobile`='$mobile', `DOB`='$DoB',
-                                `degree`='$Degree', `emp_date`='$EmpDate', `salary`='$salary', WHERE ID = $id";
+    $sql = "UPDATE employee SET `First_Name`='$first_name', `Last_Name`='$last_name', `email`='$email', `address`='$address',`mobile`='$mobile', `DOB`='$DoB',
+     `degree`='$Degree', `emp_date`='$EmpDate', `salary`='$salary', WHERE ID = $id";
 
     if($this->dbh->query($sql) === true)
     {
@@ -135,5 +125,5 @@ class Employees extends Model
 
 // }
 //   }
-}
+  
 ?>

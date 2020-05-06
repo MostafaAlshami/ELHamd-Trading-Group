@@ -2,7 +2,7 @@
 require_once(__ROOT__ . "model/model.php");
 require_once(__ROOT__ . "model/company_model.php");
 
-class COmpanies extends model
+class Companies extends model
 {
     private $companies;
 
@@ -17,6 +17,7 @@ class COmpanies extends model
         $this->companies = array();
         $this->dbh = $this->connect();
         $result = $this->readCompanies();
+        
         while($row = $result->fetch_assoc())
         {
             array_push($this->companies, new Company($row["company_id"], $row["company_name"], $row["type"], $row["email"],
@@ -68,7 +69,6 @@ class COmpanies extends model
         $phoneNumber = $this->dbh->getConn()->real_escape_string($phoneNumber);
         $address = $this->dbh->getConn()->real_escape_string($address);
        
-    
 
         $sql = "INSERT INTO company (company_name, type, email, url, phoneNumber, address)
                 VALUES ('$company_name', '$type', '$email', '$url', '$phoneNumber', '$address')";
@@ -85,7 +85,7 @@ class COmpanies extends model
        }
        //FIX AND TEST
        //array_push($this->Companies, new Comapny( , , , , , ));
-  }
+   }
 
 
 

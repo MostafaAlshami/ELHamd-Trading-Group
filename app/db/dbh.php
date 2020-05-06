@@ -12,11 +12,13 @@ class DBh
     private $result;
     public $sql;
 
-	function __construct() {
+    function __construct() 
+    {
 		$this->servername = DB_SERVER;
 		$this->username = DB_USER;
 		$this->password = DB_PASS;
-		$this->dbname = DB_DATABASE;
+        $this->dbname = DB_DATABASE;
+        
 		$this->connect();
 	}
 
@@ -24,6 +26,7 @@ class DBh
     public function connect()
     {
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+
         if ($this->conn->connect_error) 
         {
             die("Connection failed: " . $this->conn->connect_error);

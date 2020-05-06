@@ -1,4 +1,6 @@
-<?php  define('__ROOT__', "../app/"); 
+<?php  
+
+define('__ROOT__', "../app/"); 
 require_once(__ROOT__ . "model/company_model.php");
 require_once(__ROOT__ . "model/companies_model.php");
 require_once(__ROOT__ . "controller/company_controller.php");
@@ -9,7 +11,8 @@ $controller = new CompanyController($model);
 $view = new CompaniesView($controller, $model);
 
 
-/*if (isset($_GET['action']) && !empty($_GET['action'])) 
+/*
+if (isset($_GET['action']) && !empty($_GET['action'])) 
 {
     switch($_GET['action'])
     {
@@ -19,11 +22,11 @@ $view = new CompaniesView($controller, $model);
 			break;
 
     }
-}*/
+}
+*/
 
 
 ?>
-
 
 
 <!DOCTYPE html>

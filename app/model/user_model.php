@@ -10,7 +10,8 @@ class user_model extends model {
     private $pass;
     private $empid;
 
-    function __construct($userid,$username="",$pass="",$empid="") {
+    function __construct($userid,$username="",$pass="",$empid="") 
+    {
         $this->userid = $userid;
             $this->db = $this->connect();
     
@@ -22,42 +23,41 @@ class user_model extends model {
         {
           $this->username = $username;
           $this->pass=$pass;
-          $this->empid=$empid;
-          
+          $this->empid=$empid;  
         }
-      }
+    }
 
     function readUser($userid)
     {
         $sql = "SELECT * FROM user where ID=".$userid;
         $db = $this->connect();
         $result = $db->query($sql);
-        if ($result->num_rows == 1){
+
+        if ($result->num_rows == 1)
+        {
             $row = $db->fetchRow();
             $this->username = $row["username"];
             $_SESSION["username"]=$row["username"];
             $this->pass=$row["password"];
             $this->empid=$row["emp_id"];
             
+        }
+        else 
+        {
+            $this->username = "";
+            $this->pass="";
+            $this->empid="";       
+        }
     }
-    else {
-        $this->username = "";
-        $this->pass="";
-        $this->empid="";
-        
-    }
-  }
       
 
     public function getUserid()
     {
         return $this->userid;
     }
-
     public function setUserid($userid)
     {
         $this->userid = $userid;
-
         return $this;
     }
 
@@ -65,11 +65,9 @@ class user_model extends model {
     {
         return $this->username;
     }
-
     public function setUsername($username)
     {
         $this->username = $username;
-
         return $this;
     }
 
@@ -77,11 +75,9 @@ class user_model extends model {
     {
         return $this->pass;
     }
-
     public function setPass($pass)
     {
         $this->pass = $pass;
-
         return $this;
     }
  
@@ -89,11 +85,9 @@ class user_model extends model {
     {
         return $this->empid;
     }
-
     public function setEmpid($empid)
     {
         $this->empid = $empid;
-
         return $this;
     }
 }

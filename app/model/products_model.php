@@ -2,46 +2,56 @@
 require_once(__ROOT__ . "model/model.php");
 require_once(__ROOT__ . "model/product_model.php");
 
-class Products extends Model {
+class Products extends Model
+ {
 	private $products;
 	private $db;
-	function __construct() {
+	function __construct() 
+	{
 		$this->fillArray();
 	}
 
-	function fillArray() {
+	function fillArray() 
+	{
 		$this->products = array();
 		$this->db = $this->connect();
 		$result = $this->readProducts();
-		while ($row = $result->fetch_assoc()) {
+
+		while ($row = $result->fetch_assoc()) 
+		{
 			array_push($this->products, new Product($row["ID"]));
 		}
 	}
 
-	function getProducts() {
+	function getProducts() 
+	{
 		return $this->products;
-
 	}
 
-	function readProducts(){
+	function readProducts()
+	{
 		$sql = "SELECT * FROM product ";
 
 		$result = $this->db->query($sql);
 		if ($result->num_rows > 0){
 			return $result;
 		}
-		else {
+		else 
+		{
 			return false;
 		}
 	}
 
-	function insertProduct($prname, $prdesc, $prorigin){
+	function insertProduct($prname, $prdesc, $prorigin)
+	{
 		$sql = "INSERT INTO product (name, description, origin) VALUES ('$prname','$prdesc', '$prorigin')";
-		if($this->db->query($sql) === true){
+		if($this->db->query($sql) === true)
+		{
 			echo "Records inserted successfully.";
 			$this->fillArray();
 		} 
-		else{
+		else
+		{
 			echo "ERROR: Could not able to execute $sql. " . $conn->error;
 		}
 	}
@@ -104,8 +114,6 @@ class Products extends Model {
 	  else
 	  {
 	  echo "ERROR: Could not execute $sql. " . $conn->error;
-  
-	
 	  }
 	}
 }

@@ -17,19 +17,19 @@ class CompanyView extends View
         $str.=" <tbody> ";
        
         $str.=" <tr> ";
-        $str.=" <td>      Address                  </td> <td></td> <td></td> ";      
+        $str.=" <td> Address </td> <td></td> <td></td> ";      
         $str.=" <td>".$this->model->getAddress()." </td> </tr> ";     
      
         $str.=" <tr>";
-        $str.=" <td>    Email Address              </td> <td></td> <td></td> ";        
+        $str.=" <td> Email Address </td> <td></td> <td></td> ";        
         $str.=" <td>".$this->model->getEmail()." </td> </tr> ";   
        
         $str.=" <tr> ";
-        $str.=" <td>      Phone Number             </td>  <td></td> <td></td> ";             
+        $str.=" <td> Phone Number </td>  <td></td> <td></td> ";             
         $str.=" <td> ".$this->model->getPhoneNumber()." </td> </tr> ";
        
         $str.=" <tr>";
-        $str.=" <td>         URL                   </td>  <td></td> <td></td> ";             
+        $str.=" <td> URL </td>  <td></td> <td></td> ";             
         $str.=" <td> ".$this->model->getURL()." </td> </tr> ";
       
         $str.=" <tr> ";

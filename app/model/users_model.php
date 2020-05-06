@@ -20,11 +20,13 @@ class users_model extends model {
 		}
 	}
 
-    function getUsers() {
+	function getUsers() 
+	{
 		return $this->users;
 	}
 
-	function readUsers(){
+	function readUsers()
+	{
 		$sql = "SELECT * FROM user";
 
 		$result = $this->db->query($sql);
@@ -32,21 +34,27 @@ class users_model extends model {
         {
 			return $result;
 		}
-		else {
+		else 
+		{
 			return false;
 		}
 	}
 
-	function registerUser($username, $pass, $empid){
+	function registerUser($username, $pass, $empid)
+	{
         $sql = "INSERT INTO user (username, password, emp_id) VALUES ('$name','$pass', '$empid')";
-        if($this->db->query($sql) === true)
+		
+		if($this->db->query($sql) === true)
         {
 			echo "Records inserted successfully.";
 			$this->fillArray();
 		} 
-		else{
+		else
+		{
 			echo "ERROR: Could not able to execute $sql. " . $conn->error;
 		}
 
     }
 }
+
+?>

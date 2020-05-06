@@ -31,12 +31,10 @@ class CompaniesView extends View
 
         $str.=' </tbody> ';
         $str.=' </table> ';
-        $str.=' <a class="btn" href="addCompany.php"> Add Company </a> '; //ADD COMPANY ACTION HERE
+        $str.=' <a class="btn" href="addCompany.php"> Add Company </a> '; //ADD COMPANY ACTION HERE!
         $str.=' </div> ';
   
         return $str;
     }
 
-}    
-?>
-
+}

@@ -32,12 +32,9 @@ class Product extends Model
   {
     return $this->ID;
   }
-
-
   public function setID($ID)
   {
     $this->ID = $ID;
-
     return $this;
   }
 
@@ -45,39 +42,29 @@ class Product extends Model
   {
     return $this->name;
   }
-
- 
   public function setname($name)
   {
     $this->name = $name;
-
     return $this;
   }
-  
 
   public function getorigin()
   {
     return $this->origin;
   }
-
-  
   public function setorigin($origin)
   {
     $this->origin = $origin;
-
     return $this;
   }
 
- 
   public function getdescription()
   {
     return $this->description;
   }
-
   public function setdescription($description)
   {
     $this->description = $description;
-
     return $this;
   }
 
@@ -104,11 +91,7 @@ class Product extends Model
 
 
 
-
-
   
   
-  }
-
-
+}
 ?>    

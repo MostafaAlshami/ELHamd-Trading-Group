@@ -48,6 +48,7 @@ class Storage extends Model
     return $this->quantity = $quantity;
   }
 
+
   function readStorage($SID)
   {
     $sql = "SELECT * FROM storage where ID =" .$SID;
@@ -66,6 +67,7 @@ class Storage extends Model
       $this->quantity = "";
     }
   }
+
 
   function insertStorage($SID, $product_ID, $quantity, $district, $street, $building, $postcode)
   {
@@ -96,7 +98,7 @@ class Storage extends Model
     $quantity = $this->dbh->getConn()->real_escape_string($quantity);
     
 
-   $sql = "UPDATE storage SET product_ID = '$product_ID', quantity = '$quantity' WHERE ID = $SID"; 
+    $sql = "UPDATE storage SET product_ID = '$product_ID', quantity = '$quantity' WHERE ID = $SID"; 
 
     ///CHECK echos
     if($this->dbh->query($sql) === true)
@@ -107,7 +109,7 @@ class Storage extends Model
     {  
       echo "ERROR: Could not execute $sql. " . $conn->error;
     }
-    }
+  }
 
 
   function deleteStorage($SID)
@@ -124,11 +126,6 @@ class Storage extends Model
     echo "ERROR: Could not execute $sql. " . $conn->error;
     }
   }
-
-
-      
-
-
-
 }
+
 ?>    

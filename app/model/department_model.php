@@ -5,30 +5,71 @@
 ?>
 
 <?php
-class Department extends Model{
-    private $Dep_id;
-    private $Dep_Name;
-    public  $Employees;
+class Department extends Model
+{
+    private $dep_id;
+    private $dep_name;
+    //public  $Employees;
 
-    public function getDep_id()
+    function __construct($dep_id, $dep_name="")
     {
-        return $this->Dep_id;
+        $this->dep_id = $dep_id;   
+        $this->dbh = $this->connect();
+
+        if("" === $dep_id)
+        {
+            $this->readDepartment($dep_id);
+        }
+        else
+        {
+            $this->dep_id = $dep_id;   
+            $this->dep_name = $dep_name;   
+        }
     }
-    public function setDep_id($Dep_id)
+
+    function readDepartment($dep_id)
     {
-        $this->Dep_id = $Dep_id;
+        $sql = "SELECT * FROM department WHERE dep_id=".$dep_id;
+        $dbh = $this->connect();
+        $result = $dbh->query($sql);
+
+       if($result->num_rows == 1)
+       {
+           $row = $dbh->fetchRow();
+           $this->dep_name = $row["dep_name"];
+       }
+       else
+       {
+        $this->dep_name = "";
+       }
+    }
+
+
+    public function getID()
+    {
+        return $this->dep_id;
+    }
+    public function setID($dep_id)
+    {
+        $this->dep_id = $dep_id;
         return $this;
     }
 
-    public function getDep_Name()
+    public function getName()
     {
-        return $this->Dep_Name;
+        return $this->dep_name;
     }
-    public function setDep_Name($Dep_Name)
+    public function setName($dep_name)
     {
-        $this->Dep_Name = $Dep_Name;
+        $this->dep_name = $dep_name;
         return $this;
     }
+
+
+    //public function searchCompanies(){}
+    //public function viewCompany(){}
+    //public function getCompaniesList(){}
+
 }
 
 ?>

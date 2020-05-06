@@ -16,7 +16,6 @@ class EmployeeController extends Controller
     $EmpDate = $_REQUEST['emp_date'];
     $Salary = $_REQUEST['salary'];
 
-
     $this->model->insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$Salary);
   }  
   

@@ -4,7 +4,7 @@ require_once(__ROOT__ . "controller/controller.php");
 
 class EmployeeController extends Controller
 {
-    public function insertEmp()
+  public function insertEmp()
   {
     $first_name = $_REQUEST['First_Name'];
     $last_name = $_REQUEST['Last_Name'];

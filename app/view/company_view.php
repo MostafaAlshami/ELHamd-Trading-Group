@@ -35,7 +35,7 @@ class CompanyView extends View
         $str.=" <tr> ";
         $str.=" <td></td> ";
         $str.=' <td> <a class="btn" href=""> View contracts </a> </td> ';  //ACTIION
-        $str.=' <td> <a class="btn" href="addCompany.php"> Edit Profile </a> </td> ';    //ACTIION
+        $str.=' <td> <a class="btn" href="editCompany.php"> Edit Profile </a> </td> ';    //ACTIION
        
         $str.=" <td></td> </tr> ";
         $str.=" </tbody> </table> ";

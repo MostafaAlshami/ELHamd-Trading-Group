@@ -52,12 +52,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
-    <style>
-        .modal {
-            display: none;
 
-        }
-    </style>
 
 </head>
 
@@ -82,8 +77,9 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         </a>
                     </li>
                     <li class="active ">
-                        < <a href="companiesList.php"> <i class="now-ui-icons files_box"></i>
-                            <p>Companies</p></a>
+                        <a href="companiesList.php"> <i class="now-ui-icons files_box"></i>
+                            <p>Companies</p>
+                        </a>
                     </li>
                     <li>
                         <a href=" "> <i class="now-ui-icons files_box"></i>
@@ -159,32 +155,32 @@ if (isset($_GET['action']) && !empty($_GET['action']))
             </nav>
             <div class="panel-header panel-header-sm">
             </div>
-            <div id="id01">
 
 
-                <div class="content">
 
-                    <div class="row">
-                        <div class=" col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-category"></h5>
-                                    <h4 class="card-title">Companies</h4>
-                                </div>
-                                <div class="card-body">
+            <div class="content" id="id01">
 
-                                    <!----CARD HERE: echo output function from view classes-->
-                                    <?php
-                                    echo $view->output();
-                                    ?>
+                <div class="row">
+                    <div class=" col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+                                <h4 class="card-title">Companies</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <!----CARD HERE: echo output function from view classes-->
+                                <?php
+                                echo $view->output();
+                                ?>
 
 
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 
 
             <div class="content" id="id02" style="display: None">

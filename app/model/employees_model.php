@@ -125,5 +125,5 @@ class Employees extends Model {
 
 // }
 //   }
-  
+}
 ?>

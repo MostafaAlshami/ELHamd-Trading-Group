@@ -20,8 +20,8 @@ class Employee extends Model{
     $this->empid = $empid;
 	$this->dbh = $this->connect();
 
-    if(""===$empname){
-      $this->readUser($empid);
+    if(""===$empfirstname){
+      $this->readEmployee($empid);
     }else{
 
       $this->empfirstname = $empfirstname;
@@ -240,7 +240,7 @@ class Employee extends Model{
 
     function readEmployee($empid)
     {
-        $sql = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID WHERE user.emp_ID='$id'";
+        $sql = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID WHERE user.emp_ID='$empid'";
         $dbh = $this->connect();
         $result = $dbh->query($sql);
 
@@ -280,4 +280,3 @@ class Employee extends Model{
 
 
    
-} 

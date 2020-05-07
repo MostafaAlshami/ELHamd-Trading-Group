@@ -3,11 +3,11 @@
   require_once(__ROOT__ . "model/Employee_model.php");
 ?>
 
-<?php 
+<?php
 
 class Employees extends Model {
     public $employees;
-    private $dbh;
+
   function __construct() {
       $this->fillArray();
   }
@@ -19,13 +19,13 @@ class Employees extends Model {
 
     while ($row = $result->fetch_assoc())
     {
-     array_push($this->employees, new Employee($row["ID"],$row["First_Name"],$row["Last_Name"],$row["email"],$row["address"],$row["mobile"],$row["DOB"],$row["degree"],
-                                                    $row["emp_date"],$row["salary"]));
+     array_push($this->employees, new Employee($row["ID"]));
     }
     
   }
 
-  function getEmployees() {
+  function getEmployees() 
+  {
     return $this->employees;
   }
 
@@ -126,4 +126,5 @@ class Employees extends Model {
 // }
 //   }
   
+}
 ?>

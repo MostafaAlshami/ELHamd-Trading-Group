@@ -7,32 +7,38 @@ class Employee extends Model{
     private $empid;
     private $empfirstname;
     private $emplastname;
-    private $birthdate;
-    private $mobile;
-    private $address;
-    private $edudegree;
-    private $empdata;
-    private $salary;
     private $email;
+    private $address;
+    private $dep;
+    private $mobile;
+    private $birthdate;
+    private $edudegree;
+    private $empdate;
+    private $salary;
+    private $compid;
 
-  function __construct($empid,$empfirstname="",$emplastname="",$birthdate="",$mobile="",$address="",$edudegree="",$empdata="",$salary="",$email="") 
+  function __construct($empid,$empfirstname="",$emplastname="",$email="",$address="",$dep="",$mobile="",$birthdate="",$edudegree="",$empdate="",$salary="",$compid="") 
   {
     $this->empid = $empid;
-	$this->dbh = $this->connect();
+	$this->db = $this->connect();
 
-    if(""===$empname){
-      $this->readUser($empid);
-    }else{
+    if(""===$empfirstname)
+    {
+      $this->readEmployee($empid);
+    }
+    else
+    {
 
-      $this->empfirstname = $empfirstname;
       $this->emplastname = $emplastname;
-      $this->birthdate = $birthdate;
-      $this->mobile = $mobile;
-      $this->address= $address;
-      $this->edudegree= $edudegree;
-      $this->empdata= $empdata;
-      $this->salary=$salary;
       $this->email=$email;
+      $this->address= $address;
+      $this->dep=$dep;
+      $this->mobile = $mobile;
+      $this->birthdate = $birthdate;
+      $this->edudegree= $edudegree;
+      $this->empdate= $empdate;
+      $this->salary=$salary;
+      $this->compid=$compid;
 
     }
   }
@@ -54,8 +60,6 @@ class Employee extends Model{
     public function setEmpid($empid)
     {
         $this->empid = $empid;
-
-        return $this;
     }
 
     /**
@@ -74,8 +78,6 @@ class Employee extends Model{
     public function setBirthdate($birthdate)
     {
         $this->birthdate = $birthdate;
-
-        return $this;
     }
 
     /**
@@ -94,8 +96,6 @@ class Employee extends Model{
     public function setMobile($mobile)
     {
         $this->mobile = $mobile;
-
-        return $this;
     }
 
     /**
@@ -114,8 +114,6 @@ class Employee extends Model{
     public function setAddress($address)
     {
         $this->address = $address;
-
-        return $this;
     }
 
     /**
@@ -134,29 +132,8 @@ class Employee extends Model{
     public function setEdudegree($edudegree)
     {
         $this->edudegree = $edudegree;
-
-        return $this;
     }
 
-    /**
-     * Get the value of empdata
-     */ 
-    public function getEmpdata()
-    {
-        return $this->empdata;
-    }
-
-    /**
-     * Set the value of empdata
-     *
-     * @return  self
-     */ 
-    public function setEmpdata($empdata)
-    {
-        $this->empdata = $empdata;
-
-        return $this;
-    }
 
     /**
      * Get the value of salary
@@ -174,8 +151,6 @@ class Employee extends Model{
     public function setSalary($salary)
     {
         $this->salary = $salary;
-
-        return $this;
     }
 
     /**
@@ -194,8 +169,6 @@ class Employee extends Model{
     public function setEmail($email)
     {
         $this->email = $email;
-
-        return $this;
     }
 
     /**
@@ -214,8 +187,6 @@ class Employee extends Model{
     public function setEmpfirstname($empfirstname)
     {
         $this->empfirstname = $empfirstname;
-
-        return $this;
     }
 
     /**
@@ -234,50 +205,113 @@ class Employee extends Model{
     public function setEmplastname($emplastname)
     {
         $this->emplastname = $emplastname;
-
-        return $this;
     }
 
     function readEmployee($empid)
     {
-        $sql = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID WHERE user.emp_ID='$id'";
-        $dbh = $this->connect();
-        $result = $dbh->query($sql);
+        $sql = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID WHERE user.emp_ID='$empid'";
+        $db = $this->connect();
+        $result = $db->query($sql);
 
         if($result->num_rows == 1)
         {
-          $row = $dbh->fetchRow();
+          $row = $db->fetchRow();
           $this->empfirstname = $row["First_Name"];
           $this->emplastname = $row["Last_Name"];
-          $this->address = $row["address"];
           $this->email = $row["email"];
-          $this->salary = $row["salary"];
+          $this->address = $row["address"];
+          $this->dep = $row["Dep"];
           $this->mobile = $row["mobile"];
-          $this->edudegree = $row["degree"];
           $this->birthdate = $row["DOB"];
+          $this->edudegree = $row["degree"];
           $this->empdate = $row["emp_date"];
-
+          $this->salary = $row["salary"];
+          $this->compid = $row["comp_id"];
 
         }
         else
         {
+    
+
           $this->empfirstname = "";
           $this->emplastname = "";
-          $this->address = "";
           $this->email = "";
-          $this->salary = "";
+          $this->address = "";
+          $this->dep = "";
           $this->mobile = "";
-          $this->edudegree = "";
           $this->birthdate = "";
+          $this->edudegree = "";
           $this->empdate = "";
+          $this->salary = "";
+          $this->compid = "";
+
         }
       }
 
 
 
 
+
+    /**
+     * Get the value of dep
+     */ 
+    public function getDep()
+    {
+        return $this->dep;
+    }
+
+    /**
+     * Set the value of dep
+     *
+     * @return  self
+     */ 
+    public function setDep($dep)
+    {
+        $this->dep = $dep;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of compid
+     */ 
+    public function getCompid()
+    {
+        return $this->compid;
+    }
+
+    /**
+     * Set the value of compid
+     *
+     * @return  self
+     */ 
+    public function setCompid($compid)
+    {
+        $this->compid = $compid;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of empdate
+     */ 
+    public function getEmpdate()
+    {
+        return $this->empdate;
+    }
+
+    /**
+     * Set the value of empdate
+     *
+     * @return  self
+     */ 
+    public function setEmpdate($empdate)
+    {
+        $this->empdate = $empdate;
+
+        return $this;
+    }
     }
 
 
    
-} 

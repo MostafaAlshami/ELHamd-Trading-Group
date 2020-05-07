@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2020 at 04:48 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: May 08, 2020 at 12:23 AM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -127,10 +127,19 @@ INSERT INTO `storage` (`ID`, `productname`, `product_id`, `quantity`) VALUES
 
 CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
+  `username` varchar(24) NOT NULL,
   `password` varchar(24) NOT NULL,
   `type` int(11) NOT NULL,
   `emp_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`ID`, `username`, `password`, `type`, `emp_ID`) VALUES
+(1, 'khaleduser', '123', 101, 2),
+(2, 'admingamed', '1234', 211, 1);
 
 --
 -- Indexes for dumped tables
@@ -164,7 +173,8 @@ ALTER TABLE `storage`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `emp_ID` (`emp_ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -198,7 +208,17 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`emp_ID`) REFERENCES `employee` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

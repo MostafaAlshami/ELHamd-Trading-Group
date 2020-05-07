@@ -1,10 +1,9 @@
 <?php  define('__ROOT__', "../app/"); 
-require_once(__ROOT__ . "model/storage_model.php");
+require_once(__ROOT__ . "model/storages_model.php");
 require_once(__ROOT__ . "controller/storage_controller.php");
 require_once(__ROOT__ . "view/storage_view.php");
 
-$company_id = 1;
-$model = new Storage($company_id);
+$model = new Storages();
 $controller = new StorageController($model);
 $view = new ViewStorage($controller, $model);
 ?>

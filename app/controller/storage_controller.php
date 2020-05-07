@@ -6,21 +6,20 @@ class StorageController extends controller
 {
   public function insertSt()
   {
-    $product_ID = $_REQUEST['product_ID'];
-    $product_ID = $_REQUEST['product_ID'];
-    $quantity = $_REQUEST['product_ID'];
+    $product_id = $_REQUEST['product_id'];
+    $quantity = $_REQUEST['quantity'];
 
 
-    $this->model->insertStorage();
+    $this->model->insertStorage($product_id, $quantity);
   }  
 
   public function editSt()
   {
     $SID = $_REQUEST['SID'];
-    $product_ID = $_REQUEST['product_ID'];
+    $product_id = $_REQUEST['product_id'];
     $quantity = $_REQUEST['quantity']; 
 
-    $this->model->editStorage($SID, $product_ID, $quantity);
+    $this->model->editStorage($SID, $product_id, $quantity);
   }
   
   public function deleteSt()

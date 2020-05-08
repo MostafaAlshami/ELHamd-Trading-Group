@@ -89,7 +89,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         </a>
                     </li>
                     <li>
-                        <a href=" "> <i class="now-ui-icons users_single-02"></i>
+                        <a href="employeesList.php"> <i class="now-ui-icons users_single-02"></i>
                             <p>Employees</p>
                         </a>
                     </li>

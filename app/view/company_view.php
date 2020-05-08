@@ -76,7 +76,7 @@ class CompanyView extends View
         $str .= " <tr> ";
         $str .= " <td></td> ";
         $str .= ' <td> <button class="btn" href=""> Save </button> </td> ';  //SAVE ACTION
-        $str .= ' <td> <button class="btn" href=""> Cancel </button> </td> ';  //CANCEL ACTION
+        $str .= ' <td> <button class="btn" href="companieslist.php"> Cancel </button> </td> ';  //CANCEL ACTION
         $str .= " <td></td> </tr> ";
 
         $str .= " </tbody> </table> ";

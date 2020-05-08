@@ -62,10 +62,10 @@ $view = new Empviewpage($controller, $model);
                     <li>
                         <a href=" "> <i class="now-ui-icons design_app"> </i> <p>Dashboard</p></a> 
                     </li>
-                    <li>
-                        <a href=" "> <i class="now-ui-icons users_single-02"></i><p>Employees</p></a>
+                    <li class="active">
+                        <a href="employeesList.php"> <i class="now-ui-icons users_single-02"></i><p>Employees</p></a>
                     </li>
-                    <li class="active "> 
+                    <li > 
                         < <a href="companiesList.php"> <i class="now-ui-icons files_box"></i> <p>Companies</p></a> 
                     </li>
                     <li> 

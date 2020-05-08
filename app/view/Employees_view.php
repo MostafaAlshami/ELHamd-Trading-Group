@@ -22,8 +22,8 @@ class Empviewpage extends View{
             $str .= ' <td>  ' . $Employee->getEmail() . '  </td> ';
             $str .= ' <td>  ' . $Employee->getMobile() . '  </td> ';
             $str .= ' <td>  ' . $Employee->getSalary() . '  </td> ';
-            $str .= ' <td class="text-right"><a class="btn" href="Demoedit.php?id='.$Employee->getEmpid().'" onclick="document.getElementById(\'id02\').style.display=\'block\' ,document.getElementById(\'id01\').style.display=\'none\'" > Edit </a></td> ';   //check href
-            $str .= ' <td class="text-right"><a class="btn" href="Demodelete.php?id='.$Employee->getEmpid().'" onclick="document.getElementById(\'id03\').style.display=\'block\' ,document.getElementById(\'id01\').style.display=\'none\'" > View </a></td> ';   //check href
+            $str .= " <td class=\"text-right\"><a class=\"btn\" href=''> View </a></td> ";   //check href
+            $str .= " <td class=\"text-right\"><a class=\"btn\" href=''> Edit </a></td> ";   //check href
             $str .= ' </tr> ';
         }
 

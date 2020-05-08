@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2020 at 03:08 PM
+-- Generation Time: May 08, 2020 at 03:24 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -32,20 +32,20 @@ CREATE TABLE `company` (
   `company_id` int(6) UNSIGNED NOT NULL,
   `company_name` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `url` varchar(50) DEFAULT NULL,
+  `curl` varchar(50) DEFAULT NULL,
   `phoneNumber` varchar(30) DEFAULT NULL,
-  `address` varchar(30) NOT NULL,
-  `type` varchar(20) DEFAULT NULL
+  `cAddress` varchar(30) NOT NULL,
+  `cType` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `company`
 --
 
-INSERT INTO `company` (`company_id`, `company_name`, `email`, `url`, `phoneNumber`, `address`, `type`) VALUES
-(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '017767678', 'Cairo', 'Trading'),
-(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '08738634627', '', 'Trading'),
-(3, 'CRM', 'crm@hotmail.com', 'www.crm.com', '01176767878', '', NULL);
+INSERT INTO `company` (`company_id`, `company_name`, `email`, `curl`, `phoneNumber`, `cAddress`, `cType`) VALUES
+(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '0177676784444', 'Cairo', 'test'),
+(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '08738634627', 'Giza', 'test'),
+(3, 'CRM', 'crm@hotmail.com', 'www.crm.com', '01176767878', 'Obour', 'test');
 
 -- --------------------------------------------------------
 

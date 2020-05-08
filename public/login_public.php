@@ -15,8 +15,9 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 
 if(isset($_POST['login']))	{
 	$username=$_REQUEST["uname"];
-	$pass=$_REQUEST["psw"];
-	$sql = "SELECT * FROM user where username='$username' and password='$pass'";
+  $pass= $_REQUEST["psw"];
+  $pass_hash=password_hash($pass, PASSWORD_BCRYPT);
+	$sql = "SELECT * FROM user where username='$username' and password='$pass_hash'";
 	$dbh = new Dbh();
 	$result = $dbh->query($sql);
 	if ($result->num_rows == 1){

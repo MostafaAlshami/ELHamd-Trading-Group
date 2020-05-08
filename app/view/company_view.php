@@ -115,13 +115,12 @@ class CompanyView extends View
         $str .= " <tr>";
         $str .= " <td> URL </td>  <td></td> <td></td> ";
         $str .= ' <td> <input type="text" class="form-control" name ="url" value="' . $this->model->getURL() . '"> </td> </tr> ';
-        $str .= ' <td> <input type="hidden"  name ="company_id" value="' . $this->model->getID() . '"> ';
 
         $str .= " <tr> ";
         $str .= " <td></td> ";
         $str .= ' <td> <button type="submit" class="btn" name ="save"> Save </button> </td> ';  //SAVE ACTION
         $str .= ' <td> <button class="btn" href=""> Delete </button> </td> ';  //DELETE ACTION
-        $str .= " <td></td> </tr> ";
+        $str .= ' <td><input type="hidden"  name ="company_id" value="' . $this->model->getID() . '"></td> </tr> ';
 
         $str .= " </tbody> </table> ";
         $str .= " </div> ";

@@ -220,7 +220,23 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 
                                 <!----CARD HERE: echo output function from view classes-->
                                 <?php
+
+
                                 echo $view2->editCard();
+
+                                if (isset($_POST['save'])) {
+
+                                    // $type = "ay 7aga";
+                                    $controller2->editComp();
+                                    echo "<script type=\"text/javascript\">
+                                        window.onload = function() {
+                                          document.getElementById('id01').style.display = 'block';
+                                          document.getElementById('id02').style.display = 'none';
+                                        };
+                                      </script>";
+                                }
+
+
                                 ?>
 
 

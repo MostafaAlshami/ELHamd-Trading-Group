@@ -24,10 +24,12 @@ class CompaniesView extends View
             $str .= ' <td>  ' . $Company->getPhoneNumber() . '  </td> ';
             $str .= ' <td>  ' . $Company->getURL() . '  </td> ';
             $str .= ' <td>  ' . $Company->getAddress() . '  </td> ';
-            $str .= ' <td class="text-right"><a class="btn" href="#" onclick="document.getElementById(\'id02\').style.display=\'block\' ,document.getElementById(\'id01\').style.display=\'none\'" > Edit </a></td> ';   //check href
-            $str .= ' <td class="text-right"><a class="btn" href="#" onclick="document.getElementById(\'id03\').style.display=\'block\' ,document.getElementById(\'id01\').style.display=\'none\'" > View </a></td> ';   //check href
+            $str .= " <td class=\"text-right\"><a class=\"btn\" href='companiesList.php?action=view&id= " . $Company->getID() . "'   > View </a></td> ";   //check href
+            $str .= " <td class=\"text-right\"><a class=\"btn\" href='companiesList.php?action=edit&id= " . $Company->getID() . "'  > Edit </a></td> ";   //check href
+
             $str .= ' </tr> ';
         }
+
 
         $str .= ' </tbody> ';
         $str .= ' </table> ';

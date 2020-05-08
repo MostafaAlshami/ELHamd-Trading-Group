@@ -8,14 +8,31 @@ require_once(__ROOT__ . "view/companies_view.php");
 require_once(__ROOT__ . "view/company_view.php");
 
 
-$company_id = 1;
 $model = new Companies();
 $controller = new CompanyController($model);
 $view = new CompaniesView($controller, $model);
 
-$model2 = new Company($company_id);
-$controller2 = new CompanyController($model2);
-$view2 = new companyView($controller2, $model2);
+if (isset($_GET['action']) && !empty($_GET['action'])) {
+    switch ($_GET['action']) {
+        case 'view':
+            echo "<script type=\"text/javascript\">
+        window.onload = function() {
+          document.getElementById('id01').style.display = 'none';
+          document.getElementById('id03').style.display = 'block';
+        };
+	  </script>";
+
+            break;
+        case 'edit':
+            echo "<script type=\"text/javascript\">
+            window.onload = function() {
+              document.getElementById('id01').style.display = 'none';
+              document.getElementById('id02').style.display = 'block';
+            };
+          </script>";
+            break;
+    }
+}
 
 
 /*
@@ -185,6 +202,13 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 
             <div class="content" id="id02" style="display: None">
 
+                <?php
+                $company_id = $_GET['id'];
+                $x = $company_id;
+                $model2 = new Company($x);
+                $controller2 = new CompanyController($model2);
+                $view2 = new companyView($controller2, $model2);
+                ?>
                 <div class="row">
                     <div class=" col-md-10">
                         <div class="card">
@@ -207,7 +231,13 @@ if (isset($_GET['action']) && !empty($_GET['action']))
             </div>
 
             <div class="content" id="id03" style="display: None">
-
+                <?php
+                $company_id = $_GET['id'];
+                $x = $company_id;
+                $model2 = new Company($x);
+                $controller2 = new CompanyController($model2);
+                $view2 = new companyView($controller2, $model2);
+                ?>
                 <div class="row">
                     <div class=" col-md-10">
                         <div class="card">

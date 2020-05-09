@@ -66,46 +66,6 @@ class Employees extends Model {
 
 }
 
-  function editEmployee($id,$first_name,$last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$salary)
-  {
-    $first_name = $this->dbh->getConn()->real_escape_string($first_name);
-    $last_name = $this->dbh->getConn()->real_escape_string($last_name);
-    $email = $this->dbh->getConn()->real_escape_string($email);
-    $address = $this->dbh->getConn()->real_escape_string($address);
-    $mobile = $this->dbh->getConn()->real_escape_string($mobile);
-    $DoB = $this->dbh->getConn()->real_escape_string($DoB);
-    $Degree = $this->dbh->getConn()->real_escape_string($Degree);
-    $EmpDate = $this->dbh->getConn()->real_escape_string($EmpDate);
-    $salary = $this->dbh->getConn()->real_escape_string($salary);
-
-    $sql = "UPDATE employee SET `First_Name`='$first_name', `Last_Name`='$last_name', `email`='$email', `address`='$address',`mobile`='$mobile', `DOB`='$DoB',
-     `degree`='$Degree', `emp_date`='$EmpDate', `salary`='$salary', WHERE ID = $id";
-
-    if($this->dbh->query($sql) === true)
-    {
-      echo "Records updated successfully.";
-    }
-    else
-    {  
-      echo "ERROR: Could not execute $sql. " . $conn->error;
-    }
-
-  }
-
-  function deleteEmployee($id)
-  {
-    $sql="DELETE FROM employee WHERE ID = $id";
-       
-    ///CHECK echos
-    if($this->dbh->query($sql) === true)
-    {
-      echo "Record deleted successfully.";
-    } 
-    else
-    {
-    echo "ERROR: Could not execute $sql. " . $conn->error;
-    }
-  }
 
 //   function EmployeeStats($first_name,$last_name,$mobile,$salary)
 //   {

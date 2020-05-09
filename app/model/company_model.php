@@ -143,6 +143,7 @@ class Company extends Model
     ///CHECK echos
     if ($this->dbh->query($sql) === true) {
       echo "Records updated successfully.";
+
     } else {
       echo "ERROR: Could not execute $sql. " . $this->conn->error;
     }

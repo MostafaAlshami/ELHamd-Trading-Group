@@ -2,29 +2,34 @@
 require_once(__ROOT__ . "model/Employees_model.php");
 require_once(__ROOT__ . "controller/employee_controller.php");
 require_once(__ROOT__ . "view/Employees_view.php");
+require_once(__ROOT__ . "view/Employee_view.php");
 
 $model = new Employees();
 $controller = new EmployeeController($model);
 $view = new Empviewpage($controller, $model);
 
 
-// if (isset($_GET['action']) && !empty($_GET['action'])) {
-// 	switch($_GET['action']){
-// 		case 'edit':
-// 			echo $view->editForm();
-// 			break;
-// 		case 'editaction':
-// 			$controller->edit();
-// 			echo $view->output();
-// 			break;
-//         case 'view';
-//         header("Location:EmployeeProfile.php");
-//         break;
-// 	}
-// }
-// else
+if (isset($_GET['action']) && !empty($_GET['action'])) {
+    switch ($_GET['action']) {
+        case 'view':
+            echo "<script type=\"text/javascript\">
+        window.onload = function() {
+          document.getElementById('id01').style.display = 'none';
+          document.getElementById('id03').style.display = 'block';
+        };
+	  </script>";
 
-
+            break;
+        case 'edit':
+            echo "<script type=\"text/javascript\">
+            window.onload = function() {
+              document.getElementById('id01').style.display = 'none';
+              document.getElementById('id02').style.display = 'block';
+            };
+          </script>";
+            break;
+    }
+}
 
 ?>
 
@@ -139,7 +144,7 @@ $view = new Empviewpage($controller, $model);
             <div class="panel-header panel-header-sm">
             </div>
 
-            <div class="content">
+            <div class="content" id="id01">
 
                 <div class="row">
                     <div class=" col-md-12">    
@@ -161,8 +166,86 @@ $view = new Empviewpage($controller, $model);
                     </div>
                 </div>
             </div>
-        </div>
+        
 
+
+            <div class="content" id="id02" style="display: None">
+
+                <?php
+                $empid = $_GET['id'];
+                $x = $empid;
+                $model2 = new Employee($x);
+                $controller2 = new EmployeeController($model2);
+                $view2 = new EmployeeView($controller2, $model2);
+                ?>
+                <div class="row">
+                    <div class=" col-md-10">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+                                <h4 class="card-title">Employee Profile</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <!----CARD HERE: echo output function from view classes-->
+                                <?php
+
+
+                                echo $view2->editCard();
+
+                                if (isset($_POST['save'])) {
+
+                                    // $type = "ay 7aga";
+                                    $controller2->editEmp();
+                                    echo "<script type=\"text/javascript\">
+                                        window.onload = function() {
+                                        document.getElementById('id01').style.display = 'block';
+                                        document.getElementById('id02').style.display = 'none';
+                                        };
+                                    </script>";
+                                }
+
+
+                                ?>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+           <div class="content" id="id03" style="display: None">
+                <?php
+                $empid = $_GET['id'];
+                $x = $empid;
+                $model2 = new Employee($x);
+                $controller2 = new EmployeeController($model2);
+                $view2 = new EmployeeView($controller2, $model2);
+                ?>
+                <div class="row">
+                    <div class=" col-md-10">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+                                <h4 class="card-title">Employee Profile</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <!----CARD HERE: echo output function from view classes-->
+                                <?php
+                                echo $view2->output();
+                                ?>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
         <!--   Core JS Files   -->

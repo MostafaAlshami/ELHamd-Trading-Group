@@ -28,7 +28,7 @@ class Employee extends Model{
     }
     else
     {
-
+      $this->empfirstname = $empfirstname;
       $this->emplastname = $emplastname;
       $this->email=$email;
       $this->address= $address;
@@ -44,167 +44,126 @@ class Employee extends Model{
   }
 
 
-    /**
-     * Get the value of empid
-     */ 
     public function getEmpid()
     {
         return $this->empid;
     }
 
-    /**
-     * Set the value of empid
-     *
-     * @return  self
-     */ 
     public function setEmpid($empid)
     {
         $this->empid = $empid;
     }
 
-    /**
-     * Get the value of birthdate
-     */ 
     public function getBirthdate()
     {
         return $this->birthdate;
     }
 
-    /**
-     * Set the value of birthdate
-     *
-     * @return  self
-     */ 
     public function setBirthdate($birthdate)
     {
         $this->birthdate = $birthdate;
     }
 
-    /**
-     * Get the value of phone
-     */ 
     public function getMobile()
     {
         return $this->mobile;
     }
 
-    /**
-     * Set the value of phone
-     *
-     * @return  self
-     */ 
     public function setMobile($mobile)
     {
         $this->mobile = $mobile;
     }
 
-    /**
-     * Get the value of address
-     */ 
     public function getAddress()
     {
         return $this->address;
     }
 
-    /**
-     * Set the value of address
-     *
-     * @return  self
-     */ 
     public function setAddress($address)
     {
         $this->address = $address;
     }
 
-    /**
-     * Get the value of edudegree
-     */ 
     public function getEdudegree()
     {
         return $this->edudegree;
     }
 
-    /**
-     * Set the value of edudegree
-     *
-     * @return  self
-     */ 
     public function setEdudegree($edudegree)
     {
         $this->edudegree = $edudegree;
     }
 
-
-    /**
-     * Get the value of salary
-     */ 
     public function getSalary()
     {
         return $this->salary;
     }
 
-    /**
-     * Set the value of salary
-     *
-     * @return  self
-     */ 
     public function setSalary($salary)
     {
         $this->salary = $salary;
     }
 
-    /**
-     * Get the value of email
-     */ 
     public function getEmail()
     {
         return $this->email;
     }
 
-    /**
-     * Set the value of email
-     *
-     * @return  self
-     */ 
     public function setEmail($email)
     {
         $this->email = $email;
     }
 
-    /**
-     * Get the value of empfirstname
-     */ 
     public function getEmpfirstname()
     {
         return $this->empfirstname;
     }
 
-    /**
-     * Set the value of empfirstname
-     *
-     * @return  self
-     */ 
     public function setEmpfirstname($empfirstname)
     {
         $this->empfirstname = $empfirstname;
     }
 
-    /**
-     * Get the value of emplastname
-     */ 
     public function getEmplastname()
     {
         return $this->emplastname;
     }
 
-    /**
-     * Set the value of emplastname
-     *
-     * @return  self
-     */ 
     public function setEmplastname($emplastname)
     {
         $this->emplastname = $emplastname;
+    }
+
+    public function getDep()
+    {
+        return $this->dep;
+    }
+
+    public function setDep($dep)
+    {
+        $this->dep = $dep;
+
+        return $this;
+    }
+
+    public function getCompid()
+    {
+        return $this->compid;
+    }
+
+    public function setCompid($compid)
+    {
+        $this->compid = $compid;
+    }
+
+    public function getEmpdate()
+    {
+        return $this->empdate;
+    }
+
+    public function setEmpdate($empdate)
+    {
+        $this->empdate = $empdate;
     }
 
     function readEmployee($empid)
@@ -249,68 +208,52 @@ class Employee extends Model{
       }
 
 
+      function editEmployee($empid,$empfirstname,$emplastname,$email,$address,$mobile,$birthdate,$edudegree,$empdate,$salary,$compid)
+      {
+        $empfirstname = $this->dbh->getConn()->real_escape_string($empfirstname);
+        $emplastname = $this->dbh->getConn()->real_escape_string($emplastname);
+        $email = $this->dbh->getConn()->real_escape_string($email);
+        $address = $this->dbh->getConn()->real_escape_string($address);
+        //$dep = $this->dbh->getConn()->real_escape_string($dep);
+        $mobile = $this->dbh->getConn()->real_escape_string($mobile);
+        $birthdate = $this->dbh->getConn()->real_escape_string($birthdate);
+        $edudegree = $this->dbh->getConn()->real_escape_string($edudegree);
+        $empdate = $this->dbh->getConn()->real_escape_string($empdate);
+        $salary = $this->dbh->getConn()->real_escape_string($salary);
+        $compid = $this->dbh->getConn()->real_escape_string($compid);
+    
+        $sql = "UPDATE employee SET First_Name='$empfirstname', Last_Name='$emplastname', email='$email', address='$address' , mobile='$mobile', DOB='$birthdate',
+         degree='$edudegree', emp_date='$empdate', salary='$salary', comp_id='$compid' WHERE ID = '$empid'";
+    
+        if($this->dbh->query($sql) === true)
+        {
+          echo "Records updated successfully.";
+        }
+        else
+        {  
+          echo "ERROR: Could not execute $sql. " . $conn->error;
+
+        }
+    
+      }
+    
+      function deleteEmployee($empid)
+      {
+        $sql="DELETE FROM employee WHERE ID = $empid";
+           
+        ///CHECK echos
+        if($this->dbh->query($sql) === true)
+        {
+          echo "Record deleted successfully.";
+        } 
+        else
+        {
+        echo "ERROR: Could not execute $sql. " . $conn->error;
+        }
+      }
 
 
-
-    /**
-     * Get the value of dep
-     */ 
-    public function getDep()
-    {
-        return $this->dep;
-    }
-
-    /**
-     * Set the value of dep
-     *
-     * @return  self
-     */ 
-    public function setDep($dep)
-    {
-        $this->dep = $dep;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of compid
-     */ 
-    public function getCompid()
-    {
-        return $this->compid;
-    }
-
-    /**
-     * Set the value of compid
-     *
-     * @return  self
-     */ 
-    public function setCompid($compid)
-    {
-        $this->compid = $compid;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of empdate
-     */ 
-    public function getEmpdate()
-    {
-        return $this->empdate;
-    }
-
-    /**
-     * Set the value of empdate
-     *
-     * @return  self
-     */ 
-    public function setEmpdate($empdate)
-    {
-        $this->empdate = $empdate;
-
-        return $this;
-    }
+    
     }
 
 

@@ -13,25 +13,25 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
 }
 
-if(isset($_POST['login']))	{
-	$username=$_REQUEST["uname"];
-  $pass= $_REQUEST["psw"];
-  $pass_hash=password_hash($pass, PASSWORD_BCRYPT);
-	$sql = "SELECT * FROM user where username='$username' and password='$pass_hash'";
-	$dbh = new Dbh();
-	$result = $dbh->query($sql);
-	if ($result->num_rows == 1){
-		$row = $dbh->fetchRow();
-		$_SESSION["ID"]=$row["ID"];
-        $_SESSION["username"]=$row["username"];
+// if(isset($_POST['login']))	{
+// 	$username=$_REQUEST["uname"];
+//   $pass= $_REQUEST["psw"];
+//   $pass_hash=password_hash($pass, PASSWORD_BCRYPT);
+// 	$sql = "SELECT * FROM user where username='$username' and password='$pass_hash'";
+// 	$dbh = new Dbh();
+// 	$result = $dbh->query($sql);
+// 	if ($result->num_rows == 1){
+// 		$row = $dbh->fetchRow();
+// 		$_SESSION["ID"]=$row["ID"];
+//         $_SESSION["username"]=$row["username"];
         
-		header("Location:dashboard.php");
-    }
-    else
-    {
-        header("Location:CompanyProfile.php");
-    }
-}
+// 		header("Location:dashboard.php");
+//     }
+//     else
+//     {
+//         header("Location:CompanyProfile.php");
+//     }
+// }
 
 // if(isset($_POST["login"])){
 //     $username=$_POST['uname'];
@@ -50,11 +50,12 @@ if(isset($_POST['login']))	{
 // }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<script src="../assets/js/login.js" type="text/javascript"></script>
+
     <title>login</title> 
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
@@ -165,9 +166,37 @@ if(isset($_POST['login']))	{
                 <h5 class="title">Login</h5>
               </div>
               <div class="card-body">
-                <?php 
-                echo  $view->output();
-                ?>
+                
+                <?php echo  $view->output(); ?>
+                <!-- <form action="login_public.php?action=signin" method="post">
+
+        <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" class="form-control" id="uname" placeholder="username" name="uname" required>
+            </div>
+        </div>                     
+          
+        <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" id="psw" placeholder="password" name="psw" required>
+            </div>  
+            <div>
+              <label> 
+                  <input type="checkbox" checked="checked" name="remember"> Keep me logged In
+              </label>
+            </div> 
+        </div>
+
+        <div class="col-md-6 pr-1">
+             <div class="form-group">
+                <button type="submit" name="login" class="btn" onclick="return validateform()">Login</button>
+                <button type="submit" class="btn">Forget Password</button>
+             </div>
+        </div> 
+    </form> -->
+                
               </div>
             </div>
           </div>
@@ -188,5 +217,8 @@ if(isset($_POST['login']))	{
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+  <script src="../assets/js/login.js" type="text/javascript"></script>
+
+
 </body>
 </html>

@@ -10,5 +10,13 @@ class users_controller extends Controller{
 
 		$this->model->registerUser($username, $pass, $empid);
     }
-    
+	
+	public function signin()
+	{
+		$username = $_REQUEST['uname'];
+		$pass = $_REQUEST['psw'];
+		
+		$this->model->login($username,$pass);
+	}
+
 }

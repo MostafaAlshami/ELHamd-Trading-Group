@@ -48,5 +48,20 @@ class users_model extends model {
 			echo "ERROR: Could not able to execute $sql. " . $conn->error;
 		}
 
-    }
+	}
+	
+	function login($username,$pass)
+	{
+		$sql="Select * from user where username='"."$username"."' and password='"."$pass"."'";
+		$result = $this->db->query($sql);
+        if ($result->num_rows > 0)
+        {
+			header("location: dashboard.php");
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

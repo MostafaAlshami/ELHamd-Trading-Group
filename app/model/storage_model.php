@@ -9,10 +9,11 @@ class Storage extends Model
   private $SID;
   private $product_name;
   private $product_id;
-  private $quantity;
+  private $currentq;
+  private $inq;
+  private $outq;
 
-
-   function __construct($SID, $product_name="", $product_id="", $quantity="" )
+   function __construct($SID, $product_id="", $product_name="", $currentq="", $inq="", $outq="" )
   {
     $this->SID = $SID;   
     $this->db = $this->connect();
@@ -25,7 +26,9 @@ class Storage extends Model
     {
       $this->product_id = $product_id;
       $this->product_name = $product_name;
-      $this->quantity = $quantity;
+      $this->currentq = $currentq;
+      $this->inq = $inq;
+      $this->outq = $outq;
     }
   }
   
@@ -56,15 +59,15 @@ class Storage extends Model
   }
   
 
-  public function getquantity()
+  public function getcurrentq()
   {
-    return $this->quantity;
+    return $this->currentq;
   }
 
   
-  public function setquantity($quantity)
+  public function setcurrentq($currentq)
   {
-    $this->quantity = $quantity;
+    $this->currentq = $currentq;
 
     return $this;
   }
@@ -100,17 +103,63 @@ class Storage extends Model
       $row = $db->fetchRow();
       $this->product_id = $row["product_id"];
       $this->product_name = $row["productname"];
-      $this->quantity = $row["quantity"];
+      $this->currentq = $row["currentq"];
+      $this->inq = $row["inq"];
+      $this->outq = $row["outq"];
+
     }
     else
     {
       
       $this->product_name = "";
       $this->product_id = "";
-      $this->quantity = "";
+      $this->currentq = "";
+      $this->inq = "";
+      $this->outq = "";
+
     }
   }
 
+
+  /**
+   * Get the value of inq
+   */ 
+  public function getInq()
+  {
+    return $this->inq;
+  }
+
+  /**
+   * Set the value of inq
+   *
+   * @return  self
+   */ 
+  public function setInq($inq)
+  {
+    $this->inq = $inq;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of outq
+   */ 
+  public function getOutq()
+  {
+    return $this->outq;
+  }
+
+  /**
+   * Set the value of outq
+   *
+   * @return  self
+   */ 
+  public function setOutq($outq)
+  {
+    $this->outq = $outq;
+
+    return $this;
+  }
 }
 
 

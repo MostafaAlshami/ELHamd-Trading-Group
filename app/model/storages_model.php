@@ -14,12 +14,13 @@ class Storages extends Model {
 		$this->db = $this->connect();
 		$result = $this->readStorages();
 		while ($row = $result->fetch_assoc()) {
-			array_push($this->storages, new Storage($row["ID"], $row["productname"], $row["product_id"], $row["quantity"] ));
+			array_push($this->storages, new Storage($row["ID"], $row["product_id"] ,$row["productname"], $row["currentq"], $row["inq"], $row["outq"] ));
 		}
 	}
 
 	function getStorages() {
 		return $this->storages;
+
 	}
 
 	function readStorages(){
@@ -34,8 +35,8 @@ class Storages extends Model {
 		}
 	}
 
-	function insertStorage ($SID, $product_name, $product_id, $quantity){
-		$sql = "INSERT INTO storage (ID, product_id, product_name quantity) VALUES ('$SID', '$product_name', '$product_id', '$quantity')";
+	function insertStorage ($SID, $product_name, $product_id, $currentq, $inq, $outq){
+		$sql = "INSERT INTO storage (ID, product_id, productname, currentq, inq, outq) VALUES ('$SID', '$product_name', '$product_id', '$currentq', '$inq', '$outq')";
 		if($this->db->query($sql) === true){
 			echo "Records inserted successfully.";
 			$this->fillArray();
@@ -45,65 +46,45 @@ class Storages extends Model {
 		}
 	}
 	
-	//I'm too afraid to delete this part :)
-	/*function insertProduct($prid, $SID, $product_id, $quantity)
-	{
-	  $SID = $this->dbh->getConn()->real_escape_string($SID);
-	  $product_id = $this->dbh->getConn()->real_escape_string($product_id);
-	  $quantity = $this->dbh->getConn()->real_escape_string($quantity);
-	 
   
-	  $sql = "INSERT INTO product (name, description, origin) 
-			  VALUES ('$SID', '$product_id', '$quantity')";
-		 
-	   ///CHECK echos
+	function editProduct($SID, $product_name, $product_id, $currentq, $inq, $outq)
+	{
+		$conn = $this->dbh->getConn();
+	  $SID = $conn->real_escape_string($SID);
+	  $product_name = $conn->real_escape_string($product_name);
+	  $product_id = $conn->real_escape_string($product_id);
+	  $currentq = $conn->real_escape_string($currentq);
+	  $inq = $conn->real_escape_string($inq);
+	  $outq = $conn->real_escape_string($outq);
+	 
+	 $sql = "UPDATE storage SET productname = '$product_name', product_id = '$product_id', currentq = '$currentq', inq = '$inq', outq = '$outq' WHERE ID = $SID"; 
+  
+	  ///CHECK echos
 	  if($this->dbh->query($sql) === true)
 	  {
-		echo "Records inserted successfully.";
+		echo "Records updated successfully.";
 	  }
 	  else
 	  {  
 		echo "ERROR: Could not execute $sql. " . $conn->error;
 	  }
-	  //FIX AND TEST
-	  //array_push($this->fruits, new Fruit("0","test","1.0"));
 	  }
-	}*/
   
-	function editStorage($SID, $product_name, $product_id, $quantity)
+  
+	function deleteProduct($SID)
 	{
-        $conn = $this->dbh->getConn();
-        $SID = $conn->real_escape_string($SID);
-        $product_name = $conn->real_escape_string($product_name);
-        $product_id = $conn->real_escape_string($product_id);
-        $quantity = $conn->real_escape_string($quantity);
-
-        $sql = "UPDATE storage SET ID = $SID, productname = '$product_name', product_id = $product_id, quantity = $quantity WHERE ID = $SID"; 
-
-        ///CHECK echos
-        if($this->dbh->query($sql) === true)
-        {
-            echo "Records updated successfully.";
-        }
-        else
-        {
-            echo "ERROR: Could not execute $sql. " . $conn->error;
-        }
-    }
+	  $sql="DELETE FROM storage WHERE ID = $SID";
+		 
+	  ///CHECK echos
+	  if($this->dbh->query($sql) === true)
+	  {
+		echo "Record deleted successfully.";
+	  } 
+	  else
+	  {
+	  echo "ERROR: Could not execute $sql. " . $conn->error;
   
-  
-    function deleteProduct($SID)
-    {
-        $sql = "DELETE FROM storage WHERE ID = $SID";
-
-        ///CHECK echos
-        if($this->dbh->query($sql) === true)
-        {
-            echo "Record deleted successfully.";
-        } 
-        else
-        {
-            echo "ERROR: Could not execute $sql. " . $this->dbh->getConn()->error;
-        }
+	
+	  }
 	}
 }

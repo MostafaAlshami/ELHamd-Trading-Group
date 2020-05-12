@@ -6,9 +6,11 @@ class StorageController extends controller
 {
   public function insertSt()
   {
-    $product_ID = $_REQUEST['product_ID'];
-    $product_ID = $_REQUEST['product_ID'];
-    $quantity = $_REQUEST['product_ID'];
+    $product_name = $_REQUEST['product_name'];
+    $product_id = $_REQUEST['product_id'];
+    $currentq = $_REQUEST['currentq'];
+    $inq = $_REQUEST['inq'];
+    $outq = $_REQUEST['outq'];
 
 
     $this->model->insertStorage();
@@ -18,10 +20,12 @@ class StorageController extends controller
   {
     $SID = $_REQUEST['SID'];
     $product_name = $_REQUEST['product_name'];
-    $product_ID = $_REQUEST['product_ID'];
-    $quantity = $_REQUEST['quantity'];
+    $product_id = $_REQUEST['product_id'];
+    $currentq = $_REQUEST['currentq'];
+    $inq = $_REQUEST['inq'];
+    $outq = $_REQUEST['outq'];
 
-    $this->model->editStorage($SID, $product_name, $product_ID, $quantity);
+    $this->model->editProduct($SID, $product_name, $product_id, $currentq, $inq, $outq);
   }
   
   public function deleteSt()
@@ -29,5 +33,7 @@ class StorageController extends controller
     $SID = $_REQUEST ['SID'];
     $this->model->deleteStorage($SID);
   }
+
+
 }
 ?>

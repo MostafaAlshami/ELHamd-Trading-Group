@@ -13,11 +13,14 @@ class users_model extends model {
     {
 		$this->users = array();
 		$this->db = $this->connect();
-		$result = $this->readUsers();
-        while ($row = $result->fetch_assoc()) 
+        $result = $this->readUsers();
+        if ($result)
         {
-			array_push($this->users, new user_model($row["ID"],$row["username"],$row["password"],$row["emp_ID"]));
-		}
+            while ($row = $result->fetch_assoc()) 
+            {
+                array_push($this->users, new user_model($row["ID"],$row["username"],$row["password"],$row["emp_ID"]));
+            }
+        }
 	}
 
     function getUsers() {
@@ -32,36 +35,37 @@ class users_model extends model {
         {
 			return $result;
 		}
-		else {
+        else
+        {
 			return false;
 		}
 	}
 
 	function registerUser($username, $pass, $empid){
-        $sql = "INSERT INTO user (username, password, emp_id) VALUES ('$name','$pass', '$empid')";
+        $pass_hash=password_hash($pass, PASSWORD_BCRYPT);
+        $sql = "INSERT INTO user (username, password, emp_id) VALUES ('$username','$pass_hash', '$empid')";
         if($this->db->query($sql) === true)
         {
-			echo "Records inserted successfully.";
-			$this->fillArray();
-		} 
-		else{
-			echo "ERROR: Could not able to execute $sql. " . $conn->error;
-		}
+            echo "Records inserted successfully.";
+            $this->fillArray();
+        } 
+        else{
+            echo "ERROR: Could not able to execute $sql. " . $conn->error;
+        }
 
-	}
+    }
 	
 	function login($username,$pass)
-	{
-		$sql="Select * from user where username='"."$username"."' and password='"."$pass"."'";
-		$result = $this->db->query($sql);
+    {
+        $sql="Select * from user where username='"."$username"."'";
+        $result = $this->db->query($sql);
         if ($result->num_rows > 0)
         {
-			header("location: dashboard.php");
-			return $result;
-		}
-		else
-		{
-			return false;
-		}
-	}
+            $row = $result->fetch_assoc();
+            if (password_verify($pass, $row['password']))
+            {
+                header("location: dashboard.php");
+            }
+        }
+    }
 }

@@ -28,7 +28,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Home Page
+    Homepage
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -64,39 +64,41 @@
             </a>
           </li>
 
+          <?php if (isset($_SESSION["ID"])) { ?>
 
-          <li>
-            <a href="employeeList.php">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
+            <li>
+              <a href="employeeList.php">
+                <i class="now-ui-icons users_single-02"></i>
+                <p>User Profile</p>
+              </a>
+            </li>
 
 
-          <li>
-            <a href="employees.php">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>Employees</p>
-            </a>
-          </li>
-          <li>
-            <a href="companiesList.php">
-              <i class="now-ui-icons files_box"></i>
-              <p>Companies</p>
-            </a>
-          </li>
-          <li>
-            <a href="allContracts.php">
-              <i class="now-ui-icons files_box"></i>
-              <p>All Contracts</p>
-            </a>
-          </li>
-          <li>
-            <a href="storage_public.php"><i class="now-ui-icons files_box"></i>
-              <p>Storage</p>
-            </a>
-          </li>
-
+            <li>
+              <a href="employees.php">
+                <i class="now-ui-icons users_single-02"></i>
+                <p>Employees</p>
+              </a>
+            </li>
+            <li>
+              <a href="companiesList.php">
+                <i class="now-ui-icons files_box"></i>
+                <p>Companies</p>
+              </a>
+            </li>
+            <li>
+              <a href="allContracts.php">
+                <i class="now-ui-icons files_box"></i>
+                <p>All Contracts</p>
+              </a>
+            </li>
+            <li>
+              <a href="storage_public.php"><i class="now-ui-icons files_box"></i>
+                <p>Storage</p>
+              </a>
+            </li>
+          <?php }
+          ?>
 
         </ul>
       </div>
@@ -153,22 +155,21 @@
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.php">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <i>Login</i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
+              <?php if (!isset($_SESSION["type"])) { ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="login_public.php">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <i>Login</i>
+                    <p><span class="d-lg-none d-md-block">Account</span></p>
+                  </a>
+                </li>
+              <?php } ?>
             </ul>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="panel-header panel-header-lg">
-        <canvas></canvas>
+      <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
         <div class="row">
@@ -176,56 +177,109 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Global Sales</h5>
-                <h4 class="card-title"><a href="products.php">All Products</a></h4>
+                <h4 class="card-title"><a href="products.html">View All Products</a></h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">View All Products</a>
                     <a class="dropdown-item" href="#">Add New Product</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Edit Product</a>
                     <a class="dropdown-item text-danger" href="#">Remove Data</a>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="lineChartExample"></canvas>
+
+                <div class="row">
+
+                  <img src="file:///Users/janahamdy/Desktop/ElHamd/Products/BFAVP.jpg" style="width:50%">
+                  <img src="file:///Users/janahamdy/Desktop/ElHamd/Products/fit.jpeg" style="width:50%">
+                  <img src="file:///Users/janahamdy/Desktop/ElHamd/Products/unnamed.jpg" style="width:50%">
+                  <img src="file:///Users/janahamdy/Desktop/ElHamd/Products/80242-Org-Tumeric-560x325.jpg" style="width:50%">
+
+
                 </div>
               </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-                </div>
-              </div>
+
+
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">2020 Sales</h5>
-                <h4 class="card-title"><a href="companies.php">All Companies</a></h4>
+                <h5 class="card-category">2020 Companies</h5>
+                <h4 class="card-title"><a href="companies.html"> View All Companies</a></h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="companies.html">View All Companies</a>
+                    <a class="dropdown-item" href="companyAdd.html">Add New Company</a>
+                    <a class="dropdown-item" href="companyEdit.html">Edit Company</a>
                     <a class="dropdown-item text-danger" href="#">Remove Data</a>
                   </div>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
-                </div>
+
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      Company Name
+                    </th>
+
+                    <th>
+                      Product
+                    </th>
+
+                    <th class="text-center">
+                      View
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">
+                        Abu Auf
+                      </td>
+
+                      <td>
+                        PopCorn Seeds
+                      </td>
+
+
+                      <td class="text-center">
+                        <a href="companyProfile.html" class="btn">View</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">
+                        Arisco
+                      </td>
+
+                      <td>
+                        PopCorn Seeds
+                      </td>
+
+
+
+                      <td class="text-center">
+                        <a href="companyProfile.html" class="btn">View</a>
+                      </td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+
+
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+
                 </div>
               </div>
             </div>
@@ -233,17 +287,78 @@
           <div class="col-lg-4 col-md-6">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Email Statistics</h5>
-                <h4 class="card-title">24 Hours Performance</h4>
-              </div>
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="barChartSimpleGradientsNumbers"></canvas>
+                <h5 class="card-category">Active Contracts</h5>
+                <h4 class="card-title"><a href="allcontracts.html">View Contracts</a></h4>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="allContracts.html">View All Contracts</a>
+                    <a class="dropdown-item" href="contractAdd.html">Add New Contract</a>
+                    <a class="dropdown-item" href="contractEdit.html">Edit Contract</a>
+                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
+                  </div>
                 </div>
+              </div>
+
+
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      Conract Number
+                    </th>
+
+                    <th>
+                      Product
+                    </th>
+
+                    <th class="text-center">
+                      View
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">
+                        1234533
+                      </td>
+
+                      <td>
+                        PopCorn Seeds
+                      </td>
+
+
+                      <td class="text-center">
+                        <a href="contractProfile.html" class="btn">View</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">
+                        1234533
+                      </td>
+
+                      <td>
+                        PopCorn Seeds
+                      </td>
+
+
+
+                      <td class="text-center">
+                        <a href="contractProfile.html" class="btn">View</a>
+                      </td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+
+
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days
+
                 </div>
               </div>
             </div>
@@ -253,7 +368,7 @@
           <div class="col-md-6">
             <div class="card  card-tasks">
               <div class="card-header ">
-                <h5 class="card-category">Backend development</h5>
+                <h5 class="card-category">Reminders</h5>
                 <h4 class="card-title">Tasks</h4>
               </div>
               <div class="card-body ">
@@ -343,86 +458,81 @@
                         Name
                       </th>
                       <th>
-                        Country
+                        Number
                       </th>
-                      <th>
-                        City
-                      </th>
+
                       <th class="text-right">
                         Salary
+                      </th>
+                      <th class="text-center">
+                        View
+                      </th>
+                      <th class="text-center">
+                        Edit
                       </th>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                          Dakota Rice
+                          Yusuf Hamdy
                         </td>
                         <td>
-                          Niger
+                          01180054675
                         </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
+
                         <td class="text-right">
-                          $36,738
+                          3,738 egp
+                        </td>
+                        <td class="text-center">
+                          <a class="btn" href="viewEmployee.html">View</a>
+                        </td>
+                        <td class="text-center">
+                          <a class="btn" href="editEmployee.html">Edit</a>
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          Minerva Hooper
+                          Ashraf Ahmed
                         </td>
                         <td>
-                          Curaçao
+                          01180054675
                         </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
+
                         <td class="text-right">
-                          $23,789
+                          3,789 egp
+                        </td>
+                        <td class="text-center">
+                          <a class="btn" href="ViewEmployee.html">View</a>
+                        </td>
+                        <td class="text-center">
+                          <a class="btn" href="editEmployee.html">Edit</a>
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          Sage Rodriguez
+                          Nermin Magdy
                         </td>
                         <td>
-                          Netherlands
+                          01180054675
                         </td>
-                        <td>
-                          Baileux
-                        </td>
+
                         <td class="text-right">
-                          $56,142
+                          7,142 egp
+                        </td>
+                        <td class="text-center">
+                          <a class="btn" href="ViewEmployee.html">View</a>
+                        </td>
+                        <td class="text-center">
+                          <a class="btn" href="editEmployee.html">Edit</a>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+
                     </tbody>
                   </table>
                 </div>

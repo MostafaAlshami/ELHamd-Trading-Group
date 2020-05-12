@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 require_once("../app/db/dbh.php");
 
 abstract class Model
@@ -9,8 +11,7 @@ abstract class Model
 
     public function connect()
     {
-        if(null === $this->conn)
-        {
+        if (null === $this->conn) {
             $this->dbh = new Dbh();
         }
         return $this->dbh;

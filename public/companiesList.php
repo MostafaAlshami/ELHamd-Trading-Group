@@ -181,13 +181,15 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                     <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.html">
-                                    <i class="now-ui-icons users_single-02"></i>
-                                    <i>Login</i>
-                                    <p><span class="d-lg-none d-md-block">Account</span></p>
-                                </a>
-                            </li>
+                            <?php if ($_SESSION["type"] == "") { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login_public.php">
+                                        <i class="now-ui-icons users_single-02"></i>
+                                        <i>Login</i>
+                                        <p><span class="d-lg-none d-md-block">Account</span></p>
+                                    </a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

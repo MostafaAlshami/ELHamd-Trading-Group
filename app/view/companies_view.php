@@ -1,7 +1,7 @@
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
+// if (!isset($_SESSION)) {
+//     session_start();
+// }
 require_once(__ROOT__ . "view/view.php");
 
 class CompaniesView extends View

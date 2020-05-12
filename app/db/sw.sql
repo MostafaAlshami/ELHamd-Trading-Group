@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 11:10 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.6
+-- Host: localhost
+-- Generation Time: May 13, 2020 at 01:06 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,7 +35,7 @@ CREATE TABLE `company` (
   `curl` varchar(50) DEFAULT NULL,
   `phoneNumber` varchar(30) DEFAULT NULL,
   `cAddress` varchar(30) NOT NULL,
-  `cType` varchar(20) DEFAULT NULL
+  `cType` enum('shipping','trading') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -43,9 +43,9 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`company_id`, `company_name`, `email`, `curl`, `phoneNumber`, `cAddress`, `cType`) VALUES
-(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '01776767844445', 'Cairo', 'test'),
-(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '0873863462750', 'Giza', 'test'),
-(3, 'CRM', 'crm@hotmail.com', 'www.crm.com', '0117676787890', 'Obour', 'test');
+(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '01776767844445', 'Cairo', 'trading'),
+(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '0873863462750', 'Giza', 'shipping'),
+(3, 'CRM', 'crm@hotmail.com', 'www.crm.com', '0117676787890', 'Obour', 'trading');
 
 -- --------------------------------------------------------
 

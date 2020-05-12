@@ -206,7 +206,6 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
-                                <a class="btn" href="companiesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
 
                                 <h4 class="card-title">Companies</h4>
                             </div>

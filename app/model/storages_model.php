@@ -14,13 +14,12 @@ class Storages extends Model {
 		$this->db = $this->connect();
 		$result = $this->readStorages();
 		while ($row = $result->fetch_assoc()) {
-			array_push($this->storages, new Storage($row["ID"], $row["product_id"] ,$row["productname"], $row["quantity"] ));
+			array_push($this->storages, new Storage($row["ID"], $row["productname"], $row["product_id"], $row["quantity"] ));
 		}
 	}
 
 	function getStorages() {
 		return $this->storages;
-
 	}
 
 	function readStorages(){
@@ -71,41 +70,40 @@ class Storages extends Model {
 	  }
 	}*/
   
-  
-	function editProduct($SID)
+	function editStorage($SID, $product_name, $product_id, $quantity)
 	{
-	  $SID = $this->dbh->getConn()->real_escape_string($SID);
-	  $product_id = $this->dbh->getConn()->real_escape_string($product_id);
-	  $quantity = $this->dbh->getConn()->real_escape_string($quantity);
-	 
-	 $sql = "UPDATE storage SET ID = '$SID', product_id = '$product_id', quantity = '$quantity', WHERE ID = $SID"; 
+        $conn = $this->dbh->getConn();
+        $SID = $conn->real_escape_string($SID);
+        $product_name = $conn->real_escape_string($product_name);
+        $product_id = $conn->real_escape_string($product_id);
+        $quantity = $conn->real_escape_string($quantity);
+
+        $sql = "UPDATE storage SET ID = $SID, productname = '$product_name', product_id = $product_id, quantity = $quantity WHERE ID = $SID"; 
+
+        ///CHECK echos
+        if($this->dbh->query($sql) === true)
+        {
+            echo "Records updated successfully.";
+        }
+        else
+        {
+            echo "ERROR: Could not execute $sql. " . $conn->error;
+        }
+    }
   
-	  ///CHECK echos
-	  if($this->dbh->query($sql) === true)
-	  {
-		echo "Records updated successfully.";
-	  }
-	  else
-	  {  
-		echo "ERROR: Could not execute $sql. " . $conn->error;
-	  }
-	  }
   
-  
-	function deleteProduct($prid)
-	{
-	  $sql="DELETE FROM storage WHERE ID = $SID";
-		 
-	  ///CHECK echos
-	  if($this->dbh->query($sql) === true)
-	  {
-		echo "Record deleted successfully.";
-	  } 
-	  else
-	  {
-	  echo "ERROR: Could not execute $sql. " . $conn->error;
-  
-	
-	  }
+    function deleteProduct($SID)
+    {
+        $sql = "DELETE FROM storage WHERE ID = $SID";
+
+        ///CHECK echos
+        if($this->dbh->query($sql) === true)
+        {
+            echo "Record deleted successfully.";
+        } 
+        else
+        {
+            echo "ERROR: Could not execute $sql. " . $this->dbh->getConn()->error;
+        }
 	}
 }

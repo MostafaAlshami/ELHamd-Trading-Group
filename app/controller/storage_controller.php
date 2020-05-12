@@ -17,10 +17,11 @@ class StorageController extends controller
   public function editSt()
   {
     $SID = $_REQUEST['SID'];
+    $product_name = $_REQUEST['product_name'];
     $product_ID = $_REQUEST['product_ID'];
-    $quantity = $_REQUEST['quantity']; 
+    $quantity = $_REQUEST['quantity'];
 
-    $this->model->editStorage($SID, $product_ID, $quantity);
+    $this->model->editStorage($SID, $product_name, $product_ID, $quantity);
   }
   
   public function deleteSt()
@@ -28,7 +29,5 @@ class StorageController extends controller
     $SID = $_REQUEST ['SID'];
     $this->model->deleteStorage($SID);
   }
-
-
 }
 ?>

@@ -8,6 +8,8 @@ require_once(__ROOT__ . "view/companies_view.php");
 require_once(__ROOT__ . "view/company_view.php");
 
 
+
+
 $model = new Companies();
 $controller = new CompanyController($model);
 $view = new CompaniesView($controller, $model);
@@ -31,6 +33,14 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             };
           </script>";
             break;
+        case 'add':
+            echo "<script type=\"text/javascript\">
+                window.onload = function() {
+                  document.getElementById('id01').style.display = 'none';
+                  document.getElementById('id04').style.display = 'block';
+                };
+              </script>";
+            break;
     }
 }
 
@@ -53,6 +63,9 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 ?>
 
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,6 +84,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 
+
 </head>
 
 <body class="">
@@ -84,13 +98,14 @@ if (isset($_GET['action']) && !empty($_GET['action']))
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href=" "> <i class="now-ui-icons design_app"> </i>
+                        <a href="dashboard.php"> <i class="now-ui-icons design_app"> </i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="employeesList.php"> <i class="now-ui-icons users_single-02"></i>
-                            <p>Employees</p>
+                        <a href="employeeList.php">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>User Profile</p>
                         </a>
                     </li>
                     <li class="active ">
@@ -106,6 +121,11 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                     <li>
                         <a href=" "><i class="now-ui-icons files_box"></i>
                             <p>Contracts</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="storage_public.php"><i class="now-ui-icons files_box"></i>
+                            <p>Storage</p>
                         </a>
                     </li>
                 </ul>
@@ -176,12 +196,18 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 
 
             <div class="content" id="id01">
-
+                <!-- "<script type="text/javascript">
+                    window.onload = function() {
+                        window.location.stop();
+                    };
+                </script>"; -->
                 <div class="row">
                     <div class=" col-md-12">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
+                                <a class="btn" href="companiesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
+
                                 <h4 class="card-title">Companies</h4>
                             </div>
                             <div class="card-body">
@@ -228,15 +254,8 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 
                                     // $type = "ay 7aga";
                                     $controller2->editComp();
-                                    echo "<script type=\"text/javascript\">
-                                        window.onload = function() {
-                                          document.getElementById('id01').style.display = 'block';
-                                          document.getElementById('id02').style.display = 'none';
-                                        };
-                                      </script>";
+                                    echo '<script>window.location.href= "companiesList.php";</script>';
                                 }
-
-
                                 ?>
 
 
@@ -259,6 +278,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
+                                <a class="btn" href="companiesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
                                 <h4 class="card-title">Company Profile</h4>
                             </div>
                             <div class="card-body">
@@ -266,6 +286,50 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                 <!----CARD HERE: echo output function from view classes-->
                                 <?php
                                 echo $view2->output();
+                                ?>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="id04" style="display: None">
+                <?php
+
+                $company_id = $_GET['id'];
+                $model2 = new Company($x);
+                $controller2 = new CompanyController($model2);
+                $view2 = new companyView($controller2, $model2);
+
+                ?>
+
+                <div class="row">
+                    <div class=" col-md-10">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+                                <a class="btn" href="companiesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
+                                <h4 class="card-title">Company Profile</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <!----CARD HERE: echo output function from view classes-->
+                                <?php
+                                echo $view2->addCard();
+                                if (isset($_POST['savec'])) {
+
+
+                                    $controller->insertComp();
+                                    echo '<script>window.location.href= "companiesList.php";</script>';
+                                }
+                                if (isset($_POST['cancel'])) {
+
+
+                                    $controller->insertComp();
+                                    echo '<script>window.location.href= "companiesList.php";</script>';
+                                }
+
                                 ?>
 
 

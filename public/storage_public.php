@@ -1,4 +1,4 @@
-<?php  define('__ROOT__', "../app/"); 
+<?php define('__ROOT__', "../app/");
 require_once(__ROOT__ . "model/storages_model.php");
 require_once(__ROOT__ . "controller/storage_controller.php");
 require_once(__ROOT__ . "view/storage_view.php");
@@ -20,12 +20,10 @@ $view = new ViewStorage($controller, $model);
     <title>
         Storage
     </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
@@ -51,9 +49,34 @@ $view = new ViewStorage($controller, $model);
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="dashboard.html">
-                            <i class="now-ui-icons files_box"></i>
+                        <a href="dashboard.php"> <i class="now-ui-icons design_app"> </i>
                             <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employeeList.php">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="companiesList.php"> <i class="now-ui-icons files_box"></i>
+                            <p>Companies</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" "> <i class="now-ui-icons files_box"></i>
+                            <p>Shipping Lines</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" "><i class="now-ui-icons files_box"></i>
+                            <p>Contracts</p>
+                        </a>
+                    </li>
+                    <li class="active ">
+                        <a href="storage_public.php"><i class="now-ui-icons files_box"></i>
+                            <p>Storage</p>
                         </a>
                     </li>
                 </ul>
@@ -75,8 +98,7 @@ $view = new ViewStorage($controller, $model);
                         </div>
                         <a class="navbar-brand" href="#pablo"></a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -102,8 +124,7 @@ $view = new ViewStorage($controller, $model);
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="now-ui-icons location_world"></i>
                                     <p>
                                         <span class="d-lg-none d-md-block">Some Actions</span>
@@ -142,8 +163,8 @@ $view = new ViewStorage($controller, $model);
                                 <h4 class="card-title">Storage</h4>
                             </div>
                             <div class="card-body">
-                            <?php
-                                    echo $view->output(); 
+                                <?php
+                                echo $view->output();
                                 ?>
                             </div>
                         </div>
@@ -168,7 +189,7 @@ $view = new ViewStorage($controller, $model);
         <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
-            $(document).ready(function () {
+            $(document).ready(function() {
                 // Javascript method's body can be found in assets/js/demos.js
                 demo.initDashboardPageCharts();
 

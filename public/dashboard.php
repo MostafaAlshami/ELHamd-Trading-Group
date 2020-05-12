@@ -25,12 +25,10 @@
   <title>
     Home Page
   </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-    name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
@@ -55,7 +53,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active ">
-            <a href="./dashboard.html">
+            <a href="./dashboard.php">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -63,7 +61,7 @@
 
 
           <li>
-            <a href="./employees.html">
+            <a href="employeeList.php">
               <i class="now-ui-icons users_single-02"></i>
               <p>User Profile</p>
             </a>
@@ -71,21 +69,26 @@
 
 
           <li>
-            <a href="employees.html">
+            <a href="employees.php">
               <i class="now-ui-icons users_single-02"></i>
               <p>Employees</p>
             </a>
           </li>
           <li>
-            <a href="companies.html">
+            <a href="companiesList.php">
               <i class="now-ui-icons files_box"></i>
               <p>Companies</p>
             </a>
           </li>
           <li>
-            <a href="allContracts.html">
+            <a href="allContracts.php">
               <i class="now-ui-icons files_box"></i>
               <p>All Contracts</p>
+            </a>
+          </li>
+          <li>
+            <a href="storage_public.php"><i class="now-ui-icons files_box"></i>
+              <p>Storage</p>
             </a>
           </li>
 
@@ -107,8 +110,7 @@
             </div>
             <a class="navbar-brand" href="#pablo">Dashboard</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -134,8 +136,7 @@
                 </a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="now-ui-icons location_world"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Some Actions</span>
@@ -148,7 +149,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.html">
+                <a class="nav-link" href="login.php">
                   <i class="now-ui-icons users_single-02"></i>
                   <i>Login</i>
                   <p>
@@ -170,11 +171,9 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Global Sales</h5>
-                <h4 class="card-title"><a href="products.html">All Products</a></h4>
+                <h4 class="card-title"><a href="products.php">All Products</a></h4>
                 <div class="dropdown">
-                  <button type="button"
-                    class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret"
-                    data-toggle="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
@@ -201,11 +200,9 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">2020 Sales</h5>
-                <h4 class="card-title"><a href="companies.html">All Companies</a></h4>
+                <h4 class="card-title"><a href="companies.php">All Companies</a></h4>
                 <div class="dropdown">
-                  <button type="button"
-                    class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret"
-                    data-toggle="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
@@ -269,14 +266,10 @@
                         </td>
                         <td class="text-left">Sign contract for "What are conference organizers afraid of?"</td>
                         <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title=""
-                            class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
-                            data-original-title="Edit Task">
+                          <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                             <i class="now-ui-icons ui-2_settings-90"></i>
                           </button>
-                          <button type="button" rel="tooltip" title=""
-                            class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                            data-original-title="Remove">
+                          <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
                             <i class="now-ui-icons ui-1_simple-remove"></i>
                           </button>
                         </td>
@@ -292,14 +285,10 @@
                         </td>
                         <td class="text-left">Lines From Great Russian Literature? Or E-mails From My Boss?</td>
                         <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title=""
-                            class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
-                            data-original-title="Edit Task">
+                          <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                             <i class="now-ui-icons ui-2_settings-90"></i>
                           </button>
-                          <button type="button" rel="tooltip" title=""
-                            class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                            data-original-title="Remove">
+                          <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
                             <i class="now-ui-icons ui-1_simple-remove"></i>
                           </button>
                         </td>
@@ -317,14 +306,10 @@
                           ravaging rain swept through metro Detroit
                         </td>
                         <td class="td-actions text-right">
-                          <button type="button" rel="tooltip" title=""
-                            class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
-                            data-original-title="Edit Task">
+                          <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                             <i class="now-ui-icons ui-2_settings-90"></i>
                           </button>
-                          <button type="button" rel="tooltip" title=""
-                            class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                            data-original-title="Remove">
+                          <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
                             <i class="now-ui-icons ui-1_simple-remove"></i>
                           </button>
                         </td>
@@ -450,8 +435,7 @@
             &copy;
             <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a
-              href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
           </div>
         </div>
       </footer>
@@ -473,7 +457,7 @@
   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
 

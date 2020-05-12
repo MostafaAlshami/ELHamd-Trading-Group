@@ -48,39 +48,44 @@ class CompanyView extends View
     public function addCard()
     {
         $str = "";
-
+        $str .= ' <form action="" method ="post" > ';
         $str .= ' <div class="table-responsive"> <table class="table"> ';
 
         $str .= ' <thead class=" text-primary"> ';
         $str .= " <th> Company Name </th> <th></th><th></th> ";
-        $str .= ' <th class="text-right"> <input type="text" class="form-control" value=""> </th> </thead> ';
+        $str .= ' <th class="text-right"> <input type="text" name ="company_name" class="form-control" value=""> </th> </thead> ';
 
         $str .= " <tbody> ";
 
         $str .= " <tr> ";
         $str .= " <td> Address </td> <td></td> <td></td> ";
-        $str .= ' <td> <input type="text" class="form-control" value=""> </td> </tr> ';
+        $str .= ' <td> <input type="text" name="address" class="form-control" value=""> </td> </tr> ';
 
         $str .= " <tr>";
         $str .= " <td> Email Address </td> <td></td> <td></td> ";
-        $str .= ' <td> <input type="text" class="form-control" value=""> </td> </tr> ';
+        $str .= ' <td> <input type="text" name ="email"class="form-control" value=""> </td> </tr> ';
 
         $str .= " <tr> ";
         $str .= " <td> Phone Number </td>  <td></td> <td></td> ";
-        $str .= ' <td> <input type="text" class="form-control" value=""> </td> </tr> ';
+        $str .= ' <td> <input type="text" name="phoneNumber" class="form-control" value=""> </td> </tr> ';
 
         $str .= " <tr>";
         $str .= " <td> URL </td>  <td></td> <td></td> ";
-        $str .= ' <td> <input type="text" class="form-control" value=""> </td> </tr> ';
+        $str .= ' <td> <input type="text"name ="url"  class="form-control" value=""> </td> </tr> ';
+
+        $str .= " <tr>";
+        $str .= " <td> Type </td>  <td></td> <td></td> ";
+        $str .= ' <td> <input type="text"name ="type"  class="form-control" value=""> </td> </tr> ';
 
         $str .= " <tr> ";
         $str .= " <td></td> ";
-        $str .= ' <td> <button class="btn" href=""> Save </button> </td> ';  //SAVE ACTION
-        $str .= ' <td> <button class="btn" href="companieslist.php"> Cancel </button> </td> ';  //CANCEL ACTION
+        $str .= ' <td> <button type="submit" class="btn" name ="savec"> Save </button> </td> ';  //SAVE ACTION
+        $str .= ' <td> <button class="btn" name="cancel" href="companieslist.php"> Cancel </button> </td> ';  //CANCEL ACTION
         $str .= " <td></td> </tr> ";
 
         $str .= " </tbody> </table> ";
         $str .= " </div> ";
+        $str .= " </form> ";
 
         return $str;
     }

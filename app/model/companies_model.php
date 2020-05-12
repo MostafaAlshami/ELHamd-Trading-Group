@@ -84,7 +84,4 @@ class Companies extends model
         //FIX AND TEST
         //array_push($this->Companies, new Comapny( , , , , , ));
     }
-
-
-    
 }

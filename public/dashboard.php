@@ -177,7 +177,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Global Sales</h5>
-                <h4 class="card-title"><a href="products.html">View All Products</a></h4>
+                <h4 class="card-title"><a href="products.php">View All Products</a></h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
@@ -210,15 +210,15 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">2020 Companies</h5>
-                <h4 class="card-title"><a href="companies.html"> View All Companies</a></h4>
+                <h4 class="card-title"><a href="companies.php"> View All Companies</a></h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="companies.html">View All Companies</a>
-                    <a class="dropdown-item" href="companyAdd.html">Add New Company</a>
-                    <a class="dropdown-item" href="companyEdit.html">Edit Company</a>
+                    <a class="dropdown-item" href="companies.php">View All Companies</a>
+                    <a class="dropdown-item" href="companyAdd.php">Add New Company</a>
+                    <a class="dropdown-item" href="companyEdit.php">Edit Company</a>
                     <a class="dropdown-item text-danger" href="#">Remove Data</a>
                   </div>
                 </div>
@@ -251,7 +251,7 @@
 
 
                       <td class="text-center">
-                        <a href="companyProfile.html" class="btn">View</a>
+                        <a href="companyProfile.php" class="btn">View</a>
                       </td>
                     </tr>
                     <tr>
@@ -266,7 +266,7 @@
 
 
                       <td class="text-center">
-                        <a href="companyProfile.html" class="btn">View</a>
+                        <a href="companyProfile.php" class="btn">View</a>
                       </td>
                     </tr>
 
@@ -288,15 +288,15 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Active Contracts</h5>
-                <h4 class="card-title"><a href="allcontracts.html">View Contracts</a></h4>
+                <h4 class="card-title"><a href="allcontracts.php">View Contracts</a></h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="allContracts.html">View All Contracts</a>
-                    <a class="dropdown-item" href="contractAdd.html">Add New Contract</a>
-                    <a class="dropdown-item" href="contractEdit.html">Edit Contract</a>
+                    <a class="dropdown-item" href="allContracts.php">View All Contracts</a>
+                    <a class="dropdown-item" href="contractAdd.php">Add New Contract</a>
+                    <a class="dropdown-item" href="contractEdit.php">Edit Contract</a>
                     <a class="dropdown-item text-danger" href="#">Remove Data</a>
                   </div>
                 </div>
@@ -330,7 +330,7 @@
 
 
                       <td class="text-center">
-                        <a href="contractProfile.html" class="btn">View</a>
+                        <a href="contractProfile.php" class="btn">View</a>
                       </td>
                     </tr>
                     <tr>
@@ -345,7 +345,7 @@
 
 
                       <td class="text-center">
-                        <a href="contractProfile.html" class="btn">View</a>
+                        <a href="contractProfile.php" class="btn">View</a>
                       </td>
                     </tr>
 
@@ -484,10 +484,10 @@
                           3,738 egp
                         </td>
                         <td class="text-center">
-                          <a class="btn" href="viewEmployee.html">View</a>
+                          <a class="btn" href="viewEmployee.php">View</a>
                         </td>
                         <td class="text-center">
-                          <a class="btn" href="editEmployee.html">Edit</a>
+                          <a class="btn" href="editEmployee.php">Edit</a>
                         </td>
                       </tr>
                       <tr>
@@ -502,10 +502,10 @@
                           3,789 egp
                         </td>
                         <td class="text-center">
-                          <a class="btn" href="ViewEmployee.html">View</a>
+                          <a class="btn" href="ViewEmployee.php">View</a>
                         </td>
                         <td class="text-center">
-                          <a class="btn" href="editEmployee.html">Edit</a>
+                          <a class="btn" href="editEmployee.php">Edit</a>
                         </td>
                       </tr>
                       <tr>
@@ -520,10 +520,10 @@
                           7,142 egp
                         </td>
                         <td class="text-center">
-                          <a class="btn" href="ViewEmployee.html">View</a>
+                          <a class="btn" href="ViewEmployee.php">View</a>
                         </td>
                         <td class="text-center">
-                          <a class="btn" href="editEmployee.html">Edit</a>
+                          <a class="btn" href="editEmployee.php">Edit</a>
                         </td>
                       </tr>
                       <td></td>

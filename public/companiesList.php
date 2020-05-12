@@ -1,5 +1,7 @@
 <?php
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 define('__ROOT__', "../app/");
 require_once(__ROOT__ . "model/company_model.php");
 require_once(__ROOT__ . "model/companies_model.php");

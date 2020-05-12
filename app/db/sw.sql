@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2020 at 03:24 PM
+-- Generation Time: May 12, 2020 at 11:10 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -43,9 +43,9 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`company_id`, `company_name`, `email`, `curl`, `phoneNumber`, `cAddress`, `cType`) VALUES
-(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '0177676784444', 'Cairo', 'test'),
-(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '08738634627', 'Giza', 'test'),
-(3, 'CRM', 'crm@hotmail.com', 'www.crm.com', '01176767878', 'Obour', 'test');
+(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '01776767844445', 'Cairo', 'test'),
+(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '0873863462750', 'Giza', 'test'),
+(3, 'CRM', 'crm@hotmail.com', 'www.crm.com', '0117676787890', 'Obour', 'test');
 
 -- --------------------------------------------------------
 
@@ -73,8 +73,8 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`ID`, `First_Name`, `Last_Name`, `email`, `address`, `Dep`, `mobile`, `DOB`, `degree`, `emp_date`, `salary`, `comp_id`) VALUES
-(1, 'amr', 'Ahmed', 'amrahmed12@yahoo.com', 'cairo', 'Management', '01012345643', '2017-11-08', 'csc', '2020-03-02', 5000, 2),
-(2, 'Khaled', 'Ali', 'KhaledAli19@yahoo.com', 'Madina nasr', 'Accounting', '0101239876', '2020-01-05', 'Bussiness', '2020-03-11', 6000, 3);
+(1, 'omar', 'Ahmed', 'amrahmed12@yahoo.com', 'cairo', 'Management', '01012345643', '2017-11-08', 'csc', '2020-03-02', 60000, 2),
+(2, 'Khaled', 'Ali', 'KhaledAli19@yahoo.com', 'Madina nasr', 'Accounting', '01012398760', '2020-01-05', 'Bussiness', '2020-03-11', 6000, 3);
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ID`, `name`, `description`, `pic`, `origin`) VALUES
-(1, 'peanut', 'fosdo2', '', 123);
+(1, 'peanut', 'fosdo2', '', 123),
+(2, 'pepper', 'Black pepper', '', 123),
+(3, 'sodany', 'mo2armeshat', '', 22),
+(4, 'salt', 'mineral', '', 45);
 
 -- --------------------------------------------------------
 
@@ -115,9 +118,10 @@ CREATE TABLE `storage` (
 --
 
 INSERT INTO `storage` (`ID`, `productname`, `product_id`, `quantity`) VALUES
-(1, 'folla', 60, 5),
-(2, 'sham3a', 33, 7),
-(3, 'mnwra', 23, 16);
+(1, 'salt', 4, 5),
+(2, 'sodany', 3, 7),
+(3, 'pepper', 2, 16),
+(4, 'peanut', 1, 16);
 
 -- --------------------------------------------------------
 
@@ -127,8 +131,8 @@ INSERT INTO `storage` (`ID`, `productname`, `product_id`, `quantity`) VALUES
 
 CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
-  `username` varchar(24) NOT NULL,
-  `password` varchar(24) NOT NULL,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `type` int(11) NOT NULL,
   `emp_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -138,8 +142,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `username`, `password`, `type`, `emp_ID`) VALUES
-(1, 'khaleduser', '123', 101, 2),
-(2, 'admingamed', '1234', 211, 1);
+(2, 'admingamed', '$2y$10$Tz3320XG.dZmKlaFhdNcae3qPvA63UtA0FnKuXN6taoH8TG87eMBS', 1, 2),
+(126, 'omar', '$2y$10$Tz3320XG.dZmKlaFhdNcae3qPvA63UtA0FnKuXN6taoH8TG87eMBS', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -167,7 +171,8 @@ ALTER TABLE `product`
 -- Indexes for table `storage`
 --
 ALTER TABLE `storage`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `user`
@@ -196,23 +201,29 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `storage`
+--
+ALTER TABLE `storage`
+  ADD CONSTRAINT `storage_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`ID`);
 
 --
 -- Constraints for table `user`

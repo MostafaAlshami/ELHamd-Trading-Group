@@ -15,7 +15,6 @@ require_once(__ROOT__ . "view/company_view.php");
 $model = new Companies();
 $controller = new CompanyController($model);
 $view = new CompaniesView($controller, $model);
-
 if (isset($_GET['action']) && !empty($_GET['action'])) {
     switch ($_GET['action']) {
         case 'view':
@@ -42,6 +41,16 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                   document.getElementById('id04').style.display = 'block';
                 };
               </script>";
+            break;
+        case 'delete':
+            $company_id = $_GET['id'];
+            $model2 = new Company($company_id);
+            $controller2 = new CompanyController($model2);
+            $view2 = new companyView($controller2, $model2);
+            $controller2->deleteComp();
+            echo '<script>window.location.href= "companiesList.php";</script>';
+
+
             break;
     }
 }

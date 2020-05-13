@@ -32,9 +32,9 @@ class CompanyController extends Controller
   }
 
 
-  public function deleteComp($company_id)
+  public function deleteComp()
   {
-    $company_id = $_POST['company_id'];
-    $this->model->getCompany($company_id)->deleteCompany($company_id);
+    $company_id = $_GET['id'];
+    $this->model->deleteCompany($company_id);
   }
 }

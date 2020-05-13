@@ -143,7 +143,6 @@ class Company extends Model
     ///CHECK echos
     if ($this->dbh->query($sql) === true) {
       echo "Records updated successfully.";
-
     } else {
       echo "ERROR: Could not execute $sql. " . $this->conn->error;
     }
@@ -152,7 +151,7 @@ class Company extends Model
 
   function deleteCompany($company_id)
   {
-    $sql = "DELETE FROM company WHERE Ccompany_id = $company_id";
+    $sql = "DELETE FROM company WHERE Company_id = $company_id";
 
     ///CHECK echos
     if ($this->dbh->query($sql) === true) {

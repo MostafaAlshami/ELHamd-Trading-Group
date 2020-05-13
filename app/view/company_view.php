@@ -124,7 +124,7 @@ class CompanyView extends View
         $str .= " <tr> ";
         $str .= " <td></td> ";
         $str .= ' <td> <button type="submit" class="btn" name ="save"> Save </button> </td> ';  //SAVE ACTION
-        $str .= ' <td> <button class="btn" href=""> Delete </button> </td> ';  //DELETE ACTION
+        $str .= ' <td> <a class="btn" name ="delete" href=\'companiesList.php?action=delete&id= " ' . $this->model->getID() . '"\' onClick="javascript:return confirm(\'are you sure you want to delete this?\');"> Delete </a> </td> ';  //DELETE ACTION
         $str .= ' <td><input type="hidden"  name ="company_id" value="' . $this->model->getID() . '"></td> </tr> ';
 
         $str .= " </tbody> </table> ";

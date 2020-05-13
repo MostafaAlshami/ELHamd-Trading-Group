@@ -10,9 +10,10 @@ class Product extends Model
   private $name;
   private $origin;
   private $description;
+  private $pic;
 
 
-   function __construct($ID, $name="", $origin="", $description="")
+   function __construct($ID, $name="", $description="", $pic="", $origin="")
   {
     $this->ID = $ID;   
     $this->db = $this->connect();
@@ -25,6 +26,7 @@ class Product extends Model
     {
       $this->origin = $origin;
       $this->description = $description;
+      $this->pic = $pic;
     }
   }
   
@@ -81,7 +83,26 @@ class Product extends Model
     return $this;
   }
 
-  
+  /**
+   * Get the value of pic
+   */ 
+  public function getPic()
+  {
+    return $this->pic;
+  }
+
+  /**
+   * Set the value of pic
+   *
+   * @return  self
+   */ 
+  public function setPic($pic)
+  {
+    $this->pic = $pic;
+
+    return $this;
+  }
+
   function readProduct($ID)
   {
     $sql = "SELECT * FROM product where ID =" .$ID;
@@ -92,12 +113,14 @@ class Product extends Model
       $row = $db->fetchRow();
       $this->name = $row["name"];
       $this->description = $row["description"];
+      $this->pic = $row["pic"];
       $this->origin = $row["origin"];
     }
     else
     {
       $this->name = "";
       $this->description = "";
+      $this->pic = "";
       $this->origin = "";
     }
   }
@@ -107,6 +130,8 @@ class Product extends Model
 
 
   
+  
+
   
   }
 

@@ -192,7 +192,7 @@
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">View All Products</a>
+                    <a class="dropdown-item" href="product_public.php">View All Products</a>
                     <a class="dropdown-item" href="#">Add New Product</a>
                     <a class="dropdown-item" href="#">Edit Product</a>
                     <a class="dropdown-item text-danger" href="#">Remove Data</a>

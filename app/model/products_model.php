@@ -35,8 +35,8 @@ class Products extends Model {
 		}
 	}
 
-	function insertProduct($prname, $prdesc, $prorigin){
-		$sql = "INSERT INTO product (name, description, origin) VALUES ('$prname','$prdesc', '$prorigin')";
+	function insertProduct($prname, $prdesc, $pic, $prorigin){
+		$sql = "INSERT INTO product (name, description, pic, origin) VALUES ('$prname','$prdesc', '$pic', '$prorigin')";
 		if($this->db->query($sql) === true){
 			echo "Records inserted successfully.";
 			$this->fillArray();
@@ -72,13 +72,13 @@ class Products extends Model {
 	}*/
   
   
-	function editProduct($prid, $prname, $prdesc, $prorigin)
+	function editProduct($prid, $prname, $prdesc, $pic, $prorigin)
 	{
 	  $prname = $this->dbh->getConn()->real_escape_string($prname);
 	  $prdesc = $this->dbh->getConn()->real_escape_string($prdesc);
 	  $prorigin = $this->dbh->getConn()->real_escape_string($prorigin);
 	 
-	 $sql = "UPDATE product SET name = '$prname', description = '$prdesc', origin = '$prorigin', WHERE ID = $prid"; 
+	 $sql = "UPDATE product SET name = '$prname', description = '$prdesc', pic = '$pic',  origin = '$prorigin', WHERE ID = $prid"; 
   
 	  ///CHECK echos
 	  if($this->dbh->query($sql) === true)

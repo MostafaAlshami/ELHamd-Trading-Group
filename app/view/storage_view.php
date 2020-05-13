@@ -36,9 +36,7 @@ class ViewStorage extends View{
             $str .= "</tbody>";
             $str .= "</table>";
             $str .= "</div>";
-            if(isset($_GET['Message'])){
-                echo $_GET['Message'];
-            }
+
         if (count($storages) <= 0)
         {
             $str .= "<div class='table-responsive'>No Items</div>";
@@ -122,27 +120,31 @@ class ViewStorage extends View{
                 $current = $Storage->getcurrentq();
                 $str .= "<div class='table-responsive'>";
                 $str .= "<table class='table'>";
+                $str .= "<form action='Create_PDF.php' method='post'>";
                 $str .= "<thead class='text-primary'>";
                 $str .= "<th>Product ID</th>";
-                $str .= "<th><input required   id='" . $SID . "_product_id' type='text' class='form-control' value='" . $Storage->getproduct_id() . "' ></th>";
+                $str .= "<th><input required  name='prid' id='" . $SID . "_product_id' type='text' class='form-control' value='" . $Storage->getproduct_id() . "' ></th>";
                 $str .= "<th>Product Name</th>";
-                $str .= "<th><input required   id='" . $SID . "_product_name' type='text' class='form-control' value='" . $productName . "' ></th>";
+                $str .= "<th><input required   name='prname' id='" . $SID . "_product_name' type='text' class='form-control' value='" . $productName . "' ></th>";
                 $str .= "<th>Quantity</th>";
-                $str .= "<th><input required   id='" . $SID . "_currentq' type='number' class='form-control' value='". $current ."'></th>";
+                $str .= "<th><input required   name='prq' id='" . $SID . "_currentq' type='number' class='form-control' value='". $current ."'></th>";
                 $str .= "<th></th><th></th>";
                 $str .= "</thead>";
                 $str .= "<tbody>";
                 $str .= "<tr>";
                 $str .= "<th>Date</th>";
-                $str .= "<td><input required   id='" . $SID . "_prd'type='date' class='form-control' value='". $Storage->getdate() ."'></td>  ";                                     
+                $str .= "<td><input required   name='prd' id='" . $SID . "_prd'type='date' class='form-control' value='". $Storage->getdate() ."'></td>  ";                                     
                 $str.=" <th>Quantity In</th>";
-                $str.= "<td><input required   id='" . $SID . "_inq'type='number' class='form-control' value='". $Storage->getInq() ."'></td>";
+                $str.= "<td><input required   name='prqin' id='" . $SID . "_inq'type='number' class='form-control' value='". $Storage->getInq() ."'></td>";
                 $str.= " <th>Quantity Out</th>";
-                $str.= " <td><input required   id='" . $SID . "_outq'type='number' class='form-control' value='". $Storage->getOutq() ."'></td>";
+                $str.= " <td><input required   name='prqout' id='" . $SID . "_outq'type='number' class='form-control' value='". $Storage->getOutq() ."'></td>";
                 $str .= "</tr>";
                 $str .= "<tr>";
                 $str .= "<td><button id='" . $SID . "_submit' class='btn' onclick='UpdateStorage(" . $SID . ")'>Modify</button></td><td id='" . $SID . "_error_message' colspan='7'><button id='" . $SID . "_submit' class='btn' onclick='DeleteStorage(" . $SID . ")'>Delete</button></td><td id='" . $SID . "_error_message' colspan='7'></td>";
+                $str .= "<td><input type=submit value=Report class='btn' ></td>";
+
                 $str .= "</tr>";
+                $str .= "</form>";
                 $str .= "</tbody>";
                 $str .= "</table>";
                 $str .= "</div>";

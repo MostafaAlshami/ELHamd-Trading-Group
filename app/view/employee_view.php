@@ -22,7 +22,7 @@ class EmployeeView extends View
 
     $str .= ' <thead class=" text-primary"> ';
     $str .= " <th> Code </th> <th></th> <th></th> ";
-    $str .= ' <th class="text-left"> '. $this->model->getCompid() .'</th> </thead> ';
+    $str .= ' <th class="text-left"> '. $this->model->getempid() .'</th> </thead> ';
 
     $str .= " <tbody> ";    
     

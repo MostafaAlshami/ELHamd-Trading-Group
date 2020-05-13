@@ -20,7 +20,7 @@ class Employees extends Model {
     while ($row = $result->fetch_assoc())
     {
      array_push($this->employees, new Employee($row["ID"],$row["First_Name"],$row["Last_Name"]
-          ,$row["email"],$row["address"],$row["mobile"],$row["DOB"],$row["degree"],
+          ,$row["email"],$row["address"],$row["Dep"], $row["mobile"],$row["DOB"],$row["degree"],
           $row["emp_date"], $row["salary"],$row["comp_id"]));
     }
     

@@ -179,7 +179,7 @@ class Employee extends Model{
           $this->emplastname = $row["Last_Name"];
           $this->email = $row["email"];
           $this->address = $row["address"];
-          $this->dep = $row["Dep"];
+          //$this->dep = $row["Dep"];
           $this->mobile = $row["mobile"];
           $this->birthdate = $row["DOB"];
           $this->edudegree = $row["degree"];

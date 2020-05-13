@@ -205,19 +205,15 @@ $view = new ViewProduct($controller, $model);
             </nav>
             <div class="panel-header panel-header-sm">
             </div>
-            <div class="content">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-
-                            </div>
-                            
+           <div class='content'>
+           <div style='background: green;  width: 1000px; height: 150px' class='card card-user'>
                               <?php
-                              echo $view->output();
+                              echo $view->output($model);
                               ?>  
-                  
-                    
+                             
+                              </div>
+			</div>
+            </div>
             <footer class="footer">
                 <div class=" container-fluid ">
 

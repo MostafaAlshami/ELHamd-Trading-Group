@@ -10,10 +10,11 @@ class Storage extends Model
   private $product_name;
   private $product_id;
   private $currentq;
+  private $date;
   private $inq;
   private $outq;
 
-   function __construct($SID, $product_id="", $product_name="", $currentq="", $inq="", $outq="" )
+   function __construct($SID, $product_id="", $product_name="", $currentq="", $date="", $inq="", $outq="" )
   {
     $this->SID = $SID;   
     $this->db = $this->connect();
@@ -27,6 +28,7 @@ class Storage extends Model
       $this->product_id = $product_id;
       $this->product_name = $product_name;
       $this->currentq = $currentq;
+      $this->date =$date;
       $this->inq = $inq;
       $this->outq = $outq;
     }
@@ -51,14 +53,25 @@ class Storage extends Model
   }
 
  
+  public function setdate($date)
+  {
+    $this->date = $date;
+
+    return $this;
+  }
+  
+  public function getdate()
+  {
+    return $this->date;
+  }
+
+ 
   public function setproduct_id($product_id)
   {
     $this->product_id = $product_id;
 
     return $this;
   }
-  
-
   public function getcurrentq()
   {
     return $this->currentq;
@@ -104,6 +117,7 @@ class Storage extends Model
       $this->product_id = $row["product_id"];
       $this->product_name = $row["productname"];
       $this->currentq = $row["currentq"];
+      $this->date = $row["date"];
       $this->inq = $row["inq"];
       $this->outq = $row["outq"];
 
@@ -114,6 +128,7 @@ class Storage extends Model
       $this->product_name = "";
       $this->product_id = "";
       $this->currentq = "";
+      $this->date = "";
       $this->inq = "";
       $this->outq = "";
 

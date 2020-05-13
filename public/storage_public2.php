@@ -6,7 +6,6 @@ require_once(__ROOT__ . "view/storage_view.php");
 $model = new Storages();
 $controller = new StorageController($model);
 $view = new ViewStorage($controller, $model);
-
 ?>
 
 

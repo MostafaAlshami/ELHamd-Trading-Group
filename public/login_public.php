@@ -13,41 +13,6 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
 }
 
-// if(isset($_POST['login']))	{
-// 	$username=$_REQUEST["uname"];
-//   $pass= $_REQUEST["psw"];
-//   $pass_hash=password_hash($pass, PASSWORD_BCRYPT);
-// 	$sql = "SELECT * FROM user where username='$username' and password='$pass_hash'";
-// 	$dbh = new Dbh();
-// 	$result = $dbh->query($sql);
-// 	if ($result->num_rows == 1){
-// 		$row = $dbh->fetchRow();
-// 		$_SESSION["ID"]=$row["ID"];
-//         $_SESSION["username"]=$row["username"];
-        
-// 		header("Location:dashboard.php");
-//     }
-//     else
-//     {
-//         header("Location:CompanyProfile.php");
-//     }
-// }
-
-// if(isset($_POST["login"])){
-//     $username=$_POST['uname'];
-//     $username=filter_var($username, FILTER_SANITIZE_STRING);
-//     $sql="Select * from user where username='"."$username"."' and password='".$_POST["psw"]."'";
-//     $result = mysqli_query($conn,$sql);
-//     if(mysqli_num_rows($result)>0)
-//     {
-//         header("location: dashboard.php");
-        
-//     }
-//     else{
-
-//         echo("login not successful");
-// }
-// }
 
 ?>
 <!DOCTYPE html>

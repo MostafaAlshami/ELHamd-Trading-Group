@@ -39,6 +39,13 @@
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <script>
+    function display() {
+      document.getElementById('id02').style.display = 'block';
+      document.getElementById('id01').style.display = 'none';
+
+    }
+  </script>
 </head>
 
 <body class="">
@@ -171,13 +178,15 @@
       <!-- End Navbar -->
       <div class="panel-header panel-header-sm">
       </div>
-      <div class="content">
+      <div class="content" id="id01" style="display: block">
         <div class="row">
+
           <div class="col-lg-4">
+
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Global Sales</h5>
-                <h4 class="card-title"><a href="products.php">View All Products</a></h4>
+                <h4 class="card-title"><a href="#" onclick="display()">View All Products</a></h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
@@ -194,10 +203,10 @@
 
                 <div class="row">
 
-                  <img src="file:///Users/janahamdy/Desktop/ElHamd/Products/BFAVP.jpg" style="width:50%">
-                  <img src="file:///Users/janahamdy/Desktop/ElHamd/Products/fit.jpeg" style="width:50%">
-                  <img src="file:///Users/janahamdy/Desktop/ElHamd/Products/unnamed.jpg" style="width:50%">
-                  <img src="file:///Users/janahamdy/Desktop/ElHamd/Products/80242-Org-Tumeric-560x325.jpg" style="width:50%">
+                  <img src="../public/Products/BFAVP.jpg" style="width:50%">
+                  <img src="../public/Products/fit.jpeg" style="width:50%">
+                  <img src="../public/products/unnamed.jpg" style="width:50%">
+                  <img src="../public/Products/80242-Org-Tumeric-560x325.jpg" style="width:50%">
 
 
                 </div>
@@ -206,163 +215,164 @@
 
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-category">2020 Companies</h5>
-                <h4 class="card-title"><a href="companies.php"> View All Companies</a></h4>
-                <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="companies.php">View All Companies</a>
-                    <a class="dropdown-item" href="companyAdd.php">Add New Company</a>
-                    <a class="dropdown-item" href="companyEdit.php">Edit Company</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
+          <?php if (isset($_SESSION["ID"])) { ?>
+            <div class="col-lg-4 col-md-6">
+              <div class="card card-chart">
+                <div class="card-header">
+                  <h5 class="card-category">2020 Companies</h5>
+                  <h4 class="card-title"><a href="companies.php"> View All Companies</a></h4>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                      <i class="now-ui-icons loader_gear"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="companies.php">View All Companies</a>
+                      <a class="dropdown-item" href="companyAdd.php">Add New Company</a>
+                      <a class="dropdown-item" href="companyEdit.php">Edit Company</a>
+                      <a class="dropdown-item text-danger" href="#">Remove Data</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Company Name
+                      </th>
+
+                      <th>
+                        Product
+                      </th>
+
+                      <th class="text-center">
+                        View
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">
+                          Abu Auf
+                        </td>
+
+                        <td>
+                          PopCorn Seeds
+                        </td>
+
+
+                        <td class="text-center">
+                          <a href="companyProfile.php" class="btn">View</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          Arisco
+                        </td>
+
+                        <td>
+                          PopCorn Seeds
+                        </td>
+
+
+
+                        <td class="text-center">
+                          <a href="companyProfile.php" class="btn">View</a>
+                        </td>
+                      </tr>
+
+
+
+                    </tbody>
+                  </table>
+
+
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+
                   </div>
                 </div>
               </div>
-
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class=" text-primary">
-                    <th>
-                      Company Name
-                    </th>
-
-                    <th>
-                      Product
-                    </th>
-
-                    <th class="text-center">
-                      View
-                    </th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="text-center">
-                        Abu Auf
-                      </td>
-
-                      <td>
-                        PopCorn Seeds
-                      </td>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="card card-chart">
+                <div class="card-header">
+                  <h5 class="card-category">Active Contracts</h5>
+                  <h4 class="card-title"><a href="allcontracts.php">View Contracts</a></h4>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                      <i class="now-ui-icons loader_gear"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="allContracts.php">View All Contracts</a>
+                      <a class="dropdown-item" href="contractAdd.php">Add New Contract</a>
+                      <a class="dropdown-item" href="contractEdit.php">Edit Contract</a>
+                      <a class="dropdown-item text-danger" href="#">Remove Data</a>
+                    </div>
+                  </div>
+                </div>
 
 
-                      <td class="text-center">
-                        <a href="companyProfile.php" class="btn">View</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center">
-                        Arisco
-                      </td>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Conract Number
+                      </th>
 
-                      <td>
-                        PopCorn Seeds
-                      </td>
+                      <th>
+                        Product
+                      </th>
+
+                      <th class="text-center">
+                        View
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">
+                          1234533
+                        </td>
+
+                        <td>
+                          PopCorn Seeds
+                        </td>
+
+
+                        <td class="text-center">
+                          <a href="contractProfile.php" class="btn">View</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          1234533
+                        </td>
+
+                        <td>
+                          PopCorn Seeds
+                        </td>
 
 
 
-                      <td class="text-center">
-                        <a href="companyProfile.php" class="btn">View</a>
-                      </td>
-                    </tr>
+                        <td class="text-center">
+                          <a href="contractProfile.php" class="btn">View</a>
+                        </td>
+                      </tr>
 
 
 
-                  </tbody>
-                </table>
+                    </tbody>
+                  </table>
 
-
-              </div>
-              <div class="card-footer">
-                <div class="stats">
 
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-category">Active Contracts</h5>
-                <h4 class="card-title"><a href="allcontracts.php">View Contracts</a></h4>
-                <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="allContracts.php">View All Contracts</a>
-                    <a class="dropdown-item" href="contractAdd.php">Add New Contract</a>
-                    <a class="dropdown-item" href="contractEdit.php">Edit Contract</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
+                <div class="card-footer">
+                  <div class="stats">
+
                   </div>
                 </div>
               </div>
-
-
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class=" text-primary">
-                    <th>
-                      Conract Number
-                    </th>
-
-                    <th>
-                      Product
-                    </th>
-
-                    <th class="text-center">
-                      View
-                    </th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="text-center">
-                        1234533
-                      </td>
-
-                      <td>
-                        PopCorn Seeds
-                      </td>
-
-
-                      <td class="text-center">
-                        <a href="contractProfile.php" class="btn">View</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center">
-                        1234533
-                      </td>
-
-                      <td>
-                        PopCorn Seeds
-                      </td>
-
-
-
-                      <td class="text-center">
-                        <a href="contractProfile.php" class="btn">View</a>
-                      </td>
-                    </tr>
-
-
-
-                  </tbody>
-                </table>
-
-
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-
-                </div>
-              </div>
             </div>
-          </div>
         </div>
         <div class="row">
           <div class="col-md-6">
@@ -538,23 +548,172 @@
                 </div>
               </div>
             </div>
+
+          </div>
+
+        </div>
+      <?php } ?>
+      </div>
+    </div>
+
+    <div class="content" id="id02" style="display: none">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-user">
+            <div class="image">
+
+            </div>
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                  <h5 class="title">Dry Black lemon</h5>
+                </a>
+                <p class="description">
+                  India
+                </p>
+              </div>
+              <p class="description text-center">
+                <b> Size : 5cm </b> <br>
+                <b> Purity : 99% </b> <br>
+                <b> Humidity : 99% </b> <br>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-user">
+            <div class="image">
+
+            </div>
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                  <h5 class="title">Dry Black lemon</h5>
+                </a>
+                <p class="description">
+                  India
+                </p>
+              </div>
+              <p class="description text-center">
+                <b> Size : 5cm </b> <br>
+                <b> Purity : 99% </b> <br>
+                <b> Humidity : 99% </b> <br>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-user">
+            <div class="image">
+
+            </div>
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                  <h5 class="title">Dry Black lemon</h5>
+                </a>
+                <p class="description">
+                  India
+                </p>
+              </div>
+              <p class="description text-center">
+                <b> Size : 5cm </b> <br>
+                <b> Purity : 99% </b> <br>
+                <b> Humidity : 99% </b> <br>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class=" container-fluid ">
-          <nav>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-user">
+            <div class="image">
 
-          </nav>
-          <div class="copyright" id="copyright">
-            &copy;
-            <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </div>
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                  <h5 class="title">Dry Black lemon</h5>
+                </a>
+                <p class="description">
+                  India
+                </p>
+              </div>
+              <p class="description text-center">
+                <b> Size : 5cm </b> <br>
+                <b> Purity : 99% </b> <br>
+                <b> Humidity : 99% </b> <br>
+              </p>
+            </div>
           </div>
         </div>
-      </footer>
+        <div class="col-md-4">
+          <div class="card card-user">
+            <div class="image">
+
+            </div>
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                  <h5 class="title">Dry Black lemon</h5>
+                </a>
+                <p class="description">
+                  India
+                </p>
+              </div>
+              <p class="description text-center">
+                <b> Size : 5cm </b> <br>
+                <b> Purity : 99% </b> <br>
+                <b> Humidity : 99% </b> <br>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-user">
+            <div class="image">
+
+            </div>
+            <div class="card-body">
+              <div class="author">
+                <a href="#">
+                  <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                  <h5 class="title">Dry Black lemon</h5>
+                </a>
+                <p class="description">
+                  India
+                </p>
+              </div>
+              <p class="description text-center">
+                <b> Size : 5cm </b> <br>
+                <b> Purity : 99% </b> <br>
+                <b> Humidity : 99% </b> <br>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <footer class="footer">
+      <div class=" container-fluid ">
+
+        <div class="copyright" id="copyright">
+          &copy;
+          <script>
+            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+          </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>.
+          Coded by
+          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+        </div>
+      </div>
+    </footer>
+  </div>
   </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>

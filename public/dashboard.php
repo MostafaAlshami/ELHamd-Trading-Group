@@ -193,8 +193,8 @@
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="product_public.php">View All Products</a>
-                    <a class="dropdown-item" href="#">Add New Product</a>
-                    <a class="dropdown-item" href="#">Edit Product</a>
+                    <a class="dropdown-item" href="product_public.php?action=add">Add New Product</a>
+                    <a class="dropdown-item" href="product_public.php?action=edit">Edit Product</a>
                     <a class="dropdown-item text-danger" href="#">Remove Data</a>
                   </div>
                 </div>

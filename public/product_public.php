@@ -206,7 +206,8 @@ $view = new ViewProduct($controller, $model);
             <div class="panel-header panel-header-sm">
             </div>
            <div class='content'>
-           <div class='card card-user'>
+           <div  style='border: thin solid orange' class='card card-user'>
+               
                               <?php
                               echo $view->output($model);
                               ?>  

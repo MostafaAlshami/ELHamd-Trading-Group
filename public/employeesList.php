@@ -275,7 +275,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                 <?php
                 $empid = $_GET['id'];
                 $x = $empid;
-                $model2 = new Employees($x);
+                $model2 = new Employee($x);
                 $controller2 = new EmployeeController($model2);
                 $view2 = new EmployeeView($controller2, $model2);
                 ?>

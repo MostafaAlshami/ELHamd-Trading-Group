@@ -15,6 +15,7 @@ require_once(__ROOT__ . "view/company_view.php");
 $model = new Companies();
 $controller = new CompanyController($model);
 $view = new CompaniesView($controller, $model);
+
 if (isset($_GET['action']) && !empty($_GET['action'])) {
     switch ($_GET['action']) {
         case 'view':
@@ -43,16 +44,16 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
               </script>";
             break;
         case 'delete':
-            $company_id = $_GET['id'];
-            $model2 = new Company($company_id);
-            $controller2 = new CompanyController($model2);
-            $view2 = new companyView($controller2, $model2);
-            $controller2->deleteComp();
-            echo '<script>window.location.href= "companiesList.php";</script>';
-
-
-            break;
-    }
+                $company_id = $_GET['id'];
+                $model2 = new Company($company_id);
+                $controller2 = new CompanyController($model2);
+                $view2 = new companyView($controller2, $model2);
+                $controller2->deleteComp();
+                echo '<script>window.location.href= "companiesList.php";</script>';
+    
+    
+                break;
+        }
 }
 
 
@@ -81,6 +82,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 <html lang="en">
 
 <head>
+    <script src="../assets/js/companyvalid.js" type="text/javascript"></script>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
@@ -371,6 +373,8 @@ if (isset($_GET['action']) && !empty($_GET['action']))
     <script src="../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+    <script src="../assets/js/companyvalid.js" type="text/javascript"></script>
+
 </body>
 
 </html>

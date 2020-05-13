@@ -30,7 +30,7 @@ class Empviewpage extends View{
 
         $str .= ' </tbody> ';
         $str .= ' </table> ';
-        $str .= ' <a class="btn" href="addEmployee.php"> Add Employee </a> ';
+        $str .= ' <a class="btn" href=\'employeesList.php?action=add&id= " "\'> Add Employee </a> ';
         $str .= ' </div> ';
 
         return $str;

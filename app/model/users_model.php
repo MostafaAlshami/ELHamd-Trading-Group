@@ -67,5 +67,11 @@ class users_model extends model
                 header("location: dashboard.php");
             }
         }
+        else
+        {
+            echo "Login Failed";
+            header("location:login_public.php");
+        }
+        
     }
 }

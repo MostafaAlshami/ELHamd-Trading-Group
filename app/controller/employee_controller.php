@@ -19,7 +19,7 @@ class EmployeeController extends Controller
     $compid = $_POST['code'];
 
 
-    $this->model->insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$salary,$compid);
+    $this->model->insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$Salary,$compid);
   }  
   
   public function editEmp()

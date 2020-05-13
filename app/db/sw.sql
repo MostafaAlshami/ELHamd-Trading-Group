@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 08:52 AM
+-- Generation Time: May 13, 2020 at 07:28 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -32,18 +32,21 @@ CREATE TABLE `company` (
   `company_id` int(6) UNSIGNED NOT NULL,
   `company_name` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `url` varchar(50) DEFAULT NULL,
+  `curl` varchar(50) DEFAULT NULL,
   `phoneNumber` varchar(30) DEFAULT NULL,
-  `address` varchar(30) NOT NULL
+  `cAddress` varchar(30) NOT NULL,
+  `cType` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `company`
 --
 
-INSERT INTO `company` (`company_id`, `company_name`, `email`, `url`, `phoneNumber`, `address`) VALUES
-(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '017767678', 'Cairo'),
-(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '08738634627', '');
+INSERT INTO `company` (`company_id`, `company_name`, `email`, `curl`, `phoneNumber`, `cAddress`, `cType`) VALUES
+(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '017767678445', 'Obour', 'test'),
+(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '08738634627', 'Giza', 'test'),
+(3, 'CRM', 'crm@hotmail.com', 'www.crm.com', '01176767878', 'Cairo', 'test'),
+(4, 'CRM', 'crm@gmail.vom', 'www.crm.com', '01776767845', 'golf city', 'trading');
 
 -- --------------------------------------------------------
 
@@ -95,9 +98,9 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`ID`, `name`, `description`, `pic`, `origin`) VALUES
 (20, 'Hazelnuts', 'bondo2', 'https://image.shutterstock.com/image-vector/vector-realistic-illustration-hazelnut-peeled-260nw-1167149488.jpg', 'India'),
-(30, 'Cashew', 'cajew', '', 'Sudan'),
-(40, 'Potato', 'btates', '', 'Egypt'),
-(45, 'Peanuts', 'fosdo2', '', 'Russia');
+(30, 'Cashew', 'cajew', 'https://image.shutterstock.com/image-photo/roasted-cashew-nuts-green-leaves-260nw-1239793840.jpg', 'Sudan'),
+(40, 'Potato', 'btates', 'https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/02/raw-potatoes-potato-1296x728-header.jpg?w=1155&h=1528', 'Egypt'),
+(45, 'Peanuts', 'fosdo2', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/peanuts-royalty-free-image-616003590-1532549624.jpg', 'Russia');
 
 -- --------------------------------------------------------
 
@@ -114,6 +117,16 @@ CREATE TABLE `storage` (
   `inq` int(11) NOT NULL,
   `outq` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `storage`
+--
+
+INSERT INTO `storage` (`ID`, `productname`, `product_id`, `currentq`, `date`, `inq`, `outq`) VALUES
+(1, 'Peanuts', 45, 200, '2020-05-05', 300, 400),
+(2, 'Hazelnuts', 20, 400, '2020-05-05', 100, 10),
+(3, 'Cashew', 30, 1000, '2020-05-05', 800, 50),
+(4, 'Potato', 40, 50, '2020-05-05', 0, 450);
 
 -- --------------------------------------------------------
 
@@ -184,7 +197,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `company_id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employee`

@@ -44,16 +44,16 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
               </script>";
             break;
         case 'delete':
-                $company_id = $_GET['id'];
-                $model2 = new Company($company_id);
-                $controller2 = new CompanyController($model2);
-                $view2 = new companyView($controller2, $model2);
-                $controller2->deleteComp();
-                echo '<script>window.location.href= "companiesList.php";</script>';
-    
-    
-                break;
-        }
+            $company_id = $_GET['id'];
+            $model2 = new Company($company_id);
+            $controller2 = new CompanyController($model2);
+            $view2 = new companyView($controller2, $model2);
+            $controller2->deleteComp();
+            echo '<script>window.location.href= "companiesList.php";</script>';
+
+
+            break;
+    }
 }
 
 
@@ -245,9 +245,9 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                 <?php
                 $company_id = $_GET['id'];
                 $x = $company_id;
-                $model2 = new Company($x);
-                $controller2 = new CompanyController($model2);
-                $view2 = new companyView($controller2, $model2);
+                $model4 = new Company($x);
+                $controller4 = new CompanyController($model4);
+                $view4 = new companyView($controller4, $model4);
                 ?>
                 <div class="row">
                     <div class=" col-md-10">
@@ -264,12 +264,12 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                 <?php
 
 
-                                echo $view2->editCard();
+                                echo $view4->editCard();
 
                                 if (isset($_POST['save'])) {
 
                                     // $type = "ay 7aga";
-                                    $controller2->editComp();
+                                    $controller4->editComp();
                                     echo '<script>window.location.href= "companiesList.php";</script>';
                                 }
                                 ?>

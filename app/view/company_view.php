@@ -75,7 +75,13 @@ class CompanyView extends View
 
         $str .= " <tr>";
         $str .= " <td> Type </td>  <td></td> <td></td> ";
-        $str .= ' <td> <input type="text"name ="type"  class="form-control" id="type" value=""> </td> </tr> ';
+        $str .= ' <td> <select id="type"name ="type" >
+        <option data-display="Choose Branch">Choose Type</option>
+
+        <option value="trading">Trading</option>
+        <option value="shipping">Shipping</option>
+       
+      </select> ';
 
         $str .= " <tr> ";
         $str .= " <td></td> ";

@@ -35,7 +35,7 @@ class CompanyView extends View
         $str .= " <tr> ";
         $str .= " <td></td> ";
         $str .= ' <td> <a class="btn" href=""> View contracts </a> </td> ';  //ACTIION
-        $str .= ' <td> <a class="btn" href="editCompany.php"> Edit Profile </a> </td> ';    //ACTIION
+        $str .= " <td class=\"text-right\"><a class=\"btn\" href='companiesList.php?action=edit&id= " . $this->model->getID() . "'  > Edit </a></td> ";   //check href
 
         $str .= " <td></td> </tr> ";
         $str .= " </tbody> </table> ";

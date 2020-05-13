@@ -1,3 +1,17 @@
+<?php
+
+define('__ROOT__', "../app/");
+require_once(__ROOT__ . "model/products_model.php");
+require_once(__ROOT__ . "controller/product_controller.php");
+require_once(__ROOT__ . "view/Product_view.php");
+
+$model = new Products();
+$controller = new ProductController($model);
+$view = new ViewProduct($controller, $model);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -198,149 +212,12 @@
                             <div class="image">
 
                             </div>
-                            <div class="card-body">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray"
-                                            src="file:///Users/janahamdy/Desktop/ElHamd/Products/unnamed.jpg" alt="...">
-                                        <h5 class="title">Dry Black lemon</h5>
-                                    </a>
-                                    <p class="description">
-                                        India
-                                    </p>
-                                </div>
-                                <p class="description text-center">
-                                    <b> Size : 5cm </b> <br>
-                                    <b> Purity : 99% </b> <br>
-                                    <b> Humidity : 99% </b> <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-
-                            </div>
-                            <div class="card-body">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray"
-                                            src="file:///Users/janahamdy/Desktop/ElHamd/Products/unnamed.jpg" alt="...">
-                                        <h5 class="title">Dry Black lemon</h5>
-                                    </a>
-                                    <p class="description">
-                                        India
-                                    </p>
-                                </div>
-                                <p class="description text-center">
-                                    <b> Size : 5cm </b> <br>
-                                    <b> Purity : 99% </b> <br>
-                                    <b> Humidity : 99% </b> <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-
-                            </div>
-                            <div class="card-body">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray"
-                                            src="file:///Users/janahamdy/Desktop/ElHamd/Products/unnamed.jpg" alt="...">
-                                        <h5 class="title">Dry Black lemon</h5>
-                                    </a>
-                                    <p class="description">
-                                        India
-                                    </p>
-                                </div>
-                                <p class="description text-center">
-                                    <b> Size : 5cm </b> <br>
-                                    <b> Purity : 99% </b> <br>
-                                    <b> Humidity : 99% </b> <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-
-                            </div>
-                            <div class="card-body">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray"
-                                            src="file:///Users/janahamdy/Desktop/ElHamd/Products/unnamed.jpg" alt="...">
-                                        <h5 class="title">Dry Black lemon</h5>
-                                    </a>
-                                    <p class="description">
-                                        India
-                                    </p>
-                                </div>
-                                <p class="description text-center">
-                                    <b> Size : 5cm </b> <br>
-                                    <b> Purity : 99% </b> <br>
-                                    <b> Humidity : 99% </b> <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-
-                            </div>
-                            <div class="card-body">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray"
-                                            src="file:///Users/janahamdy/Desktop/ElHamd/Products/unnamed.jpg" alt="...">
-                                        <h5 class="title">Dry Black lemon</h5>
-                                    </a>
-                                    <p class="description">
-                                        India
-                                    </p>
-                                </div>
-                                <p class="description text-center">
-                                    <b> Size : 5cm </b> <br>
-                                    <b> Purity : 99% </b> <br>
-                                    <b> Humidity : 99% </b> <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-
-                            </div>
-                            <div class="card-body">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray"
-                                            src="file:///Users/janahamdy/Desktop/ElHamd/Products/unnamed.jpg" alt="...">
-                                        <h5 class="title">Dry Black lemon</h5>
-                                    </a>
-                                    <p class="description">
-                                        India
-                                    </p>
-                                </div>
-                                <p class="description text-center">
-                                    <b> Size : 5cm </b> <br>
-                                    <b> Purity : 99% </b> <br>
-                                    <b> Humidity : 99% </b> <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            
+                              <?php
+                              echo $view->output();
+                              ?>  
+                  
+                    
             <footer class="footer">
                 <div class=" container-fluid ">
 

@@ -1,4 +1,8 @@
-<?php  define('__ROOT__', "../app/"); 
+<?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
+define('__ROOT__', "../app/"); 
 require_once(__ROOT__ . "model/Employees_model.php");
 require_once(__ROOT__ . "controller/employee_controller.php");
 require_once(__ROOT__ . "view/Employees_view.php");
@@ -28,6 +32,14 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             };
           </script>";
             break;
+         case 'add':
+             echo "<script type=\"text/javascript\">
+                    window.onload = function() {
+                      document.getElementById('id01').style.display = 'none';
+                      document.getElementById('id04').style.display = 'block';
+                    };
+                  </script>";
+            break;
     }
 }
 
@@ -39,6 +51,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 <html lang="en">
 
 <head>
+    <script src="../assets/js/employeevalid.js" type="text/javascript"></script>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
@@ -83,6 +96,51 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             </div>
         </div>
 
+        <body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="orange">
+            <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
+            <div class="logo">
+                <a href="#" class="simple-text logo-mini"> HT </a>
+                <a href="#" class="simple-text logo-normal"> ELHamd Trading </a>
+            </div>
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <ul class="nav">
+                    <li>
+                        <a href="dashboard.php"> <i class="now-ui-icons design_app"> </i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employeeList.php">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+                    <li class="active ">
+                        <a href="companiesList.php"> <i class="now-ui-icons files_box"></i>
+                            <p>Companies</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" "> <i class="now-ui-icons files_box"></i>
+                            <p>Shipping Lines</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" "><i class="now-ui-icons files_box"></i>
+                            <p>Contracts</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="storage_public.php"><i class="now-ui-icons files_box"></i>
+                            <p>Storage</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <div class="main-panel" id="main-panel">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
@@ -95,7 +153,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">  </a>
+                        <a class="navbar-brand" href="#pablo"> </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -107,7 +165,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                             <div class="input-group no-border">
                                 <input type="text" value="" class="form-control" placeholder="Search...">
                                 <div class="input-group-append">
-                                    <div class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i> 
+                                    <div class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i>
                                     </div>
                                 </div>
                             </div>
@@ -116,13 +174,13 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="#pablo"> <i class="now-ui-icons media-2_sound-wave"></i>
-                                    <p> <span class="d-lg-none d-md-block">Stats</span> </p>  
+                                    <p> <span class="d-lg-none d-md-block">Stats</span> </p>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="now-ui-icons location_world"></i>
-                                    <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>                        
+                                    <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">Action</a>
@@ -144,6 +202,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             <div class="panel-header panel-header-sm">
             </div>
 
+
             <div class="content" id="id01">
 
                 <div class="row">
@@ -151,7 +210,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                         <div class="card">
                             <div class="card-header">
                               <h5 class="card-category"></h5>
-                              <h4 class="card-title">Employees List</h4>
+                              <h4 class="card-title">Employees</h4>
                             </div>
                             <div class="card-body">
                     
@@ -183,6 +242,8 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
+                                <a class="btn" href="employeesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
+
                                 <h4 class="card-title">Employee Profile</h4>
                             </div>
                             <div class="card-body">
@@ -195,15 +256,10 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 
                                 if (isset($_POST['save'])) {
 
-                                    // $type = "ay 7aga";
                                     $controller2->editEmp();
-                                    echo "<script type=\"text/javascript\">
-                                        window.onload = function() {
-                                        document.getElementById('id01').style.display = 'block';
-                                        document.getElementById('id02').style.display = 'none';
-                                        };
-                                    </script>";
+                                  echo '<script>window.location.href= "employeesList.php";</script>';
                                 }
+                                
 
 
                                 ?>
@@ -219,7 +275,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                 <?php
                 $empid = $_GET['id'];
                 $x = $empid;
-                $model2 = new Employee($x);
+                $model2 = new Employees($x);
                 $controller2 = new EmployeeController($model2);
                 $view2 = new EmployeeView($controller2, $model2);
                 ?>
@@ -228,6 +284,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
+                                <a class="btn" href="employeesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
                                 <h4 class="card-title">Employee Profile</h4>
                             </div>
                             <div class="card-body">
@@ -243,6 +300,55 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                     </div>
                 </div>
             </div>
+
+            <div class="content" id="id04" style="display: None">
+                <?php
+
+                $empid = $_GET['id'];
+                $model2 = new Employee($x);
+                $controller2 = new EmployeeController($model2);
+                $view2 = new EmployeeView($controller2, $model2);
+
+                ?>
+
+                <div class="row">
+                    <div class=" col-md-10">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+                                <a class="btn" href="employeesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
+                                <h4 class="card-title">Employee Profile</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <!----CARD HERE: echo output function from view classes-->
+                                <?php
+                                echo $view2->addCard();
+                                if (isset($_POST['savec'])) {
+
+
+                                    $controller->insertEmp();
+                                    echo '<script>window.location.href= "employeesList.php";</script>';
+                                }
+                                if (isset($_POST['cancel'])) {
+
+
+                                    $controller->insertEmp();
+                                    echo '<script>window.location.href= "employeesList.php";</script>';
+                                }
+
+                                ?>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             
+
+
+
 
         </div>
     </div>
@@ -261,6 +367,8 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+        <script src="../assets/js/employeevalid" type="text/javascript"></script>
+
 </body>
 
 </html>

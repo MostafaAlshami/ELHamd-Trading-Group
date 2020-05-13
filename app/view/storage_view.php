@@ -94,9 +94,9 @@ class ViewStorage extends View{
             $str .= "<th><input required   name=prid id='_product_id' type='text' class='form-control' value='' ></th>";
             $str .= "<th>Product Name</th>";
             $str .= "<th><input required   name=prname id='_product_name' type='text' class='form-control' value='' ></th>";
-            $str .= "<th></th><th></th>";
             $str .= "<th>Quantity</th>";
             $str .= "<th><input required   name=prq id='_currentq' type='number' class='form-control' value=''></th>";
+            $str .= "<th></th><th></th>";
             $str .= "</thead>";
             $str .= "<tbody>";
             $str .= "<tr>";
@@ -127,9 +127,9 @@ class ViewStorage extends View{
                 $str .= "<th><input required   id='" . $SID . "_product_id' type='text' class='form-control' value='" . $Storage->getproduct_id() . "' ></th>";
                 $str .= "<th>Product Name</th>";
                 $str .= "<th><input required   id='" . $SID . "_product_name' type='text' class='form-control' value='" . $productName . "' ></th>";
-                $str .= "<th></th><th></th>";
                 $str .= "<th>Quantity</th>";
                 $str .= "<th><input required   id='" . $SID . "_currentq' type='number' class='form-control' value='". $current ."'></th>";
+                $str .= "<th></th><th></th>";
                 $str .= "</thead>";
                 $str .= "<tbody>";
                 $str .= "<tr>";

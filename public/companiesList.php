@@ -181,18 +181,19 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                     <p> <span class="d-lg-none d-md-block">Stats</span> </p>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="now-ui-icons location_world"></i>
-                                    <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                            <?php if ($_SESSION["type"] == "") { ?>
+                            <?php if (isset($_SESSION["type"])) { ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="now-ui-icons users_single-02"></i>
+                                        <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="dashboard.php" onclick="<?php session_destroy(); ?>">Signout</a>
+
+                                    </div>
+                                </li>
+                            <?php } ?>
+                            <?php if (!isset($_SESSION["type"])) { ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="login_public.php">
                                         <i class="now-ui-icons users_single-02"></i>

@@ -30,7 +30,8 @@ class CompanyView extends View
 
         $str .= " <tr>";
         $str .= " <td> URL </td>  <td></td> <td></td> ";
-        $str .= " <td> " . $this->model->getURL() . " </td> </tr> ";
+        $str .= " <td> <a href = \"https://"  . $this->model->getURL() . "\" target=\"_blank\" >"  . $this->model->getURL() . "</a> </td> </tr> ";
+
 
         $str .= " <tr> ";
         $str .= " <td></td> ";

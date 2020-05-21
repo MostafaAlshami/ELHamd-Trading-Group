@@ -5,6 +5,24 @@ require_once(__ROOT__ . "view/View.php");
 class user_view extends View{
 
     function output(){
+      "$str = <script type='text/javascript'>
+      function LoginFailed() {
+                          var notification = {
+                              icon: 'now-ui-icons ui-1_bell-53',
+                              message: 'Login  Failed. Please try again.'
+                          };
+                          var options = {
+                              type: 'primary',
+                              timer: 0,
+                              placement: {
+                                  from: 'top',
+                                  align: 'right'
+                              }
+                          };
+      
+                          $.notify(notification, options);
+                      }
+      </script>";
       $str='<script src="../assets/js/login.js" type="text/javascript"></script>';
 
 		$str='    <form action="login_public.php?action=signin" method="post">
@@ -36,6 +54,7 @@ class user_view extends View{
     </div> 
 </form>';
 		return $str;
-	}
-
+  }
+  
+ 
 }

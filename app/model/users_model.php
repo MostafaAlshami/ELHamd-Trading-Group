@@ -72,7 +72,7 @@ class users_model extends model
             }
         } else {
             echo "Login Failed";
-            header("location:login_public.php");
+            header("location:login_public.php?error=1");
         }
     }
 }

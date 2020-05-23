@@ -2,10 +2,12 @@
 
 require_once(__ROOT__ . "view/View.php");
 
-class user_view extends View{
+class user_view extends View
+{
 
-    function output(){
-      "$str = <script type='text/javascript'>
+  function output()
+  {
+    $str = " <script type='text/javascript'>
       function LoginFailed() {
                           var notification = {
                               icon: 'now-ui-icons ui-1_bell-53',
@@ -23,9 +25,9 @@ class user_view extends View{
                           $.notify(notification, options);
                       }
       </script>";
-      $str='<script src="../assets/js/login.js" type="text/javascript"></script>';
+    $str = '<script src="../assets/js/login.js" type="text/javascript"></script>';
 
-		$str='    <form action="login_public.php?action=signin" method="post">
+    $str = '    <form action="login_public.php?action=signin" method="post">
 
     <div class="col-md-6 pr-1">
         <div class="form-group">
@@ -53,8 +55,6 @@ class user_view extends View{
          </div>
     </div> 
 </form>';
-		return $str;
+    return $str;
   }
-  
- 
 }

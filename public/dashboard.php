@@ -54,7 +54,7 @@
             </a>
           </li>
 
-          <?php if (isset($_SESSION)) { ?>
+          <?php if (!empty($_SESSION["ID"])) { ?>
 
             <li>
               <a href="employeeList.php">
@@ -132,19 +132,19 @@
                   </p>
                 </a>
               </li>
-              <?php if (isset($_SESSION)) { ?>
+              <?php if (!empty($_SESSION["ID"])) { ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="now-ui-icons users_single-02"></i>
                     <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="dashboard.php" onclick="<?php session_destroy(); ?>">Signout</a>
+                    <a class="dropdown-item" href="signout.php">Signout</a>
 
                   </div>
                 </li>
               <?php } ?>
-              <?php if (!isset($_SESSION)) { ?>
+              <?php if (empty($_SESSION["ID"])) { ?>
                 <li class="nav-item">
                   <a class="nav-link" href="login_public.php">
                     <i class="now-ui-icons users_single-02"></i>
@@ -197,7 +197,7 @@
 
             </div>
           </div>
-          <?php if (isset($_SESSION)) { ?>
+          <?php if (!empty($_SESSION["ID"])) { ?>
             <div class="col-lg-4 col-md-6">
               <div class="card card-chart">
                 <div class="card-header">
@@ -536,166 +536,167 @@
         </div>
       <?php } ?>
       </div>
+      <?php if (empty($_SESSION["ID"])) { ?>
+    </div> <?php } ?>
 
+  <div class="content" id="id02" style="display: none">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="image">
 
-      <div class="content" id="id02" style="display: none">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-
-              </div>
-              <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
-                    <h5 class="title">Dry Black lemon</h5>
-                  </a>
-                  <p class="description">
-                    India
-                  </p>
-                </div>
-                <p class="description text-center">
-                  <b> Size : 5cm </b> <br>
-                  <b> Purity : 99% </b> <br>
-                  <b> Humidity : 99% </b> <br>
-                </p>
-              </div>
-            </div>
           </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-
-              </div>
-              <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
-                    <h5 class="title">Dry Black lemon</h5>
-                  </a>
-                  <p class="description">
-                    India
-                  </p>
-                </div>
-                <p class="description text-center">
-                  <b> Size : 5cm </b> <br>
-                  <b> Purity : 99% </b> <br>
-                  <b> Humidity : 99% </b> <br>
-                </p>
-              </div>
+          <div class="card-body">
+            <div class="author">
+              <a href="#">
+                <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                <h5 class="title">Dry Black lemon</h5>
+              </a>
+              <p class="description">
+                India
+              </p>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-
-              </div>
-              <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
-                    <h5 class="title">Dry Black lemon</h5>
-                  </a>
-                  <p class="description">
-                    India
-                  </p>
-                </div>
-                <p class="description text-center">
-                  <b> Size : 5cm </b> <br>
-                  <b> Purity : 99% </b> <br>
-                  <b> Humidity : 99% </b> <br>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-
-              </div>
-              <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
-                    <h5 class="title">Dry Black lemon</h5>
-                  </a>
-                  <p class="description">
-                    India
-                  </p>
-                </div>
-                <p class="description text-center">
-                  <b> Size : 5cm </b> <br>
-                  <b> Purity : 99% </b> <br>
-                  <b> Humidity : 99% </b> <br>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-
-              </div>
-              <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
-                    <h5 class="title">Dry Black lemon</h5>
-                  </a>
-                  <p class="description">
-                    India
-                  </p>
-                </div>
-                <p class="description text-center">
-                  <b> Size : 5cm </b> <br>
-                  <b> Purity : 99% </b> <br>
-                  <b> Humidity : 99% </b> <br>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-
-              </div>
-              <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
-                    <h5 class="title">Dry Black lemon</h5>
-                  </a>
-                  <p class="description">
-                    India
-                  </p>
-                </div>
-                <p class="description text-center">
-                  <b> Size : 5cm </b> <br>
-                  <b> Purity : 99% </b> <br>
-                  <b> Humidity : 99% </b> <br>
-                </p>
-              </div>
-            </div>
+            <p class="description text-center">
+              <b> Size : 5cm </b> <br>
+              <b> Purity : 99% </b> <br>
+              <b> Humidity : 99% </b> <br>
+            </p>
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class=" container-fluid ">
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="image">
 
-          <div class="copyright" id="copyright">
-            &copy;
-            <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>.
-            Coded by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+          </div>
+          <div class="card-body">
+            <div class="author">
+              <a href="#">
+                <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                <h5 class="title">Dry Black lemon</h5>
+              </a>
+              <p class="description">
+                India
+              </p>
+            </div>
+            <p class="description text-center">
+              <b> Size : 5cm </b> <br>
+              <b> Purity : 99% </b> <br>
+              <b> Humidity : 99% </b> <br>
+            </p>
           </div>
         </div>
-      </footer>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="image">
+
+          </div>
+          <div class="card-body">
+            <div class="author">
+              <a href="#">
+                <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                <h5 class="title">Dry Black lemon</h5>
+              </a>
+              <p class="description">
+                India
+              </p>
+            </div>
+            <p class="description text-center">
+              <b> Size : 5cm </b> <br>
+              <b> Purity : 99% </b> <br>
+              <b> Humidity : 99% </b> <br>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="image">
+
+          </div>
+          <div class="card-body">
+            <div class="author">
+              <a href="#">
+                <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                <h5 class="title">Dry Black lemon</h5>
+              </a>
+              <p class="description">
+                India
+              </p>
+            </div>
+            <p class="description text-center">
+              <b> Size : 5cm </b> <br>
+              <b> Purity : 99% </b> <br>
+              <b> Humidity : 99% </b> <br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="image">
+
+          </div>
+          <div class="card-body">
+            <div class="author">
+              <a href="#">
+                <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                <h5 class="title">Dry Black lemon</h5>
+              </a>
+              <p class="description">
+                India
+              </p>
+            </div>
+            <p class="description text-center">
+              <b> Size : 5cm </b> <br>
+              <b> Purity : 99% </b> <br>
+              <b> Humidity : 99% </b> <br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="image">
+
+          </div>
+          <div class="card-body">
+            <div class="author">
+              <a href="#">
+                <img class="avatar border-gray" src="../public/products/unnamed.jpg" alt="...">
+                <h5 class="title">Dry Black lemon</h5>
+              </a>
+              <p class="description">
+                India
+              </p>
+            </div>
+            <p class="description text-center">
+              <b> Size : 5cm </b> <br>
+              <b> Purity : 99% </b> <br>
+              <b> Humidity : 99% </b> <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class=" container-fluid ">
+
+      <div class="copyright" id="copyright">
+        &copy;
+        <script>
+          document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+        </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>.
+        Coded by
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+      </div>
+    </div>
+  </footer>
+  </div>
   </div>
   </div>
   <!--   Core JS Files   -->

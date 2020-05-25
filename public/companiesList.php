@@ -181,19 +181,19 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                     <p> <span class="d-lg-none d-md-block">Stats</span> </p>
                                 </a>
                             </li>
-                            <?php if (isset($_SESSION)) { ?>
+                            <?php if (!empty($_SESSION["ID"])) { ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="now-ui-icons users_single-02"></i>
                                         <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="dashboard.php" onclick="<?php session_destroy(); ?>">Signout</a>
+                                        <a class="dropdown-item" href="signout.php">Signout</a>
 
                                     </div>
                                 </li>
                             <?php } ?>
-                            <?php if (!isset($_SESSION)) { ?>
+                            <?php if (empty($_SESSION["ID"])) { ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="login_public.php">
                                         <i class="now-ui-icons users_single-02"></i>

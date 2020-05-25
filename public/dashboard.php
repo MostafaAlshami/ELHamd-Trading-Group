@@ -202,14 +202,14 @@
               <div class="card card-chart">
                 <div class="card-header">
                   <h5 class="card-category">2020 Companies</h5>
-                  <h4 class="card-title"><a href="companies.php"> View All Companies</a></h4>
+                  <h4 class="card-title"><a href="companiesList.php"> View All Companies</a></h4>
                   <div class="dropdown">
                     <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                       <i class="now-ui-icons loader_gear"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
-                      <a class="dropdown-item" href="companies.php">View All Companies</a>
-                      <a class="dropdown-item" href="companyAdd.php">Add New Company</a>
+                      <a class="dropdown-item" href="companiesList.php">View All Companies</a>
+                      <a class="dropdown-item" href='companiesList.php?action=add&id= " "'>Add New Company</a>
                       <a class="dropdown-item" href="companyEdit.php">Edit Company</a>
                       <a class="dropdown-item text-danger" href="#">Remove Data</a>
                     </div>

@@ -4,10 +4,8 @@
 
 interface Strategy
 {
-    public function generate()
-    {
-
-    }
+    public function generate();
+    
 }
 
 

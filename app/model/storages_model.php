@@ -3,10 +3,9 @@ require_once(__ROOT__ . "model/model.php");
 require_once(__ROOT__ . "model/storage_model.php");
 
 require_once(__ROOT__ . "interfaces/strategy.php");
-require_once(__ROOT__ . "services/allProducts.php");
-require_once(__ROOT__ . "services/oneProduct.php");
 
-require_once __DIR__ . '/public/vendor/autoload.php';
+
+//require_once __DIR__ . '/public/vendor/autoload.php';
 
 
 class Storages extends Model 
@@ -14,6 +13,7 @@ class Storages extends Model
 	private $storages;
 	private $db;
 
+	/*
 	private $strategy;
 
 
@@ -22,6 +22,12 @@ class Storages extends Model
 		$this->fillArray();
 
 		$this->strategy = $strategy;
+	}
+	*/
+
+	function __construct() 
+	{
+		$this->fillArray();
 	}
 
 

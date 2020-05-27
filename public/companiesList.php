@@ -56,6 +56,18 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
     }
 }
 
+if (isset($_POST['search'])) {
+
+    // $type = "ay 7aga";
+
+    echo "<script type=\"text/javascript\">
+                window.onload = function() {
+                  document.getElementById('id01').style.display = 'none';
+                  document.getElementById('id05').style.display = 'block';
+                };
+              </script>";
+}
+
 
 /*
 if (isset($_GET['action']) && !empty($_GET['action'])) 
@@ -97,7 +109,12 @@ if (isset($_GET['action']) && !empty($_GET['action']))
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 
-
+    <style>
+        .h {
+            background-color: tan;
+            border: none;
+        }
+    </style>
 </head>
 
 <body class="">
@@ -165,13 +182,15 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form action="" method="POST">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <div class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i>
+                                <form>
+                                    <input type="text" name="value" class="form-control" require="required" placeholder="Search...">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text"><button type="submit" name="search" class="now-ui-icons ui-1_zoom-bold" style=" background-color: transparent ; color : white; border: none;"></button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </form>
 
@@ -347,6 +366,33 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                     echo '<script>window.location.href= "companiesList.php";</script>';
                                 }
 
+                                ?>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content" id="id05" style="display: None">
+
+                <div class="row">
+                    <div class=" col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+
+                                <h4 class="card-title">Companies</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <?php
+                                error_reporting(0);
+                                $model4 = new Companies();
+                                $controller4 = new CompanyController($model4);
+                                $view4 = new CompaniesView($controller4, $model4);
+                                echo $view4->searchOutput();
                                 ?>
 
 

@@ -2,6 +2,13 @@
 require_once(__ROOT__ . "model/model.php");
 require_once(__ROOT__ . "model/storage_model.php");
 
+require_once(__ROOT__ . "interfaces/strategy.php");
+require_once(__ROOT__ . "services/allProducts.php");
+require_once(__ROOT__ . "services/oneProduct.php");
+
+require_once __DIR__ . '/public/vendor/autoload.php';
+
+
 class Storages extends Model 
 {
 	private $storages;
@@ -27,10 +34,12 @@ class Storages extends Model
 		$this->strategy = $strategy;
 	}
 
+	/*
 	function Report()
 	{
 		$this->strategy->generate();
 	}
+	*/
 
 
 	

@@ -138,13 +138,13 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                             <p>User Profile</p>
                         </a>
                     </li>
-                    <li class="active ">
+                    <li>
                         <a href="companiesList.php"> <i class="now-ui-icons files_box"></i>
                             <p>Companies</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
+                    <li class="active ">
+                        <a href="#"> <i class="now-ui-icons files_box"></i>
                             <p>Shipping Lines</p>
                         </a>
                     </li>
@@ -248,7 +248,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 
                                 <!----CARD HERE: echo output function from view classes-->
                                 <?php
-                                echo $view->output();
+                                echo $view->output2();
                                 ?>
 
 

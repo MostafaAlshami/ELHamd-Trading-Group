@@ -113,7 +113,7 @@ class Companies extends model
     }
     function searchCompany($x)
     {
-        $sql = "SELECT * FROM company WHERE company_name =\"$x\" OR phoneNumber = \"$x\" OR email =\"$x \"";
+        $sql = "SELECT * FROM company WHERE company_name like \"$x\" OR phoneNumber = \"$x\" OR email =\"$x \"";
         $result = $this->dbh->query($sql);
 
         if ($result->num_rows > 0) {

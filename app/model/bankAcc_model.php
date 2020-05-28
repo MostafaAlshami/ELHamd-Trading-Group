@@ -5,7 +5,7 @@ require_once(__ROOT__ . "model/model.php");
 
 <?php
 
-class BankAccount extends move_uploaded_file
+class BankAccount extends Model
 {
     private $acc_id;
     private $bank_name;

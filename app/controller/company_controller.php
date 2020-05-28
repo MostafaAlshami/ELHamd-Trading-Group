@@ -37,4 +37,10 @@ class CompanyController extends Controller
     $company_id = $_GET['id'];
     $this->model->deleteCompany($company_id);
   }
+  public function searchComp()
+  {
+    $company_name = "Elhamd";
+    $company_name = $_POST["value"];
+    $this->model->searchCompany($company_name);
+  }
 }

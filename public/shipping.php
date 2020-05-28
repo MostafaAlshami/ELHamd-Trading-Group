@@ -49,7 +49,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             $controller2 = new CompanyController($model2);
             $view2 = new companyView($controller2, $model2);
             $controller2->deleteComp();
-            echo '<script>window.location.href= "companiesList.php";</script>';
+            echo '<script>window.location.href= "shipping.php";</script>';
 
 
             break;
@@ -138,13 +138,13 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                             <p>User Profile</p>
                         </a>
                     </li>
-                    <li class="active ">
+                    <li>
                         <a href="companiesList.php"> <i class="now-ui-icons files_box"></i>
                             <p>Companies</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
+                    <li class="active ">
+                        <a href="#"> <i class="now-ui-icons files_box"></i>
                             <p>Shipping Lines</p>
                         </a>
                     </li>
@@ -248,7 +248,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 
                                 <!----CARD HERE: echo output function from view classes-->
                                 <?php
-                                echo $view->output();
+                                echo $view->output2();
                                 ?>
 
 
@@ -274,7 +274,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
-                                <a class="btn" href="companiesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
+                                <a class="btn" href="shipping.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
 
                                 <h4 class="card-title">Company Profile</h4>
                             </div>
@@ -290,7 +290,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 
                                     // $type = "ay 7aga";
                                     $controller4->editComp();
-                                    echo '<script>window.location.href= "companiesList.php";</script>';
+                                    echo '<script>window.location.href= "shipping.php";</script>';
                                 }
                                 ?>
 
@@ -314,7 +314,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
-                                <a class="btn" href="companiesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
+                                <a class="btn" href="shipping.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
                                 <h4 class="card-title">Company Profile</h4>
                             </div>
                             <div class="card-body">
@@ -345,7 +345,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
-                                <a class="btn" href="companiesList.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
+                                <a class="btn" href="shipping.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back</a>
                                 <h4 class="card-title">Company Profile</h4>
                             </div>
                             <div class="card-body">
@@ -357,13 +357,13 @@ if (isset($_GET['action']) && !empty($_GET['action']))
 
 
                                     $controller->insertComp();
-                                    echo '<script>window.location.href= "companiesList.php";</script>';
+                                    echo '<script>window.location.href= "shipping.php";</script>';
                                 }
                                 if (isset($_POST['cancel'])) {
 
 
                                     $controller->insertComp();
-                                    echo '<script>window.location.href= "companiesList.php";</script>';
+                                    echo '<script>window.location.href= "shipping.php";</script>';
                                 }
 
                                 ?>

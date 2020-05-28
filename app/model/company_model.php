@@ -28,7 +28,6 @@ class Company extends Model
       $this->email = $email;
       $this->url = $url;
       $this->phoneNumber = $phoneNumber;
-
       $this->address = $address;
     }
   }
@@ -129,7 +128,7 @@ class Company extends Model
   function editCompany($company_id, $type, $company_name, $email, $url, $phoneNumber, $address)
   {
     $company_name = $this->dbh->getConn()->real_escape_string($company_name);
-    $type = $this->dbh->getConn()->real_escape_string($type); //DO WE NEED TO EDIT THE TYPE??
+    $type = $this->dbh->getConn()->real_escape_string($type); 
     $email = $this->dbh->getConn()->real_escape_string($email);
     $url = $this->dbh->getConn()->real_escape_string($url);
     $phoneNumber = $this->dbh->getConn()->real_escape_string($phoneNumber);

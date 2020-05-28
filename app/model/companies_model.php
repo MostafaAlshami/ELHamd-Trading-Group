@@ -111,6 +111,7 @@ class Companies extends model
         //FIX AND TEST
         //array_push($this->Companies, new Comapny( , , , , , ));
     }
+    
     function searchCompany($x)
     {
         $sql = "SELECT * FROM company WHERE company_name like \"$x\" OR phoneNumber = \"$x\" OR email =\"$x \"";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2020 at 12:37 AM
+-- Generation Time: May 29, 2020 at 06:11 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -62,10 +62,10 @@ CREATE TABLE `commission` (
 CREATE TABLE `commodity` (
   `comm_id` int(11) NOT NULL,
   `contract_no` varchar(20) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `product` int(11) NOT NULL,
   `quantity` float NOT NULL,
   `unit_price` float NOT NULL,
-  `total_price` double NOT NULL,
+  `total_price` float NOT NULL,
   `package_weight` float NOT NULL,
   `package_type` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -106,10 +106,10 @@ INSERT INTO `company` (`company_id`, `company_name`, `email`, `curl`, `phoneNumb
 CREATE TABLE `contract` (
   `contract_no` varchar(20) NOT NULL,
   `contract_date` date NOT NULL,
-  `seller_id` int(6) UNSIGNED NOT NULL,
-  `buyer_id` int(6) UNSIGNED NOT NULL,
+  `seller` int(6) UNSIGNED NOT NULL,
+  `buyer` int(6) UNSIGNED NOT NULL,
   `status` varchar(15) NOT NULL,
-  `bankAcc_id` int(11) NOT NULL,
+  `bankAcc` int(11) NOT NULL,
   `total_quantity` float NOT NULL,
   `shipment_date` date NOT NULL,
   `type` varchar(15) NOT NULL
@@ -206,9 +206,9 @@ CREATE TABLE `shipment` (
   `shipment_id` int(11) NOT NULL,
   `contract_no` varchar(20) NOT NULL,
   `status` varchar(30) NOT NULL,
-  `booking_id` int(11) NOT NULL,
+  `shline_booking` int(11) NOT NULL,
   `arrival_date` date NOT NULL,
-  `invoice_id` int(11) NOT NULL
+  `invoice` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -299,7 +299,7 @@ ALTER TABLE `commission`
 --
 ALTER TABLE `commodity`
   ADD PRIMARY KEY (`comm_id`),
-  ADD KEY `product_id` (`product_id`),
+  ADD KEY `product_id` (`product`),
   ADD KEY `contract_no` (`contract_no`);
 
 --
@@ -313,9 +313,9 @@ ALTER TABLE `company`
 --
 ALTER TABLE `contract`
   ADD PRIMARY KEY (`contract_no`),
-  ADD KEY `seller_id` (`seller_id`),
-  ADD KEY `buyer_id` (`buyer_id`),
-  ADD KEY `bankAcc_id` (`bankAcc_id`);
+  ADD KEY `seller_id` (`seller`),
+  ADD KEY `buyer_id` (`buyer`),
+  ADD KEY `bankAcc_id` (`bankAcc`);
 
 --
 -- Indexes for table `employee`
@@ -348,9 +348,9 @@ ALTER TABLE `product`
 --
 ALTER TABLE `shipment`
   ADD PRIMARY KEY (`shipment_id`),
-  ADD KEY `invoice_id` (`invoice_id`),
+  ADD KEY `invoice_id` (`invoice`),
   ADD KEY `contract_no` (`contract_no`),
-  ADD KEY `booking_id` (`booking_id`);
+  ADD KEY `booking_id` (`shline_booking`);
 
 --
 -- Indexes for table `shlinebooking`
@@ -436,16 +436,16 @@ ALTER TABLE `commission`
 -- Constraints for table `commodity`
 --
 ALTER TABLE `commodity`
-  ADD CONSTRAINT `commodity_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`ID`),
+  ADD CONSTRAINT `commodity_ibfk_1` FOREIGN KEY (`product`) REFERENCES `product` (`ID`),
   ADD CONSTRAINT `commodity_ibfk_2` FOREIGN KEY (`contract_no`) REFERENCES `contract` (`contract_no`);
 
 --
 -- Constraints for table `contract`
 --
 ALTER TABLE `contract`
-  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `company` (`company_id`),
-  ADD CONSTRAINT `contract_ibfk_2` FOREIGN KEY (`buyer_id`) REFERENCES `company` (`company_id`),
-  ADD CONSTRAINT `contract_ibfk_3` FOREIGN KEY (`bankAcc_id`) REFERENCES `bankacc` (`acc_id`);
+  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`seller`) REFERENCES `company` (`company_id`),
+  ADD CONSTRAINT `contract_ibfk_2` FOREIGN KEY (`buyer`) REFERENCES `company` (`company_id`),
+  ADD CONSTRAINT `contract_ibfk_3` FOREIGN KEY (`bankAcc`) REFERENCES `bankacc` (`acc_id`);
 
 --
 -- Constraints for table `import`
@@ -463,11 +463,11 @@ ALTER TABLE `invoice`
 -- Constraints for table `shipment`
 --
 ALTER TABLE `shipment`
-  ADD CONSTRAINT `shipment_ibfk_1` FOREIGN KEY (`invoice_id`) REFERENCES `invoice` (`invoice_no`),
+  ADD CONSTRAINT `shipment_ibfk_1` FOREIGN KEY (`invoice`) REFERENCES `invoice` (`invoice_no`),
   ADD CONSTRAINT `shipment_ibfk_2` FOREIGN KEY (`contract_no`) REFERENCES `contract` (`contract_no`),
-  ADD CONSTRAINT `shipment_ibfk_3` FOREIGN KEY (`invoice_id`) REFERENCES `invoice` (`invoice_no`),
-  ADD CONSTRAINT `shipment_ibfk_4` FOREIGN KEY (`booking_id`) REFERENCES `shippingbooking` (`shipping_id`),
-  ADD CONSTRAINT `shipment_ibfk_5` FOREIGN KEY (`booking_id`) REFERENCES `shlinebooking` (`shipping_id`);
+  ADD CONSTRAINT `shipment_ibfk_3` FOREIGN KEY (`invoice`) REFERENCES `invoice` (`invoice_no`),
+  ADD CONSTRAINT `shipment_ibfk_4` FOREIGN KEY (`shline_booking`) REFERENCES `shippingbooking` (`shipping_id`),
+  ADD CONSTRAINT `shipment_ibfk_5` FOREIGN KEY (`shline_booking`) REFERENCES `shlinebooking` (`shipping_id`);
 
 --
 -- Constraints for table `shlinebooking`

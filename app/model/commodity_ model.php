@@ -173,7 +173,7 @@ class Commodity extends model
 
       if ($this->dbh->query($sql) === true) 
       {
-        echo "Records inserted successfully.";
+        echo "Records updated successfully.";
         $this->fillArray();
       }
       else 

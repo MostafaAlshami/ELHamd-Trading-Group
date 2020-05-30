@@ -12,8 +12,7 @@ abstract class Model
     public function connect()
     {
         if (null === $this->conn) {
-            $this->dbh = new Dbh();
-        }
+            $this->dbh = DBh::getInstance();        }
         return $this->dbh;
     }
 }

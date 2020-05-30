@@ -1,8 +1,11 @@
 <?php
   require_once("config.php");
 
+  
 class DBh
 {
+    private static $instance = null;
+
     private $servername;
     private $username;
     private $password;
@@ -12,7 +15,7 @@ class DBh
     private $result;
     public $sql;
 
-    function __construct() 
+    private function __construct() 
     {
 		$this->servername = DB_SERVER;
 		$this->username = DB_USER;
@@ -21,7 +24,6 @@ class DBh
         
 		$this->connect();
 	}
-
 
     public function connect()
     {
@@ -34,13 +36,12 @@ class DBh
         return $this->conn;
     }
 
-
     public function getConn()
     {
         return $this->conn;
     }
 
-    function query($sql)
+    public function query($sql)
     {
         if (!empty($sql))
         {
@@ -54,7 +55,7 @@ class DBh
         }
     }
 
-    function fetchRow($result="")
+    public function fetchRow($result="")
     {
         if (empty($result))
         { 
@@ -66,6 +67,16 @@ class DBh
     function __destruct()
     {
         $this->conn->close();
+    }
+
+    public static function getInstance()
+    {
+        if (self::$instance == null)
+        {
+            self::$instance = new DBh();
+        }
+
+        return self::$instance;
     }
 }
 

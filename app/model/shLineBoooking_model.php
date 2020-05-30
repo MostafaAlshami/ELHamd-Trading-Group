@@ -9,7 +9,7 @@ require_once(__ROOT__ . "model/companies_model.php");
 
 class Booking extends Model
 {
-  private $shipping_id;  //make it auto incremented in the db
+  private $shipping_id; 
   //private Company $shippingLine;
   private $shipping_date
   private $landing_port;
@@ -33,8 +33,7 @@ class Booking extends Model
     }
     else
     {
-      $this->shipping_id = $shipping_id;  //delete this after auto incrementing the id
-      //$this->shippingLine = new Company(//company id);
+      //$this->shippingLine = new Company(company id);
       $this->shipping_date = $shipping_date;
       $this->landing_port = $landing_port;
       $this->discharge_port = $discharge_port;
@@ -55,7 +54,7 @@ class Booking extends Model
                    company.company_name
             FROM shLineBooking JOIN company 
             WHERE shipping_id = $shipping_id
-            AND shLineBooking.shippingLine = company.company_id";
+            AND shLineBooking.shippingLine_id = company.company_id";
     */
 
     //THIS SQL is not right, the one above should be right with aggregation
@@ -181,7 +180,7 @@ class Booking extends Model
                                        discharge_port, container_no, ship_name, trip_no, billOf_landing)
             VALUES ('$shipping_date', '$landing_port',
                     '$discharge_port', '$container_no', '$ship_name', '$trip_no', '$billOf_landing')";
-   //INSERY company_id in shippingLine
+   //INSERY company_id in shippingLine_id
 
 
    if ($this->dbh->query($sql) === true) 
@@ -214,7 +213,7 @@ class Booking extends Model
             discharge_port = '$discharge_port', container_no = '$container_no', ship_name = '$ship_name',
             trip_no = '$trip_no', billOf_landing = '$billOf_landing'
             WHERE shipping_id = $shipping_id";
-    //edit company_id in shippingLine (chossen shipping company)
+    //edit company_id in shippingLine_id (chossen shipping company)
 
 
     if ($this->dbh->query($sql) === true) 

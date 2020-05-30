@@ -46,7 +46,7 @@ class Commodity extends Model
                      commodity.package_weight, commodity.package_type,
                      product.name
               FROM commodity JOIN product
-              WHERE comm_id = $comm_id AND product.ID = commodity.product ";
+              WHERE comm_id = $comm_id AND product.ID = commodity.product_id ";
      */
 
 

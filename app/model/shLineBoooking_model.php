@@ -7,7 +7,7 @@ require_once(__ROOT__ . "model/companies_model.php");
 
 <?php
 
-class shLineBooking extends Model
+class Booking extends Model
 {
   private $shipping_id;  //make it auto incremented in the db
   //private Company $shippingLine;
@@ -167,6 +167,7 @@ class shLineBooking extends Model
                          $discharge_port, $container_no, $ship_name, $trip_no, $billOf_landing)
   {
     //$shippingLine = $this->dbh->getConn()->real_escape_string($shippingLine);
+
     $shipping_date = $this->dbh->getConn()->real_escape_string($shipping_date);
     $landing_port = $this->dbh->getConn()->real_escape_string($landing_port);
     $discharge_port = $this->dbh->getConn()->real_escape_string($discharge_port);
@@ -199,6 +200,7 @@ class shLineBooking extends Model
                          $discharge_port, $container_no, $ship_name, $trip_no, $billOf_landing)
   {
     //$shippingLine = $this->dbh->getConn()->real_escape_string($shippingLine);
+    
     $shipping_date = $this->dbh->getConn()->real_escape_string($shipping_date);
     $landing_port = $this->dbh->getConn()->real_escape_string($landing_port);
     $discharge_port = $this->dbh->getConn()->real_escape_string($discharge_port);
@@ -228,7 +230,7 @@ class shLineBooking extends Model
 
 
 
-  function deleteCommodity($shipping_id)
+  function deleteBooking($shipping_id)
   {
     $sql = "DELETE FROM shLineBooking WHERE shipping_id = $shipping_id";
 

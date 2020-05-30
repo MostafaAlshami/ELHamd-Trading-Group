@@ -40,19 +40,8 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                     };
                   </script>";
             break;
-        case 'delete':
-                $empid = $_GET['id'];
-                $model2 = new Employee($empid);
-                $controller2 = new EmployeeController($model2);
-                $view2 = new EmployeeView($controller2, $model2);
-                $controller2->deleteEmp();
-                echo '<script>window.location.href= "employeesList.php";</script>';
-    
-    
-                break;
-        }
     }
-
+}
 
 ?>
 

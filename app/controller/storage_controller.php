@@ -2,18 +2,8 @@
 
 require_once(__ROOT__ . "controller/controller.php");
 
-//require_once __DIR__ . '/public/vendor/autoload.php';
-
 class StorageController extends controller
 {
-  /*
-  public function genReport()
-  {
-
-  }
-  */
-
-
   public function insertSt()
   {
     $product_name = $_REQUEST['prname'];

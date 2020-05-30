@@ -24,7 +24,7 @@ class EmployeeController extends Controller
   
   public function editEmp()
   {
-    $id = $_GET['id'];
+    $id = $_POST['empid'];
     $empfirstname = $_POST['empfirstname'];
     $last_name = $_POST['emplastname'];
     $email = $_POST['email'];
@@ -41,7 +41,7 @@ class EmployeeController extends Controller
 
   public function deleteEmp() 
   {
-  $id = $_GET['id'];
+  $id = $_POST['ID'];
   $this->model->deleteEmployee($id);
   }
   

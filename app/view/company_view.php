@@ -11,7 +11,7 @@ class CompanyView extends View
         $str .= ' <div class="table-responsive"> <table class="table"> ';
 
         $str .= ' <thead class=" text-primary"> ';
-        $str .= " <th>   " . $this->model->getName() . " </th> <th></th><th></th> ";
+        $str .= " <th> " . $this->model->getName() . " </th> <th></th><th></th> ";
         $str .= ' <th class="text-right"></th> </thead> ';
 
         $str .= " <tbody> ";
@@ -22,7 +22,7 @@ class CompanyView extends View
 
         $str .= " <tr>";
         $str .= " <td> Email Address </td> <td></td> <td></td> ";
-        $str .= " <td> <a href = \"mailto:"  . $this->model->getEmail() . "\" >"  . $this->model->getEmail() . "</a> </td> </tr> ";
+        $str .= " <td>" . $this->model->getEmail() . " </td> </tr> ";
 
         $str .= " <tr> ";
         $str .= " <td> Phone Number </td>  <td></td> <td></td> ";
@@ -30,8 +30,7 @@ class CompanyView extends View
 
         $str .= " <tr>";
         $str .= " <td> URL </td>  <td></td> <td></td> ";
-        $str .= " <td> <a href = \"https://"  . $this->model->getURL() . "\" target=\"_blank\" >"  . $this->model->getURL() . "</a> </td> </tr> ";
-
+        $str .= " <td> " . $this->model->getURL() . " </td> </tr> ";
 
         $str .= " <tr> ";
         $str .= " <td></td> ";

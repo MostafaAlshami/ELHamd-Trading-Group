@@ -1,7 +1,5 @@
 <?php
-if (!isset($_SESSION)) {
-  session_start();
-}
+
 define('__ROOT__', "../app/");
 require_once(__ROOT__ . "model/users_model.php");
 require_once(__ROOT__ . "controller/users_controller.php");
@@ -12,7 +10,7 @@ $controller = new users_controller($model);
 $view = new user_view($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
-  $controller->{$_GET['action']}();
+	$controller->{$_GET['action']}();
 }
 
 
@@ -21,9 +19,9 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 <html lang="en">
 
 <head>
-  <script src="../assets/js/login.js" type="text/javascript"></script>
+<script src="../assets/js/login.js" type="text/javascript"></script>
 
-  <title>login</title>
+    <title>login</title> 
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
@@ -31,7 +29,8 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
@@ -39,12 +38,12 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 
 <body class="user-profile">
   <div class="wrapper ">
-
+  
     <div class="sidebar" data-color="orange">
       <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini"> HT</a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">ElHamd Trading</a>
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">ElHamd Trading</a> 
       </div>
 
       <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -55,8 +54,8 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
         <div class="container-fluid">
-
-          <div class="navbar-wrapper">
+         
+            <div class="navbar-wrapper">   
             <div class="navbar-toggle">
               <button type="button" class="navbar-toggler">
                 <span class="navbar-toggler-bar bar1"></span>
@@ -67,14 +66,15 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             <a class="navbar-brand" href="#pablo"></a>
           </div>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                  aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
 
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-
+            
             <form>
               <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
@@ -94,7 +94,8 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                 </a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
                   <i class="now-ui-icons location_world"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Some Actions</span>
@@ -130,7 +131,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                 <h5 class="title">Login</h5>
               </div>
               <div class="card-body">
-
+                
                 <?php echo  $view->output(); ?>
                 <!-- <form action="login_public.php?action=signin" method="post">
 
@@ -160,7 +161,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
              </div>
         </div> 
     </form> -->
-
+                
               </div>
             </div>
           </div>
@@ -185,5 +186,4 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 
 
 </body>
-
 </html>

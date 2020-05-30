@@ -56,18 +56,6 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
     }
 }
 
-if (isset($_POST['search'])) {
-
-    // $type = "ay 7aga";
-
-    echo "<script type=\"text/javascript\">
-                window.onload = function() {
-                  document.getElementById('id01').style.display = 'none';
-                  document.getElementById('id05').style.display = 'block';
-                };
-              </script>";
-}
-
 
 /*
 if (isset($_GET['action']) && !empty($_GET['action'])) 
@@ -109,12 +97,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 
-    <style>
-        .h {
-            background-color: tan;
-            border: none;
-        }
-    </style>
+
 </head>
 
 <body class="">
@@ -144,7 +127,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         </a>
                     </li>
                     <li>
-                        <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
+                        <a href=" "> <i class="now-ui-icons files_box"></i>
                             <p>Shipping Lines</p>
                         </a>
                     </li>
@@ -182,15 +165,13 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form action="" method="POST">
+                        <form>
                             <div class="input-group no-border">
-                                <form>
-                                    <input type="text" name="value" class="form-control" require="required" placeholder="Search...">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text"><button type="submit" name="search" class="now-ui-icons ui-1_zoom-bold" style=" background-color: transparent ; color : white; border: none;"></button>
-                                        </div>
+                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="now-ui-icons ui-1_zoom-bold"></i>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </form>
 
@@ -200,19 +181,18 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                     <p> <span class="d-lg-none d-md-block">Stats</span> </p>
                                 </a>
                             </li>
-                            <?php if (!empty($_SESSION["ID"])) { ?>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="now-ui-icons users_single-02"></i>
-                                        <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="signout.php">Signout</a>
-
-                                    </div>
-                                </li>
-                            <?php } ?>
-                            <?php if (empty($_SESSION["ID"])) { ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="now-ui-icons location_world"></i>
+                                    <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <?php if ($_SESSION["type"] == "") { ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="login_public.php">
                                         <i class="now-ui-icons users_single-02"></i>
@@ -366,33 +346,6 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                     echo '<script>window.location.href= "companiesList.php";</script>';
                                 }
 
-                                ?>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content" id="id05" style="display: None">
-
-                <div class="row">
-                    <div class=" col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-category"></h5>
-
-                                <h4 class="card-title">Companies</h4>
-                            </div>
-                            <div class="card-body">
-
-                                <?php
-                                error_reporting(0);
-                                $model4 = new Companies();
-                                $controller4 = new CompanyController($model4);
-                                $view4 = new CompaniesView($controller4, $model4);
-                                echo $view4->searchOutput();
                                 ?>
 
 

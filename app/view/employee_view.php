@@ -57,7 +57,7 @@ class EmployeeView extends View
 
     $str .= " <tr> ";
     $str .= " <td></td> ";
-    $str .= " <td class=\"text-right\"><a class=\"btn\" href='employeesList.php?action=edit&id= " . $this->model->getEmpid() . "'  > Edit </a></td> ";   //check href
+    $str .= ' <td> <a class="btn" href=""> Edit </a> </td> ';  //ACTIION
     $str .= ' <td> <a class="btn" href="employeesList.php"> Back to Employees </a> </td> ';    //ACTIION
 
     $str .= " <td></td> </tr> ";
@@ -130,7 +130,8 @@ class EmployeeView extends View
     $str .= " <tr> ";
     $str .= " <td></td> ";
     $str .= ' <td> <button type="submit" class="btn" name ="save" onclick="return validateaeditemp()"> Save </button> </td> ';  //SAVE ACTION
-    $str .= ' <td> <a class="btn" name ="delete" href=\'employeesList.php?action=delete&id= " ' . $this->model->getEmpid() . '"\' onClick="javascript:return confirm(\'are you sure you want to delete this?\');"> Delete </a> </td> ';  //DELETE ACTION
+        $str .= ' <td> <button class="btn" href=""> Delete </button> </td> ';  //DELETE ACTION
+    $str .= ' <td><input type="hidden"  name ="empid" value="' . $this->model->getEmpid() . '"></td> </tr> ';
 
     $str .= " <td></td> </tr> ";
     $str .= " </tbody> </table> ";

@@ -7,7 +7,7 @@ require_once(__ROOT__ . "model/products_model.php");
 
 <?php
 
-class Commodity extends model
+class Commodity extends Model
 {
    private $comm_id; 
    //private Product $product;
@@ -29,7 +29,7 @@ class Commodity extends model
       }
       else
       {
-        //$this->product = new Product();
+        //$this->product = new Product(//product id);
         $this->quantity = $quantity;
         $this->unit_price = $unit_price;
         $this->total_price = $total_price;
@@ -49,6 +49,8 @@ class Commodity extends model
               WHERE comm_id = $comm_id AND product.ID = commodity.product ";
      */
 
+
+      //THIS SQL is not right, the one above should be right with aggregation
       $sql = "SELECT * FROM commodity WHERE comm_id = $comm_id ";
               
       $db = $this->connect();
@@ -58,7 +60,7 @@ class Commodity extends model
       {
         $row = $db->fetchRow();
 
-        //$this->product = $row["product"]; 
+        //$this->product = $row["name"]; 
         $this->quantity = $row["quantity"];
         $this->unit_price = $row["unit_price"];
         $this->total_price = $row["total_price"];

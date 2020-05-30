@@ -58,20 +58,21 @@ class users_model extends model
         $sql = "Select * from user where username='" . "$username" . "'";
         $result = $this->db->query($sql);
         if ($result->num_rows > 0) {
+
+
+
             $row = $result->fetch_assoc();
             if (password_verify($pass, $row['password'])) {
                 $_SESSION["ID"] = $row["ID"];
                 $_SESSION["type"] = $row["type"];
                 $_SESSION["emp_ID"] = $row["emp_ID"];
                 $_SESSION["username"] = $row["username"];
+                session_start();
                 header("location: dashboard.php");
             }
-        }
-        else
-        {
+        } else {
             echo "Login Failed";
-            header("location:login_public.php");
+            header("location:login_public.php?error=1");
         }
-        
     }
 }

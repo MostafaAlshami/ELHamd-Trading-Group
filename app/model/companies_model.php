@@ -1,8 +1,9 @@
 <?php
+error_reporting(0);
 require_once(__ROOT__ . "model/model.php");
 require_once(__ROOT__ . "model/company_model.php");
 
-class Companies extends model
+class Companies extends Model
 {
     private $companies;
 
@@ -10,8 +11,27 @@ class Companies extends model
     function __construct()
     {
         $this->fillArray();
+        $this->fillArray2();
     }
 
+    function fillArray2()
+    {
+        $this->companies = array();
+        $this->dbh = $this->connect();
+        $result = $this->searchCompan();
+
+        while ($row = $result->fetch_assoc()) {
+            array_push($this->companies, new Company(
+                $row["company_id"],
+                $row["company_name"],
+                $row["cType"],
+                $row["email"],
+                $row["curl"],
+                $row["phoneNumber"],
+                $row["cAddress"]
+            ));
+        }
+    }
     function fillArray()
     {
         $this->companies = array();
@@ -31,6 +51,7 @@ class Companies extends model
         }
     }
 
+
     function readCompanies()
     {
         $sql = "SELECT * FROM company";
@@ -47,6 +68,12 @@ class Companies extends model
     function getComapnies()
     {
         $this->fillArray();
+        return $this->companies;
+    }
+
+    function getCompaniesSearch()
+    {
+        $this->fillArray2();
         return $this->companies;
     }
 
@@ -83,5 +110,27 @@ class Companies extends model
         }
         //FIX AND TEST
         //array_push($this->Companies, new Comapny( , , , , , ));
+    }
+    
+    function searchCompany($x)
+    {
+        $sql = "SELECT * FROM company WHERE company_name like \"$x\" OR phoneNumber = \"$x\" OR email =\"$x \"";
+        $result = $this->dbh->query($sql);
+
+        if ($result->num_rows > 0) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    function searchCompan()
+    {
+        // $x = "elhamd";
+        $x = $_POST["value"];
+        if ($x === "" || $x === Null) {
+            $x = "Elhamd";
+        }
+        $y = $this->searchCompany($x);
+        return $y;
     }
 }

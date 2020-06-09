@@ -28,7 +28,6 @@ class Company extends Model
       $this->email = $email;
       $this->url = $url;
       $this->phoneNumber = $phoneNumber;
-
       $this->address = $address;
     }
   }
@@ -129,7 +128,7 @@ class Company extends Model
   function editCompany($company_id, $type, $company_name, $email, $url, $phoneNumber, $address)
   {
     $company_name = $this->dbh->getConn()->real_escape_string($company_name);
-    $type = $this->dbh->getConn()->real_escape_string($type); //DO WE NEED TO EDIT THE TYPE??
+    $type = $this->dbh->getConn()->real_escape_string($type); 
     $email = $this->dbh->getConn()->real_escape_string($email);
     $url = $this->dbh->getConn()->real_escape_string($url);
     $phoneNumber = $this->dbh->getConn()->real_escape_string($phoneNumber);
@@ -158,6 +157,31 @@ class Company extends Model
       echo "Record deleted successfully.";
     } else {
       echo "ERROR: Could not execute $sql. " . $this->conn->error;
+    }
+  }
+
+  function searchCompany($company_name)
+  {
+    $sql = "SELECT * FROM company WHERE company_name = $company_name";
+    $dbh = $this->connect();
+    $result = $dbh->query($sql);
+
+    if ($result->num_rows > 0) {
+      $row = $dbh->fetchRow();
+      $this->company_name = $row["company_name"];
+      $this->type = $row["cType"];
+      $this->email = $row["email"];
+      $this->url = $row["curl"];
+      $this->phoneNumber = $row["phoneNumber"];
+      $this->address = $row["cAddress"];
+      $this->company_id = $row["company_id"];
+    } else {
+      $this->company_name = "";
+      $this->type = "";
+      $this->email = "";
+      $this->url = "";
+      $this->phoneNumber = "";
+      $this->address = "";
     }
   }
 }

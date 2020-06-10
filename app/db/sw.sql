@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2020 at 02:25 PM
+-- Generation Time: Jun 10, 2020 at 09:56 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -39,6 +39,13 @@ CREATE TABLE `bankacc` (
   `address` varchar(50) NOT NULL,
   `phone_no` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bankacc`
+--
+
+INSERT INTO `bankacc` (`acc_id`, `bank_name`, `bank_branch`, `benef_name`, `acc_no`, `swift_code`, `fax`, `address`, `phone_no`) VALUES
+(1, 'CIB', 'Cai', 'Khaled Hamdy', '38736289749', '3435', '2125551234.', 'Cairo', '012781387');
 
 -- --------------------------------------------------------
 
@@ -115,6 +122,15 @@ CREATE TABLE `contract` (
   `type` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `contract`
+--
+
+INSERT INTO `contract` (`contract_no`, `contract_date`, `seller_id`, `buyer_id`, `status`, `bankAcc_id`, `total_quantity`, `shipment_date`, `type`) VALUES
+('2209', '2020-06-02', 1, 2, 'Active', 1, 300, '2020-06-17', 'Import'),
+('3500A', '2020-05-01', 5, 1, 'Ended', 1, 500, '2020-05-16', 'Export'),
+('C302', '2020-06-03', 2, 5, 'Active', 1, 350.7, '2020-06-24', 'Commission');
+
 -- --------------------------------------------------------
 
 --
@@ -168,9 +184,16 @@ CREATE TABLE `invoice` (
   `invoice_date` date NOT NULL,
   `contract_no` varchar(20) NOT NULL,
   `final_cost` float NOT NULL,
-  `payemnt_terms` text NOT NULL,
+  `payment_terms` text NOT NULL,
   `remarks` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`invoice_no`, `invoice_date`, `contract_no`, `final_cost`, `payment_terms`, `remarks`) VALUES
+(112, '2020-06-09', '2209', 90000, 'None', 'None');
 
 -- --------------------------------------------------------
 
@@ -383,7 +406,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bankacc`
 --
 ALTER TABLE `bankacc`
-  MODIFY `acc_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `acc_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `commodity`

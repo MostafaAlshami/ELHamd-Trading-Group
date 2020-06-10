@@ -5,7 +5,7 @@ require_once(__ROOT__ . "controller/controller.php");
 
 <?php
 
-class invoiceController extends controller
+class InvoiceController extends controller
 {
   public function insertInv()
   {

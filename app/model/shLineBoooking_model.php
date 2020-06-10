@@ -209,9 +209,9 @@ class Booking extends Model
     $billOf_landing = $this->dbh->getConn()->real_escape_string($billOf_landing);
 
 
-    $sql = "UPDATE shLineBooking SET shipping_date = '$shipping_date', landing_port = '$landing_port' ,
-            discharge_port = '$discharge_port', container_no = '$container_no', ship_name = '$ship_name',
-            trip_no = '$trip_no', billOf_landing = '$billOf_landing'
+    $sql = "UPDATE shLineBooking SET shipping_date = '$shipping_date', 
+            landing_port = '$landing_port', discharge_port = '$discharge_port', container_no = '$container_no', 
+            ship_name = '$ship_name', trip_no = '$trip_no', billOf_landing = '$billOf_landing'
             WHERE shipping_id = $shipping_id";
     //edit company_id in shippingLine_id (chossen shipping company)
 

@@ -17,6 +17,8 @@ class Commodity extends Model
    private $package_weight;
    private $package_type;
 
+   //contract number
+
 
    function __construct($comm_id, /*$product,*/ $quantity="", $unit_price="", $package_weight="", $package_type="")
    {
@@ -49,7 +51,7 @@ class Commodity extends Model
               WHERE comm_id = $comm_id AND product.ID = commodity.product_id ";
      */
 
-
+      //contract number
       //THIS SQL is not right, the one above should be right with aggregation
       $sql = "SELECT * FROM commodity WHERE comm_id = $comm_id ";
               

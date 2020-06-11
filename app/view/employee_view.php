@@ -113,7 +113,7 @@ class EmployeeView extends View
 
     $str .= " <tr> ";
     $str .= " <td> Phone Number </td>  <td></td> <td></td> ";
-    $str .= ' <td><input type="text" class="form-control" placeholder="" name="mobile" id="Phoneno2" value="'. $this->model->getMobile() .'"></td> </tr> ';
+    $str .= ' <td><input type="text" class="form-control" placeholder="" name="mobile" id="Phoneno2" maxlength="11" value="'. $this->model->getMobile() .'"></td> </tr> ';
 
     $str .= " <tr>";
     $str .= " <td> Educational Degree </td>  <td></td> <td></td> ";
@@ -193,7 +193,7 @@ class EmployeeView extends View
 
     $str .= " <tr> ";
     $str .= " <td> Phone Number </td>  <td></td> <td></td> ";
-    $str .= ' <td><input type="text" name="phoneno" id="Phoneno" class="form-control" placeholder=""></td> </tr> ';
+    $str .= ' <td><input type="text" name="phoneno" id="Phoneno" class="form-control" maxlength="11" placeholder=""></td> </tr> ';
 
     $str .= " <tr>";
     $str .= " <td> Educational Degree </td>  <td></td> <td></td> ";
@@ -213,7 +213,7 @@ class EmployeeView extends View
 
     $str .= " <tr>";
     $str .= " <td> National ID </td>  <td></td> <td></td> ";
-    $str .= ' <td><input type="text" name="national" id="National" class="form-control" placeholder=""></td> </tr> ';
+    $str .= ' <td><input type="text" name="national" id="National" class="form-control" maxlength="14" placeholder=""></td> </tr> ';
 
     $str .= " <tr> ";
     $str .= " <td></td> ";

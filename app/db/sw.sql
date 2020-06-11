@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2020 at 09:56 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.32
+-- Generation Time: Jun 11, 2020 at 02:11 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -149,17 +149,18 @@ CREATE TABLE `employee` (
   `degree` varchar(24) NOT NULL,
   `emp_date` date NOT NULL,
   `salary` int(11) NOT NULL,
-  `comp_id` int(11) NOT NULL
+  `comp_id` int(11) NOT NULL,
+  `national_id` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`ID`, `First_Name`, `Last_Name`, `email`, `address`, `Dep`, `mobile`, `DOB`, `degree`, `emp_date`, `salary`, `comp_id`) VALUES
-(126, 'Omar', 'Attia', 'omar.attia98@gmail.com', 'Tagamoa Khames', 'Management', '01024564788', '1998-11-15', 'Thanwya', '2019-02-02', 8000, 11835),
-(130, 'Mostafa', 'Ashraf', 'sasa@gmail.com', 'Madinat Nasr', 'Marketing', '01023456788', '2000-02-02', 'Thanwya', '2000-02-02', 6000, 11930),
-(131, 'Aya', 'Fathhy', 'omar.attia98@gmail.com', 'Masr Gdeida', 'Accounting', '01022223344', '2010-11-11', 'thanwya', '2018-11-11', 3000, 11836);
+INSERT INTO `employee` (`ID`, `First_Name`, `Last_Name`, `email`, `address`, `Dep`, `mobile`, `DOB`, `degree`, `emp_date`, `salary`, `comp_id`, `national_id`) VALUES
+(126, 'Omar', 'Attia', 'omar.attia98@gmail.com', 'Tagamoa Khames', 'Management', '01024564788', '1998-11-15', 'Thanwya', '2019-02-02', 8000, 11835, ''),
+(130, 'Mostafa', 'Ashraf', 'sasa@gmail.com', 'Madinat Nasr', 'Marketing', '01023456788', '2000-02-02', 'Thanwya', '2000-02-02', 6000, 11930, '12345'),
+(131, 'Aya', 'Fathhy', 'omar.attia98@gmail.com', 'Masr Gdeida', 'Accounting', '01022223344', '2010-11-11', 'thanwya', '2018-11-11', 3000, 11836, '');
 
 -- --------------------------------------------------------
 
@@ -298,7 +299,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`ID`, `username`, `password`, `type`, `emp_ID`) VALUES
 (126, 'omar', '$2y$10$Tz3320XG.dZmKlaFhdNcae3qPvA63UtA0FnKuXN6taoH8TG87eMBS', 0, 126),
-(130, 'Mostafa', '$2y$10$Tz3320XG.dZmKlaFhdNcae3qPvA63UtA0FnKuXN6taoH8TG87eMBS', 0, 130);
+(130, 'Mostafa', '$2y$10$q0VJQSN1zLaFSvOdzyqA5eMS.DNk1Kk4G/QNjWdSxbPL.TmynBP8a', 0, 130);
 
 --
 -- Indexes for dumped tables

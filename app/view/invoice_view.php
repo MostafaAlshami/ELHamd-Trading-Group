@@ -10,9 +10,9 @@ class InvoiceView extends View
         $str .= ' <div class="table-responsive"> <table class="table"> ';
 
         $str .= ' <thead class=" text-primary"> ';
-        $str .= ' <th> Contract NO </th> ';
-        $str .= ' <th></th> <th></th>';   
-       // $str .= ' <th> '.$this->model->getInvoiceNO().' </th> ';  
+        $str .= ' <th> Contract NO </th> <th></th>';
+        $str .= ' <th></th> ';   
+        $str .= ' <th> '.$this->model->getInvoiceNO().' </th> ';  
         $str .= ' <th></th> '; 
 
         $str .= ' <th class="text-right"> </th> ';

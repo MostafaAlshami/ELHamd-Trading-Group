@@ -67,6 +67,8 @@ class user_view extends View
   public function output2()
   {   
     $str="";
+    $str = '<script src="../assets/js/forgetpass.js" type="text/javascript"></script>';
+
     $str .= '<form action="" method= "post">';
     $str .= '<div class="card-header">';
     $str .= '<h5 class="card-category"> Employees </h5>';
@@ -81,15 +83,15 @@ class user_view extends View
 
     $str .= " <tr>";
     $str .= " <td> National ID </td>  <td></td> <td></td> ";
-    $str .= ' <td><input type="text" name="ForgetPass" id="forgetpass" class="form-control" placeholder=""></td> </tr> ';
+    $str .= ' <td><input type="text" name="national" id="National" class="form-control" maxlength="14" placeholder=""></td> </tr> ';
 
     $str .= " <tr>";
     $str .= " <td> New Password </td>  <td></td> <td></td> ";
-    $str .= ' <td><input type="text" name="NewPass" id="newpass" class="form-control" placeholder=""></td> </tr> ';
+    $str .= ' <td><input type="text" name="newpass" id="NewPass" class="form-control" placeholder=""></td> </tr> ';
 
     $str .= " <tr> ";
     $str .= " <td></td> ";
-    $str .= ' <td> <button type="submit" class="btn" name ="savec" > Request password </button> </td> ';  //SAVE ACTION
+    $str .= ' <td> <button type="submit" class="btn" name ="savec" onclick="return validateforgetpass()" > Request password </button> </td> ';  //SAVE ACTION
     $str .= ' <td> <button class="btn" name="cancel" href="employeesList.php"> Cancel </button> </td> ';  //CANCEL ACTION
 
     $str .= " <td></td> </tr> ";

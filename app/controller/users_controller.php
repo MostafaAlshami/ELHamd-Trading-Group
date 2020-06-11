@@ -21,8 +21,8 @@ class users_controller extends Controller{
 
 	public function forget()
 	{
-		$national=$_REQUEST['ForgetPass'];
-		$newpass=$_REQUEST['NewPass'];
+		$national=$_REQUEST['national'];
+		$newpass=$_REQUEST['newpass'];
 
 		$this->model->forgetpassword($national,$newpass);
 

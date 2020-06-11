@@ -17,7 +17,7 @@ class Employee extends Model{
     private $salary;
     private $compid;
 
-  function __construct($empid,$empfirstname="",$emplastname="",$email="",$address="",$dep="",$mobile="",$birthdate="",$edudegree="",$empdate="",$salary="",$compid="") 
+  function __construct($empid,$empfirstname="",$emplastname="",$email="",$address="",$dep="",$mobile="",$birthdate="",$edudegree="",$empdate="",$salary="",$compid="",$national="") 
   {
     $this->empid = $empid;
 	$this->db = $this->connect();
@@ -39,6 +39,7 @@ class Employee extends Model{
       $this->empdate= $empdate;
       $this->salary=$salary;
       $this->compid=$compid;
+      $this->national=$national;
 
     }
   }
@@ -166,6 +167,17 @@ class Employee extends Model{
         $this->empdate = $empdate;
     }
 
+
+    public function getNational()
+      {
+            return $this->national;
+      }
+
+      public function setNational($national)
+      {
+            $this->national = $national;
+      }
+
     function readEmployee($empid)
     {
         $sql = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID WHERE user.emp_ID='$empid'";
@@ -186,6 +198,8 @@ class Employee extends Model{
           $this->empdate = $row["emp_date"];
           $this->salary = $row["salary"];
           $this->compid = $row["comp_id"];
+          $this->national = $row["national_id"];
+
 
         }
         else
@@ -203,12 +217,14 @@ class Employee extends Model{
           $this->empdate = "";
           $this->salary = "";
           $this->compid = "";
+          $this->national = "";
+
 
         }
       }
 
 
-      function editEmployee($empid,$empfirstname,$emplastname,$email,$address,$mobile,$birthdate,$edudegree,$empdate,$salary,$compid)
+      function editEmployee($empid,$empfirstname,$emplastname,$email,$address,$mobile,$birthdate,$edudegree,$empdate,$salary,$compid,$national)
       {
         $empfirstname = $this->dbh->getConn()->real_escape_string($empfirstname);
         $emplastname = $this->dbh->getConn()->real_escape_string($emplastname);
@@ -221,9 +237,11 @@ class Employee extends Model{
         $empdate = $this->dbh->getConn()->real_escape_string($empdate);
         $salary = $this->dbh->getConn()->real_escape_string($salary);
         $compid = $this->dbh->getConn()->real_escape_string($compid);
+        $national = $this->dbh->getConn()->real_escape_string($national);
+
     
         $sql = "UPDATE employee SET First_Name='$empfirstname', Last_Name='$emplastname', email='$email', address='$address' , mobile='$mobile', DOB='$birthdate',
-         degree='$edudegree', emp_date='$empdate', salary='$salary', comp_id='$compid' WHERE ID = '$empid'";
+         degree='$edudegree', emp_date='$empdate', salary='$salary', comp_id='$compid', national_id='$national' WHERE ID = '$empid'";
     
         if($this->dbh->query($sql) === true)
         {
@@ -253,7 +271,7 @@ class Employee extends Model{
       }
 
 
-    
+     
     }
 
 

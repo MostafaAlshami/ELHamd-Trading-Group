@@ -55,6 +55,10 @@ class EmployeeView extends View
     $str .= " <td> Salary </td>  <td></td> <td></td> ";
     $str .= " <td> " . $this->model->getSalary() . " </td> </tr> ";
 
+    $str .= " <tr>";
+    $str .= " <td> Salary </td>  <td></td> <td></td> ";
+    $str .= " <td> " . $this->model->getNational() . " </td> </tr> ";
+
     $str .= " <tr> ";
     $str .= " <td></td> ";
     $str .= " <td class=\"text-right\"><a class=\"btn\" href='employeesList.php?action=edit&id= " . $this->model->getEmpid() . "'  > Edit </a></td> ";   //check href
@@ -126,6 +130,11 @@ class EmployeeView extends View
     $str .= " <tr>";
     $str .= " <td> Salary </td>  <td></td> <td></td> ";
     $str .= ' <td><input type="text" class="form-control" placeholder="" name="salaryy" id="Salary2" value="'. $this->model->getSalary() .'"></td> </tr> ';
+
+    $str .= " <tr>";
+    $str .= " <td> National ID </td>  <td></td> <td></td> ";
+    $str .= ' <td><input type="text" class="form-control" placeholder="" name="nationall" id="national2" value="'. $this->model->getNational() .'"></td> </tr> ';
+
 
     $str .= " <tr> ";
     $str .= " <td></td> ";
@@ -202,6 +211,10 @@ class EmployeeView extends View
     $str .= " <td> Salary </td>  <td></td> <td></td> ";
     $str .= ' <td><input type="text" name="salary" id="Salary" class="form-control" placeholder=""></td> </tr> ';
 
+    $str .= " <tr>";
+    $str .= " <td> National ID </td>  <td></td> <td></td> ";
+    $str .= ' <td><input type="text" name="national" id="National" class="form-control" placeholder=""></td> </tr> ';
+
     $str .= " <tr> ";
     $str .= " <td></td> ";
     $str .= ' <td> <button type="submit" class="btn" name ="savec" onclick="return validateaddemp()"> Save </button> </td> ';  //SAVE ACTION
@@ -215,6 +228,8 @@ class EmployeeView extends View
     return $str;
   }
 
+
+  
 
 }
 

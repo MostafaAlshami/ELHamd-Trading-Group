@@ -7,6 +7,7 @@ if (!isset($_SESSION)) {
 class users_model extends model
 {
     private $users;
+
     function __construct()
     {
         $this->fillArray();
@@ -75,4 +76,29 @@ class users_model extends model
             header("location:login_public.php?error=1");
         }
     }
+
+    function forgetpassword($national,$newpass)
+    {
+        $sql= "SELECT * from employee where national_id=$national";
+        $result=$this->db->query($sql);
+        if($result->num_rows>0)
+        {
+            while($row = $result->fetch_assoc()) 
+            {
+                
+                $pass_hash = password_hash($newpass, PASSWORD_BCRYPT);
+
+                $sql2="UPDATE user SET password='".$pass_hash."'  where emp_ID='".$row["ID"]."'";
+                if ($this->db->query($sql2) === true) {
+                    echo "Record updated successfully";
+                  } else {
+                    echo "Error updating record: " .$this->conn->error;
+                  }
+
+            }
+
+            
+        }
+    }
+
 }

@@ -19,4 +19,14 @@ class users_controller extends Controller{
 		$this->model->login($username,$pass);
 	}
 
+	public function forget()
+	{
+		$national=$_REQUEST['ForgetPass'];
+		$newpass=$_REQUEST['NewPass'];
+
+		$this->model->forgetpassword($national,$newpass);
+
+
+	}
+
 }

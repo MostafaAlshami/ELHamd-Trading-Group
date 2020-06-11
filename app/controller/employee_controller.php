@@ -17,9 +17,11 @@ class EmployeeController extends Controller
     $EmpDate = $_POST['empdate'];
     $Salary = $_POST['salary'];
     $compid = $_POST['code'];
+    $nationalid = $_POST['national'];
 
 
-    $this->model->insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$Salary,$compid);
+
+    $this->model->insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$Salary,$compid,$nationalid);
   }  
   
   public function editEmp()
@@ -35,8 +37,9 @@ class EmployeeController extends Controller
     $EmpDate = $_POST['empdate'];
     $Salary = $_POST['salaryy'];
     $compid = $_POST['compid'];
+    $nationalid = $_POST['national'];
 
-    $this->model->editEmployee($id,$empfirstname,$last_name,$email,$address,$mobile,$dob,$Degree,$EmpDate,$Salary,$compid);
+    $this->model->editEmployee($id,$empfirstname,$last_name,$email,$address,$mobile,$dob,$Degree,$EmpDate,$Salary,$compid,$nationalid);
   }
 
   public function deleteEmp() 

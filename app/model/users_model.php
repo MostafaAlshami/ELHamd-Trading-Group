@@ -54,14 +54,14 @@ class users_model extends model
         }
     }
 
+
+
     function login($username, $pass)
     {
         $sql = "Select * from user where username='" . "$username" . "'";
         $result = $this->db->query($sql);
-        if ($result->num_rows > 0) {
-
-
-
+        if ($result->num_rows > 0) 
+        {
             $row = $result->fetch_assoc();
             if (password_verify($pass, $row['password'])) {
                 $_SESSION["ID"] = $row["ID"];
@@ -77,6 +77,8 @@ class users_model extends model
         }
     }
 
+
+
     function forgetpassword($national,$newpass)
     {
         $sql= "SELECT * from employee where national_id=$national";
@@ -84,8 +86,7 @@ class users_model extends model
         if($result->num_rows>0)
         {
             while($row = $result->fetch_assoc()) 
-            {
-                
+            {               
                 $pass_hash = password_hash($newpass, PASSWORD_BCRYPT);
 
                 $sql2="UPDATE user SET password='".$pass_hash."'  where emp_ID='".$row["ID"]."'";
@@ -94,10 +95,7 @@ class users_model extends model
                   } else {
                     echo "Error updating record: " .$this->conn->error;
                   }
-
             }
-
-            
         }
     }
 

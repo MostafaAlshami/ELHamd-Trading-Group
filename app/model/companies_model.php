@@ -97,7 +97,6 @@ class Companies extends Model
         $phoneNumber = $this->dbh->getConn()->real_escape_string($phoneNumber);
         $address = $this->dbh->getConn()->real_escape_string($address);
 
-
         $sql = "INSERT INTO company (company_name, cType, email, curl, phoneNumber, cAddress)
                 VALUES ('$company_name', '$type', '$email', '$url', '$phoneNumber', '$address')";
 
@@ -108,9 +107,11 @@ class Companies extends Model
         } else {
             echo "ERROR: Could not execute $sql. " . $this->conn->error;
         }
-        //FIX AND TEST
         //array_push($this->Companies, new Comapny( , , , , , ));
     }
+
+
+    
     
     function searchCompany($x)
     {

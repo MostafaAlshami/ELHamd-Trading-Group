@@ -43,7 +43,9 @@ class Employees extends Model {
     }
   }
 
-  function insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$salary,$compid){
+
+  function insertEmployee($first_name, $last_name,$email,$address,$mobile,$DoB,$Degree,$EmpDate,$salary,$compid)
+  {
     $first_name = $this->dbh->getConn()->real_escape_string($first_name);
     $last_name = $this->dbh->getConn()->real_escape_string($last_name);
     $email = $this->dbh->getConn()->real_escape_string($email);
@@ -55,19 +57,18 @@ class Employees extends Model {
     $salary = $this->dbh->getConn()->real_escape_string($salary);
     $compid= $this->dbh->getConn()->real_escape_string($compid);
 
-    $sql = "INSERT INTO employee (First_Name, Last_Name, email, address, mobile, DOB, degree, emp_date, salary, comp_id)
-    VALUES ('$first_name', '$last_name', '$email', '$address', '$mobile', '$DoB', '$Degree', '$EmpDate', '$salary','$compid')";
+    $sql = "INSERT INTO employee (First_Name, Last_Name, email, address, 
+                        mobile, DOB, degree, emp_date, salary, comp_id)
+    VALUES ('$first_name', '$last_name', '$email', '$address', 
+            '$mobile', '$DoB', '$Degree', '$EmpDate', '$salary','$compid')";
 
-   if($this->dbh->query($sql) === true)
-   {
+   if($this->dbh->query($sql) === true){
      echo "Record inserted successfully.";
-   }
-   else
-   {  
+    }
+   else{  
      echo "ERROR: Could not execute $sql. " . $conn->error;
-   }
-
-}
+    }
+  }
 
 
 //   function EmployeeStats($first_name,$last_name,$mobile,$salary)

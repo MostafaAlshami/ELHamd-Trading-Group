@@ -5,8 +5,8 @@ require_once(__ROOT__ . "model/model.php");
 
 <?php
 
-class About extends Model
-{
+  class About extends Model
+  {
     private $id;
     private $intro;
     private $info;
@@ -127,5 +127,5 @@ class About extends Model
         
     }
 
-}
+  }
 ?>    

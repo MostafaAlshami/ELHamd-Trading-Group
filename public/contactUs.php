@@ -1,30 +1,32 @@
 <?php
-if (!isset($_SESSION)) {
+
+if (!isset($_SESSION)) 
+{
     session_start();
 }
+
 define('__ROOT__', "../app/");
-require_once(__ROOT__ . "model/products_model.php");
-require_once(__ROOT__ . "controller/product_controller.php");
-require_once(__ROOT__ . "view/Product_view.php");
+require_once(__ROOT__ . "model/about_model.php");
+require_once(__ROOT__ . "controller/about_controller.php");
+require_once(__ROOT__ . "view/about_view.php");
 
-$model = new Products();
-$controller = new ProductController($model);
-$view = new ViewProduct($controller, $model);
-
-
+$id = 1;
+$model = new Contact($id);
+$controller = new ContactController($model);
+$view = new ContactView($controller, $model);
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <title> Contact Us </title>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        Products
-    </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -37,71 +39,20 @@ $view = new ViewProduct($controller, $model);
 <body class="user-profile">
     <div class="wrapper ">
         <div class="sidebar" data-color="orange">
-        <div class="logo">
-        <a href="#" class="simple-text logo-mini">
-          HT
-        </a>
-        <a href="#" class="simple-text logo-normal">
-          ELHamd Trading
-        </a>
-      </div>
-
-        <div class="sidebar-wrapper" id="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-            <a href="./dashboard.php">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-            <li>
-              <a href="employeeList.php">
-                <i class="now-ui-icons users_single-02"></i>
-                <p>User Profile
-                <br> Do not open</p>
-              </a>
-            </li>
-            <li>
-              <a href="employeesList.php">
-                <i class="now-ui-icons users_single-02"></i>
-                <p>Employees</p>
-              </a>
-            </li>
-            <li>
-              <a href="companiesList.php">
-                <i class="now-ui-icons files_box"></i>
-                <p>Companies</p>
-              </a>
-            </li>
-            <li>
-                <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
-                  <p>Shipping Lines</p>
-                </a>
-            </li>
-            <li>
-              <a href="allContracts.php">
-                <i class="now-ui-icons files_box"></i>
-                <p>Contracts
-                <br> Do not open</p>
-              </a>
-            </li>
-            <li class="active ">
-              <a href="product_public.php"><i class="now-ui-icons files_box"></i>
-                <p>Products</p>
-              </a>
-            </li>
-            <li>
-              <a href="storage_public.php"><i class="now-ui-icons files_box"></i>
-                <p>Storage</p>
-              </a>
-            </li>
-           
-        </ul>
-      </div>
-    </div>
+            <div class="logo">
+                <a href="#" class="simple-text logo-mini"> HT </a>
+                <a href="#" class="simple-text logo-normal"> ELHamd Trading </a>
+            </div>
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+              
+            </div>
+        </div>
 
         <div class="main-panel" id="main-panel">
-        <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+            <!-- Navbar -->
+
+                  <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <div class="navbar-toggle">
@@ -129,9 +80,8 @@ $view = new ViewProduct($controller, $model);
                 </div>
               </div>
             </form>
-            <ul class="navbar-nav">
-   
 
+            <ul class="navbar-nav">
             <li class="nav-item">
               <a  class="nav-link" href="aboutUs.php"><i class="now-ui-icons files_box"></i>
                 <p>About US</p>
@@ -149,8 +99,6 @@ $view = new ViewProduct($controller, $model);
                 <p>FAQs</p>
               </a>
             </li>
-
-
 
 
               <?php if (!empty($_SESSION["ID"])) { ?>
@@ -180,33 +128,121 @@ $view = new ViewProduct($controller, $model);
       </nav>
 
       <!-- End Navbar -->
+           
+           
+          
             <div class="panel-header panel-header-sm">
             </div>
-            <div class='content'>
-                <div style='border: thin solid orange' class='card card-user'>
 
-                    <?php
-                    echo $view->output($model);
-                    ?>
 
+
+
+
+            <div class="content"  id="contact" >  <!--- style="display: None" -->
+                <div class="row">
+                    <div class="col-md-15">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+                                <a class="btn" href="dashboard.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </a>
+                                <h4 class="card-title">El Hamd Trading Company</h4>
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table">
+                                  <tr>
+                                      <th> Address </th>
+                                      <td> Sheraton, Cairo, Egypt </td>
+                                      <td> </td>
+                                  </tr>
+
+                                  <tr>
+                                      <th> Phone Numbers </th>
+                                      <td> (002)02-22681203 <br>
+                                           (002)0100-2150014 </td>
+                                      <td>  </td>
+                                  </tr>
+
+                                  <tr>
+                                  <th> Fax </th>
+                                  <td> (002)02-22680688 </td> 
+                                  <td></td>
+                                  </tr>
+
+                                  <tr>
+                                  <th> Email Address </th>
+                                  <td> info@elhamdgroup.net </td> 
+                                  <td></td>
+                                  </tr>
+
+                                  <tr>
+                                  <th> Website </th>
+                                  <td> <a href="http://www.elhamdgroup.net/"> </td>
+                                  <td></td>
+                                  </tr>          
+                                </table>
+                            
+                           </div>
+                        </div>
+                    </div>
+
+
+
+
+                   
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+
+                                <h4 class="card-title">El Hamd Trading Facility</h4>
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table">
+
+                                  <tr>
+                                      <th> Address </th>
+                                      <td> 199 Al Salhia food industrial,<br>
+                                            new industrial second zone 
+                                             - Al Sharqia - Egypt </td>
+                                      <td></td>      
+                                  </tr>
+
+                                  <tr>
+                                      <th> Numbers </th>
+                                      <td> (+20)0553203614 <br>
+                                           (002)0100-2150014 </td>
+                                      <td>  </td>
+                                  </tr>
+                               
+                                  <tr>
+                                  <th> Fax </th>
+                                  <td> (+20)0553203612 </td> 
+                                  <td></td>
+                                  </tr>
+
+                                </table>
+                              </div>    
+                           </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
         </div>
-        <footer class="footer">
-            <div class=" container-fluid ">
+    </div>
 
-                <div class="copyright" id="copyright">
-                    &copy;
-                    <script>
-                        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                    </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>.
-                    Coded by
-                    <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-                </div>
-            </div>
-        </footer>
-    </div>
-    </div>
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
@@ -220,6 +256,7 @@ $view = new ViewProduct($controller, $model);
     <script src="../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+    <script src="../assets/js/employeevalid" type="text/javascript"></script>
 
 </body>
 

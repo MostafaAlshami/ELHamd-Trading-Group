@@ -178,25 +178,23 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             <ul class="navbar-nav">
    
 
-              <li class="nav-item">
-              <a  class="nav-link" href="faqs.php"><i class="now-ui-icons files_box"></i>
+            <li class="nav-item">
+              <a  class="nav-link" href="aboutUs.php"><i class="now-ui-icons files_box"></i>
                 <p>About US</p>
               </a>
-              </li>
-
-
-              <li class="nav-item">
-              <a  class="nav-link" href="aboutUs.php"><i class="now-ui-icons files_box"></i>
-                <p>Contact US</p>
-              </a>
-              </li>
-
+            </li>
 
               <li class="nav-item">
               <a  class="nav-link" href="contactUs.php"><i class="now-ui-icons files_box"></i>
+                <p>Contact US</p>
+              </a>
+            </li>
+
+              <li class="nav-item">
+              <a  class="nav-link" href="faqs.php"><i class="now-ui-icons files_box"></i>
                 <p>FAQs</p>
               </a>
-              </li>
+            </li>
 
 
 

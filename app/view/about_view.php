@@ -12,7 +12,7 @@ class AboutView extends View
     $str .= '    <table class="table"> ';
     $str .= '        <tr> ';
     $str .= '            <td> ';
-    $str .= '                <img src="../public/Products/herbs.jpg" style="width:50%"> ';
+    $str .= '                <img src="../public/Products/snacks.jpg" style="width:34%"> ';
     $str .= '            </td> ';
 
     $str .= '             <td> </td> ';
@@ -31,7 +31,7 @@ class AboutView extends View
     $str .= '            <td> </td> ';
 
     $str .= '            <td> ';
-    $str .= '                <img src="../public/Products/snacks.jpg" style="width:50%"> ';
+    $str .= '                <img src="../public/Products/herbs.jpg" style="width:65%"> ';
     $str .= '            </td> ';
     $str .= '        </tr> ';
                                      

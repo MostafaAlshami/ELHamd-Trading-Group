@@ -95,21 +95,7 @@
                 <p>Storage</p>
               </a>
             </li>
-            <li>
-              <a href=""><i class="now-ui-icons files_box"></i>
-                <p>About US</p>
-              </a>
-            </li>
-            <li>
-              <a href=""><i class="now-ui-icons files_box"></i>
-                <p>Contact US</p>
-              </a>
-            </li>
-            <li>
-              <a href=""><i class="now-ui-icons files_box"></i>
-                <p>FAQs</p>
-              </a>
-            </li>
+    
           <?php }
           ?>
 
@@ -147,14 +133,31 @@
               </div>
             </form>
             <ul class="navbar-nav">
+   
+
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
+              <a  class="nav-link" href="faqs.php"><i class="now-ui-icons files_box"></i>
+                <p>About US</p>
+              </a>
               </li>
+
+
+              <li class="nav-item">
+              <a  class="nav-link" href="aboutUs.php"><i class="now-ui-icons files_box"></i>
+                <p>Contact US</p>
+              </a>
+              </li>
+
+
+              <li class="nav-item">
+              <a  class="nav-link" href="contactUs.php"><i class="now-ui-icons files_box"></i>
+                <p>FAQs</p>
+              </a>
+              </li>
+
+
+
+
               <?php if (!empty($_SESSION["ID"])) { ?>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -180,7 +183,10 @@
           </div>
         </div>
       </nav>
+
       <!-- End Navbar -->
+
+      
       <div class="panel-header panel-header-sm">
       </div>
       <div class="content" id="id01" style="display: block">

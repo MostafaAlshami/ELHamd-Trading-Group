@@ -138,6 +138,12 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                             <p>User Profile</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="employeeList.php">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>Employees</p>
+                        </a>
+                    </li>
                     <li class="active ">
                         <a href="companiesList.php"> <i class="now-ui-icons files_box"></i>
                             <p>Companies</p>

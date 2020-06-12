@@ -72,7 +72,7 @@
 
 
             <li>
-              <a href="employees.php">
+              <a href="employeesList.php">
                 <i class="now-ui-icons users_single-02"></i>
                 <p>Employees</p>
               </a>

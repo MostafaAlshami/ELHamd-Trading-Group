@@ -85,6 +85,11 @@
               </a>
             </li>
             <li>
+              <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
+                <p>Shipping Lines</p>
+              </a>
+            </li>
+            <li>
               <a href="">
                 <i class="now-ui-icons files_box"></i>
                 <p>Contracts

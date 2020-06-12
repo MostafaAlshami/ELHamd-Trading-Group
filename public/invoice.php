@@ -63,8 +63,6 @@ $view = new InvoiceView($controller, $model);
                 <br> Do not open</p>
               </a>
             </li>
-
-
             <li>
               <a href="employeesList.php">
                 <i class="now-ui-icons users_single-02"></i>
@@ -76,6 +74,11 @@ $view = new InvoiceView($controller, $model);
                 <i class="now-ui-icons files_box"></i>
                 <p>Companies</p>
               </a>
+            </li>
+            <li>
+                <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
+                  <p>Shipping Lines</p>
+                </a>
             </li>
             <li class="active ">
               <a href="">

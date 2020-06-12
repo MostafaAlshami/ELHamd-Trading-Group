@@ -78,6 +78,11 @@ $view = new ViewStorage($controller, $model);
               </a>
             </li>
             <li>
+                <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
+                  <p>Shipping Lines</p>
+                </a>
+            </li>
+            <li>
               <a href="allContracts.php">
                 <i class="now-ui-icons files_box"></i>
                 <p>Contracts

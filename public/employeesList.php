@@ -79,7 +79,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 </head>
 
 <body class="">
-    <div class="wrapper ">
+   
         <div class="sidebar" data-color="orange">
             <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
             <div class="logo">
@@ -87,36 +87,6 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                 <a href="#" class="simple-text logo-normal"> ELHamd Trading </a>
             </div>
             <div class="sidebar-wrapper" id="sidebar-wrapper">
-                <ul class="nav">
-                    <li>
-                        <a href=" "> <i class="now-ui-icons design_app"> </i> <p>Dashboard</p></a> 
-                    </li>
-                    <li class="active">
-                        <a href="employeesList.php"> <i class="now-ui-icons users_single-02"></i><p>Employees</p></a>
-                    </li>
-                    <li > 
-                        < <a href="companiesList.php"> <i class="now-ui-icons files_box"></i> <p>Companies</p></a> 
-                    </li>
-                    <li> 
-                        <a href=" "> <i class="now-ui-icons files_box"></i> <p>Shipping Lines</p></a> 
-                    </li>
-                    <li>
-                        <a href=" "><i class="now-ui-icons files_box"></i><p>Contracts</p></a>                              
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <body class="">
-    <div class="wrapper ">
-        <div class="sidebar" data-color="orange">
-            <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
-            <div class="logo">
-                <a href="#" class="simple-text logo-mini"> HT </a>
-                <a href="#" class="simple-text logo-normal"> ELHamd Trading </a>
-            </div>
-            <div class="sidebar-wrapper" id="sidebar-wrapper">
-
             <ul class="nav">
           <li>
             <a href="./dashboard.php">
@@ -131,18 +101,28 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                 <br> Do not open</p>
               </a>
             </li>
-            <li class="active">
+            <li class="active ">
               <a href="employeesList.php">
                 <i class="now-ui-icons users_single-02"></i>
                 <p>Employees</p>
               </a>
             </li>
-            <li >
+
+            
+            <li>
               <a href="companiesList.php">
                 <i class="now-ui-icons files_box"></i>
                 <p>Companies</p>
               </a>
             </li>
+
+            <li>
+              <a href="shipping.php"> 
+                <i class="now-ui-icons files_box"></i>
+                <p>Shipping Lines</p>
+              </a>
+            </li>
+  
             <li>
               <a href="allContracts.php">
                 <i class="now-ui-icons files_box"></i>
@@ -164,6 +144,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
         </ul>
             </div>
         </div>
+
 
         <div class="main-panel" id="main-panel">
         <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">

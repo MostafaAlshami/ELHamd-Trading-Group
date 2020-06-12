@@ -73,15 +73,14 @@ define('__ROOT__', "../app/");
                 </div>
               </div>
             </form>
+
             <ul class="navbar-nav">
    
-
               <li class="nav-item">
               <a  class="nav-link" href="faqs.php"><i class="now-ui-icons files_box"></i>
                 <p>About US</p>
               </a>
               </li>
-
 
               <li class="nav-item">
               <a  class="nav-link" href="aboutUs.php"><i class="now-ui-icons files_box"></i>
@@ -89,14 +88,11 @@ define('__ROOT__', "../app/");
               </a>
               </li>
 
-
               <li class="nav-item">
               <a  class="nav-link" href="contactUs.php"><i class="now-ui-icons files_box"></i>
                 <p>FAQs</p>
               </a>
               </li>
-
-
 
 
               <?php if (!empty($_SESSION["ID"])) { ?>
@@ -134,13 +130,13 @@ define('__ROOT__', "../app/");
 
 
 
-            <div class="content">
+            <div class="content"  id="about" > <!--- style="display: None" -->
                 <div class="row">
                     <div class="col-md-15">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
-                                <a class="btn" href="dashboard.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </a> <!--back to contract-->
+                                <a class="btn" href="dashboard.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </a>
                                 <h4 class="card-title">El Hamd Trading Group</h4>
                             </div>
                             <div class="card-body">
@@ -194,6 +190,53 @@ define('__ROOT__', "../app/");
 
                 </div>
             </div>
+
+
+
+
+
+            <div class="content"  id="contact" >  <!--- style="display: None" -->
+                <div class="row">
+                    <div class="col-md-15">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+                                <a class="btn" href="dashboard.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </a>
+                                <h4 class="card-title">El Hamd Trading Group</h4>
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table">
+                                  <tr>
+                                 
+                                  </tr>
+
+                                  <tr>
+                                    
+                                  </tr>
+                                     
+                                  </tr>
+
+                                </table>
+                              </div>    
+
+                            
+
+                           </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
 
         </div>
     </div>

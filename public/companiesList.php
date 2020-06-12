@@ -236,6 +236,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                         window.location.stop();
                     };
                 </script>"; -->
+
                 <div class="row">
                     <div class=" col-md-12">
                         <div class="card">
@@ -245,13 +246,10 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                 <h4 class="card-title">Companies</h4>
                             </div>
                             <div class="card-body">
-
                                 <!----CARD HERE: echo output function from view classes-->
                                 <?php
                                 echo $view->output();
                                 ?>
-
-
                             </div>
                         </div>
                     </div>
@@ -279,27 +277,25 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                 <h4 class="card-title">Company Profile</h4>
                             </div>
                             <div class="card-body">
-
                                 <!----CARD HERE: echo output function from view classes-->
+                               
                                 <?php
-
-
                                 echo $view4->editCard();
 
                                 if (isset($_POST['save'])) {
-
                                     // $type = "ay 7aga";
                                     $controller4->editComp();
                                     echo '<script>window.location.href= "companiesList.php";</script>';
                                 }
                                 ?>
 
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
 
             <div class="content" id="id03" style="display: None">
                 <?php
@@ -323,13 +319,18 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                 <?php
                                 echo $view2->output();
                                 ?>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
             <div class="content" id="id04" style="display: None">
                 <?php
 
@@ -337,7 +338,6 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                 $model2 = new Company($x);
                 $controller2 = new CompanyController($model2);
                 $view2 = new companyView($controller2, $model2);
-
                 ?>
 
                 <div class="row">
@@ -355,17 +355,14 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                                 echo $view2->addCard();
                                 if (isset($_POST['savec'])) {
 
-
                                     $controller->insertComp();
                                     echo '<script>window.location.href= "companiesList.php";</script>';
                                 }
                                 if (isset($_POST['cancel'])) {
 
-
                                     $controller->insertComp();
                                     echo '<script>window.location.href= "companiesList.php";</script>';
                                 }
-
                                 ?>
 
 
@@ -374,6 +371,8 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                     </div>
                 </div>
             </div>
+
+
 
             <div class="content" id="id05" style="display: None">
 

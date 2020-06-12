@@ -7,7 +7,6 @@
   require_once(__ROOT__ . "model/Employees_model.php");
   require_once(__ROOT__ . "controller/employee_controller.php");
   require_once(__ROOT__ . "view/Employees_view.php");
-  require_once(__ROOT__ . "view/Employee_view.php");
 
   $model = new Employees();
   $controller = new EmployeeController($model);
@@ -186,7 +185,7 @@
 
       <!-- End Navbar -->
 
-      
+
       <div class="panel-header panel-header-sm">
       </div>
       <div class="content" id="id01" style="display: block">

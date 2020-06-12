@@ -208,14 +208,23 @@ define('__ROOT__', "../app/");
                               <div class="table-responsive">
                                 <table class="table">
                                   <tr>
-                                 
+                                      <th> Address </th>
+                                      <
                                   </tr>
 
                                   <tr>
-                                    
+                                      <th> Phone Numbers </th>
+                                  </tr>
+
+                                  <tr>
+                                      <th> Email Address </th>
+                                  </tr>
+
+                                  <tr>
+                                      <th> Website </th>
                                   </tr>
                                      
-                                  </tr>
+                                
 
                                 </table>
                               </div>    

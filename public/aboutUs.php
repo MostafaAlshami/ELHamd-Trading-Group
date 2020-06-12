@@ -6,7 +6,14 @@ if (!isset($_SESSION))
 }
 
 define('__ROOT__', "../app/");
+require_once(__ROOT__ . "model/about_model.php");
+require_once(__ROOT__ . "controller/about_controller.php");
+require_once(__ROOT__ . "view/about_view.php");
 
+$id = 1;
+$model = new About($id);
+$controller = new AboutController($model);
+$view = new AboutView($controller, $model);
 
 ?>
 
@@ -140,47 +147,12 @@ define('__ROOT__', "../app/");
                                 <h4 class="card-title">El Hamd Trading Group</h4>
                             </div>
                             <div class="card-body">
-                              <div class="table-responsive">
-                                <table class="table">
-                                  <tr>
-                                  <td>
-                                     <img src="../public/Products/herbs.jpg" style="width:50%">
-                                     </td>
 
-                                     <td> </td>
 
-                                     <th>
-                                        Established in 1989 By Mr. Khaled Hamdy,<br>
-                                        and is located in Cairo, Egypt.
-                                        We specialize in importing and exporting a variety of crops including:<br>
-                                         Pulses, rice, beans, spices, 
-                                        coffee, seeds, medical herbs. <br>
-                                     </th>
-                                  </tr>
+                            <?php
+                                echo $view->output();
+                            ?>
 
-                                  <tr>
-                                     <th>                                 
-                                        We have vast expertise in this field. <br>
-                                        We endeavor to establish business and personal relations
-                                        with both of our clients and suppliers <br>
-                                        who believe, as we do that honesty and integrity 
-                                        lead eventually to success.<br>
-                                        Our commitment to supplying high quality<br> 
-                                        products and services to our clients 
-                                        made them express their trust, which we dearly cherish. <br> 
-                                     </th>
-
-                                     <td> </td>
-
-                                     <td>
-                                     <img src="../public/Products/snacks.jpg" style="width:50%">
-                                     </td>
-                                  </tr>
-                                     
-                                  </tr>
-
-                                </table>
-                              </div>    
 
                             
 
@@ -234,7 +206,7 @@ define('__ROOT__', "../app/");
 
                                   <tr>
                                   <th> Website </th>
-                                  <td> <a href="http://www.elhamdgroup.net/"> </th>
+                                  <td> <a href="http://www.elhamdgroup.net/"> </td>
                                   <td></td>
                                   </tr>          
                                 </table>
@@ -249,6 +221,7 @@ define('__ROOT__', "../app/");
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
+
                                 <h4 class="card-title">El Hamd Trading Facility</h4>
                             </div>
                             <div class="card-body">

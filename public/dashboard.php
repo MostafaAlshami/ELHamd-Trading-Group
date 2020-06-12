@@ -66,7 +66,8 @@
             <li>
               <a href="employeeList.php">
                 <i class="now-ui-icons users_single-02"></i>
-                <p>User Profile</p>
+                <p>User Profile
+                <br> Do not open</p>
               </a>
             </li>
 
@@ -84,10 +85,16 @@
               </a>
             </li>
             <li>
-              <a href="allContracts.php">
+              <a href="">
                 <i class="now-ui-icons files_box"></i>
-                <p>Contracts</p>
+                <p>Contracts
+                <br> Do not open</p>
               </a>
+            </li>
+            <li>
+                <a href="product_public.php"><i class="now-ui-icons files_box"></i>
+                    <p>Products</p>
+                </a>
             </li>
             <li>
               <a href="storage_public.php"><i class="now-ui-icons files_box"></i>

@@ -202,39 +202,85 @@ define('__ROOT__', "../app/");
                             <div class="card-header">
                                 <h5 class="card-category"></h5>
                                 <a class="btn" href="dashboard.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </a>
-                                <h4 class="card-title">El Hamd Trading Group</h4>
+                                <h4 class="card-title">El Hamd Trading Company</h4>
                             </div>
                             <div class="card-body">
                               <div class="table-responsive">
                                 <table class="table">
                                   <tr>
                                       <th> Address </th>
-                                      <
+                                      <td> Sheraton, Cairo, Egypt </td>
+                                      <td> </td>
                                   </tr>
 
                                   <tr>
                                       <th> Phone Numbers </th>
+                                      <td> (002)02-22681203 <br>
+                                           (002)0100-2150014 </td>
+                                      <td>  </td>
                                   </tr>
 
                                   <tr>
-                                      <th> Email Address </th>
+                                  <th> Fax </th>
+                                  <td> (002)02-22680688 </td> 
+                                  <td></td>
                                   </tr>
 
                                   <tr>
-                                      <th> Website </th>
+                                  <th> Email Address </th>
+                                  <td> info@elhamdgroup.net </td> 
+                                  <td></td>
                                   </tr>
-                                     
-                                
 
+                                  <tr>
+                                  <th> Website </th>
+                                  <td> <a href="http://www.elhamdgroup.net/"> </th>
+                                  <td></td>
+                                  </tr>          
                                 </table>
-                              </div>    
-
                             
-
                            </div>
                         </div>
                     </div>
 
+
+
+                   
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category"></h5>
+                                <h4 class="card-title">El Hamd Trading Facility</h4>
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table">
+
+                                  <tr>
+                                      <th> Address </th>
+                                      <td> 199 Al Salhia food industrial,<br>
+                                            new industrial second zone 
+                                             - Al Sharqia - Egypt </td>
+                                      <td></td>      
+                                  </tr>
+
+                                  <tr>
+                                      <th> Numbers </th>
+                                      <td> (+20)0553203614 <br>
+                                           (002)0100-2150014 </td>
+                                      <td>  </td>
+                                  </tr>
+                               
+                                  <tr>
+                                  <th> Fax </th>
+                                  <td> (+20)0553203612 </td> 
+                                  <td></td>
+                                  </tr>
+
+                                </table>
+                              </div>    
+                           </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

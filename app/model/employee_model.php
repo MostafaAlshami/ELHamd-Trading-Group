@@ -191,7 +191,7 @@ class Employee extends Model{
     
     function readEmployee($empid)
     {
-        $sql = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID WHERE user.emp_ID='$empid'";
+        $sql = "SELECT * FROM employee WHERE ID='$empid'";
         $db = $this->connect();
         $result = $db->query($sql);
 

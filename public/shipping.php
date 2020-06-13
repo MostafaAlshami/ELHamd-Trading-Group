@@ -122,8 +122,8 @@ if (isset($_GET['action']) && !empty($_GET['action']))
         <div class="sidebar" data-color="orange">
             <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
             <div class="logo">
-                <a href="#" class="simple-text logo-mini"> HT </a>
-                <a href="#" class="simple-text logo-normal"> ELHamd Trading </a>
+                <a href="./dashboard.php" class="simple-text logo-mini"> HT </a>
+                <a href="./dashboard.php" class="simple-text logo-normal"> ELHamd Trading </a>
             </div>
             <div class="sidebar-wrapper" id="sidebar-wrapper">
 
@@ -134,13 +134,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
               <p>Dashboard</p>
             </a>
           </li>
-            <li>
-              <a href="employeeList.php">
-                <i class="now-ui-icons users_single-02"></i>
-                <p>User Profile
-                <br> Do not open</p>
-              </a>
-            </li>
+            
             <li>
               <a href="employeesList.php">
                 <i class="now-ui-icons users_single-02"></i>
@@ -243,6 +237,7 @@ if (isset($_GET['action']) && !empty($_GET['action']))
                     <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href='employeesList.php?action=view&id=<?php echo $_SESSION["ID"]; ?>'>User Profile</a> 
                     <a class="dropdown-item" href="signout.php">Signout</a>
 
                   </div>

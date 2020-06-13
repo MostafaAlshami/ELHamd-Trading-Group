@@ -58,13 +58,7 @@ $view = new ViewStorage($controller, $model);
               <p>Dashboard</p>
             </a>
           </li>
-            <li>
-              <a href="employeeList.php">
-                <i class="now-ui-icons users_single-02"></i>
-                <p>User Profile
-                <br> Do not open</p>
-              </a>
-            </li>
+            
             <li>
               <a href="employeesList.php">
                 <i class="now-ui-icons users_single-02"></i>
@@ -164,6 +158,7 @@ $view = new ViewStorage($controller, $model);
                     <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href='employeesList.php?action=view&id=<?php echo $_SESSION["ID"]; ?>'>User Profile</a> 
                     <a class="dropdown-item" href="signout.php">Signout</a>
 
                   </div>

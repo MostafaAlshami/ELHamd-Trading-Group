@@ -113,6 +113,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
                     <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href='employeesList.php?action=view&id=<?php echo $_SESSION["ID"]; ?>'>User Profile</a> 
                     <a class="dropdown-item" href="signout.php">Signout</a>
 
                   </div>

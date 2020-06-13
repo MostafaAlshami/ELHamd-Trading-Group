@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2020 at 05:13 AM
+-- Generation Time: Jun 13, 2020 at 05:51 PM
 -- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -120,11 +120,11 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`company_id`, `company_name`, `email`, `curl`, `phoneNumber`, `cAddress`, `cType`) VALUES
-(1, 'Elhamd', 'elhamd@gmail.com', 'www.elhamdTrading.com', '017767678445', 'Obour', 'shipping'),
-(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '08738634627', 'Giza', 'shipping'),
-(3, 'CRM', 'crm@hotmail.com', 'www.crm.com', '01176767878', 'Cairo', 'shipping'),
-(4, 'CRM', 'crm@gmail.vom', 'www.crm.com', '01776767845', 'golf city', 'trading'),
-(5, 'Beansco', 'beansco@gmail.com', 'www.beansc.com', '01776767845', 'golf city', 'trading');
+(1, 'Elhamd', 'info@elhamdgroup.net', 'www.elhamdgroup.net', '01002150014', 'Sheraton, Cairo-Egypt', 'trading'),
+(2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '0226053031', 'New Cairo, Cairo-Egypt', 'trading'),
+(3, 'MSC', 'EG195-msc.egypt@msc.com', 'www.msc.com', '20 3 488 4000', 'Alexandria Old Port, Alexandri', 'shipping'),
+(4, 'CRM', 'crm@gmail.vom', 'www.crm.com', '01776767845', 'Cairo-Egypt', 'shipping'),
+(5, 'Beansco', 'beansco@gmail.com', 'www.beansc.com', '01776767845', 'Cairo-Egypt', 'trading');
 
 -- --------------------------------------------------------
 
@@ -153,7 +153,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `compAdd`, `compTel`, `compMobile`, `compFax`, `email`, `website`, `compName`, `facName`, `facAdd`, `facTel`, `facMobile`, `facFax`) VALUES
-(1, 'Sheraton, Cairo, Egypt', '(002)02-22681203', '(002)0100-2150014', '	(002)02-22680688', '	info@elhamdgroup.net', 'http://www.elhamdgroup.net/', 'El Hamd Trading Company', 'El Hamd Trading Facility', '199 Al Salhia food industrial,\r\nnew industrial second zone - Al Sharqia - Egypt', '	(+20)0553203614', '(002)0100-2150014', '	(+20)0553203612');
+(1, 'Sheraton, Cairo, Egypt', '(002)02-22681203', '(002)0100-2150014', '	(002)02-22680688', '	info@elhamdgroup.net', 'www.elhamdgroup.net', 'El Hamd Trading Company', 'El Hamd Trading Facility', '199 Al Salhia food industrial,\r\nnew industrial second zone - Al Sharqia - Egypt', '	(+20)0553203614', '(002)0100-2150014', '	(+20)0553203612');
 
 -- --------------------------------------------------------
 
@@ -210,8 +210,8 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`ID`, `First_Name`, `Last_Name`, `email`, `address`, `Dep`, `mobile`, `DOB`, `degree`, `emp_date`, `salary`, `comp_id`, `national_id`) VALUES
 (126, 'Omar', 'Attia', 'omar.attia98@gmail.com', 'Tagamoa Khames', 'Management', '01024564788', '1998-11-15', 'Thanwya', '2019-02-02', 8000, 11835, ''),
-(130, 'Mostafa', 'Ashraf', 'sasa@gmail.com', 'Madinat Nasr', 'Marketing', '01023456788', '2000-02-02', 'Thanwya', '2000-02-02', 6000, 11930, '12345676464555'),
-(131, 'Aya', 'Fathhy', 'omar.attia98@gmail.com', 'Masr Gdeida', 'Accounting', '01022223344', '2010-11-11', 'thanwya', '2018-11-11', 3000, 11836, '');
+(130, 'Mostafa', 'Ashraf', 'mostafaElshami@gmail.com', 'Madinat Nasr', 'Marketing', '01023456788', '2000-02-02', 'CSc', '2000-02-02', 6000, 11930, '12345676464555'),
+(132, 'Aya ', 'Fathy', 'iayafathy@gmail.com', 'Second District, Obour c', '', '01116764459', '1999-06-27', 'Csc', '2020-02-04', 6000, 332, '12345676464555');
 
 -- --------------------------------------------------------
 
@@ -274,6 +274,28 @@ INSERT INTO `product` (`ID`, `name`, `description`, `pic`, `origin`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `qanda`
+--
+
+CREATE TABLE `qanda` (
+  `Q_ID` int(11) NOT NULL,
+  `Q_type` text NOT NULL,
+  `Q` text DEFAULT NULL,
+  `A` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `qanda`
+--
+
+INSERT INTO `qanda` (`Q_ID`, `Q_type`, `Q`, `A`) VALUES
+(1, 'Inquiry', 'How to apply for a job?', 'Send an email to info@elhamdgroup.net.'),
+(2, 'Relations', 'Do you work in Asia?', 'We have been working with them Malaysian embassy for 15 years.'),
+(3, 'Salaries', 'Asking for a raise', 'Please send an email to empInquiry@outlook.com');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `shipment`
 --
 
@@ -328,7 +350,8 @@ INSERT INTO `storage` (`ID`, `productname`, `product_id`, `currentq`, `date`, `i
 (1, 'Peanuts', 45, 200, '2020-05-05', 300, 400),
 (2, 'Hazelnuts', 20, 400, '2020-05-05', 100, 10),
 (3, 'Cashew', 30, 1000, '2020-05-05', 800, 50),
-(4, 'Potato', 40, 50, '2020-05-05', 0, 450);
+(4, 'Potato', 4, 500, '2020-05-05', 0, 450),
+(25, 'lentils', 22, 500, '2020-06-13', 50, 70);
 
 -- --------------------------------------------------------
 
@@ -431,6 +454,12 @@ ALTER TABLE `product`
   ADD UNIQUE KEY `name` (`name`);
 
 --
+-- Indexes for table `qanda`
+--
+ALTER TABLE `qanda`
+  ADD PRIMARY KEY (`Q_ID`);
+
+--
 -- Indexes for table `shipment`
 --
 ALTER TABLE `shipment`
@@ -500,7 +529,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -518,7 +547,7 @@ ALTER TABLE `shlinebooking`
 -- AUTO_INCREMENT for table `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user`

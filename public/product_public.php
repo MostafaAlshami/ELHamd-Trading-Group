@@ -17,36 +17,40 @@ $view = new ViewProduct($controller, $model);
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        Products
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <!-- CSS Files -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Homepage
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+  <script>
+    function display() {
+      document.getElementById('id02').style.display = 'block';
+      document.getElementById('id01').style.display = 'none';
+    }
+  </script>
 </head>
 
-<body class="user-profile">
-    <div class="wrapper ">
-        <div class="sidebar" data-color="orange">
-        <div class="logo">
-        <a href="#" class="simple-text logo-mini">
-          HT
-        </a>
-        <a href="#" class="simple-text logo-normal">
-          ELHamd Trading
-        </a>
-      </div>
+<body class="">
 
-        <div class="sidebar-wrapper" id="sidebar-wrapper">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="orange">
+      <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
+      <div class="logo">
+        <a href="./dashboard.php" class="simple-text logo-mini"> HT </a>
+                <a href="./dashboard.php" class="simple-text logo-normal"> ELHamd Trading </a>
+      </div>
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
             <a href="./dashboard.php">
@@ -54,13 +58,12 @@ $view = new ViewProduct($controller, $model);
               <p>Dashboard</p>
             </a>
           </li>
-            <li>
-              <a href="employeeList.php">
-                <i class="now-ui-icons users_single-02"></i>
-                <p>User Profile
-                <br> Do not open</p>
-              </a>
-            </li>
+
+          <?php if (!empty($_SESSION["ID"])) { ?>
+
+            
+
+
             <li>
               <a href="employeesList.php">
                 <i class="now-ui-icons users_single-02"></i>
@@ -74,28 +77,31 @@ $view = new ViewProduct($controller, $model);
               </a>
             </li>
             <li>
-                <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
-                  <p>Shipping Lines</p>
-                </a>
+              <a href="shipping.php"> <i class="now-ui-icons files_box"></i>
+                <p>Shipping Lines</p>
+              </a>
             </li>
             <li>
-              <a href="allContracts.php">
+              <a href="">
                 <i class="now-ui-icons files_box"></i>
                 <p>Contracts
                 <br> Do not open</p>
               </a>
             </li>
-            <li class="active ">
-              <a href="product_public.php"><i class="now-ui-icons files_box"></i>
-                <p>Products</p>
-              </a>
+            <li class="active">
+                <a href="product_public.php"><i class="now-ui-icons files_box"></i>
+                    <p>Products</p>
+                </a>
             </li>
             <li>
               <a href="storage_public.php"><i class="now-ui-icons files_box"></i>
                 <p>Storage</p>
               </a>
             </li>
-           
+    
+          <?php }
+          ?>
+
         </ul>
       </div>
     </div>
@@ -160,6 +166,7 @@ $view = new ViewProduct($controller, $model);
                     <p> <span class="d-lg-none d-md-block">Some Actions</span> </p>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href='employeesList.php?action=view&id=<?php echo $_SESSION["ID"]; ?>'>User Profile</a> 
                     <a class="dropdown-item" href="signout.php">Signout</a>
 
                   </div>

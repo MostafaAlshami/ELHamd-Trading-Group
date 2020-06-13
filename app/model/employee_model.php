@@ -16,7 +16,7 @@ class Employee extends Model{
     private $empdate;
     private $salary;
     private $compid;
-
+    
   function __construct($empid,$empfirstname="",$emplastname="",$email="",$address="",$dep="",$mobile="",$birthdate="",$edudegree="",$empdate="",$salary="",$compid="",$national="") 
   {
     $this->empid = $empid;
@@ -44,7 +44,7 @@ class Employee extends Model{
     }
   }
 
-
+  
     public function getEmpid()
     {
         return $this->empid;
@@ -177,7 +177,18 @@ class Employee extends Model{
       {
             $this->national = $national;
       }
-
+      
+      public function validate($value)
+      {
+          if(!filter_var($value, FILTER_VALIDATE_INT) === false||preg_match('/[\'\/~`\!@#\$%\^&\*\(\)\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\].*[0-9]|[0-9]/', $value)||$value=="")
+          {
+              return false;
+          }   
+          else{
+              return true;
+          }
+      }
+    
     function readEmployee($empid)
     {
         $sql = "SELECT * FROM user  JOIN  employee ON user.emp_ID = employee.ID WHERE user.emp_ID='$empid'";
@@ -226,34 +237,68 @@ class Employee extends Model{
 
       function editEmployee($empid,$empfirstname,$emplastname,$email,$address,$mobile,$birthdate,$edudegree,$empdate,$salary,$compid,$national)
       {
-        $empfirstname = $this->dbh->getConn()->real_escape_string($empfirstname);
-        $emplastname = $this->dbh->getConn()->real_escape_string($emplastname);
-        $email = $this->dbh->getConn()->real_escape_string($email);
-        $address = $this->dbh->getConn()->real_escape_string($address);
-        //$dep = $this->dbh->getConn()->real_escape_string($dep);
-        $mobile = $this->dbh->getConn()->real_escape_string($mobile);
-        $birthdate = $this->dbh->getConn()->real_escape_string($birthdate);
-        $edudegree = $this->dbh->getConn()->real_escape_string($edudegree);
-        $empdate = $this->dbh->getConn()->real_escape_string($empdate);
-        $salary = $this->dbh->getConn()->real_escape_string($salary);
-        $compid = $this->dbh->getConn()->real_escape_string($compid);
-        $national = $this->dbh->getConn()->real_escape_string($national);
-
-    
-        $sql = "UPDATE employee SET First_Name='$empfirstname', Last_Name='$emplastname', email='$email', address='$address' , mobile='$mobile', DOB='$birthdate',
-         degree='$edudegree', emp_date='$empdate', salary='$salary', comp_id='$compid', national_id='$national' WHERE ID = '$empid'";
-    
-        if($this->dbh->query($sql) === true)
+        
+        
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)==false)
         {
-          echo "Records updated successfully.";
-        }
-        else
-        {  
-          echo "ERROR: Could not execute $sql. " . $conn->error;
+          echo "<script>alert('Invalid Email Entered');</script>";
 
-        }
+        } 
+        else 
+        {
+          if($this->validate($empfirstname)==false )
+          {
+            echo "<script>alert('Invalid First Name Entered');</script>";
+          }
+          else
+          {
+            if($this->validate($emplastname)==false )
+          {
+            echo "<script>alert('Invalid Last Name Entered');</script>";
+          }
+          else{
+            if($this->validate($edudegree)==false )
+            {
+              echo "<script>alert('Invalid Degree Name Entered');</script>";
+            }
+            else{
+              if($salary < 0 || $compid < 0 || $national < 0 || $mobile < 0)
+              {
+                echo "<script>alert('Negative Number Entered');</script>";
+              }
+              else{
+                $empfirstname = $this->dbh->getConn()->real_escape_string($empfirstname);
+              $emplastname = $this->dbh->getConn()->real_escape_string($emplastname);
+              $address = $this->dbh->getConn()->real_escape_string($address);
+              //$dep = $this->dbh->getConn()->real_escape_string($dep);
+              $mobile = $this->dbh->getConn()->real_escape_string($mobile);
+              $birthdate = $this->dbh->getConn()->real_escape_string($birthdate);
+              $edudegree = $this->dbh->getConn()->real_escape_string($edudegree);
+              $empdate = $this->dbh->getConn()->real_escape_string($empdate);
+              $salary = $this->dbh->getConn()->real_escape_string($salary);
+              $compid = $this->dbh->getConn()->real_escape_string($compid);
+              $national = $this->dbh->getConn()->real_escape_string($national);
     
-      }
+        
+              $sql = "UPDATE employee SET First_Name='$empfirstname', Last_Name='$emplastname', email='$email', address='$address' , mobile='$mobile', DOB='$birthdate',
+              degree='$edudegree', emp_date='$empdate', salary='$salary', comp_id='$compid', national_id='$national' WHERE ID = '$empid'";
+          
+              if($this->dbh->query($sql) === true)
+              {
+                echo "Records updated successfully.";
+              }
+              else
+              {  
+                echo "ERROR: Could not execute $sql. " . $conn->error;
+              }
+            }
+          }    
+          }
+            }
+          }
+              }
+              
+          
     
       function deleteEmployee($empid)
       {

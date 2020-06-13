@@ -56,7 +56,7 @@ class EmployeeView extends View
     $str .= " <td> " . $this->model->getSalary() . " </td> </tr> ";
 
     $str .= " <tr>";
-    $str .= " <td> Salary </td>  <td></td> <td></td> ";
+    $str .= " <td> National ID </td>  <td></td> <td></td> ";
     $str .= " <td> " . $this->model->getNational() . " </td> </tr> ";
 
     $str .= " <tr> ";

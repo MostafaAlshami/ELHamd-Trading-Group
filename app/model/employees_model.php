@@ -61,6 +61,7 @@ class Employees extends Model {
                         mobile, DOB, degree, emp_date, salary, comp_id, national_id)
     VALUES ('$first_name', '$last_name', '$email', '$address', 
             '$mobile', '$DoB', '$Degree', '$EmpDate', '$salary','$compid', '$national')";
+            
 
    if($this->dbh->query($sql) === true){
      echo "Record inserted successfully.";

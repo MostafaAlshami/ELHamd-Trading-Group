@@ -26,7 +26,7 @@ class CompaniesView extends View
                 $str .= ' <td>  ' . $Company->getName() . '  </td> ';
                 $str .= " <td> <a href =\"mailto:" . $Company->getEmail() . "\">" . $Company->getEmail() .  " </a> </td> ";
                 $str .= ' <td>  ' . $Company->getPhoneNumber() . '  </td> ';
-                $str .= ' <td> <a href ="https://' . $Company->getURL() . ' "target="_blank">' . $Company->getURL() . ' </a> </td> ';
+                $str .= ' <td> <a href ="http://' . $Company->getURL() . ' "target="blank">' . $Company->getURL() . ' </a> </td> ';
                 $str .= ' <td>  ' . $Company->getAddress() . '  </td> ';
                 $str .= " <td class=\"text-right\"><a class=\"btn\" href='companiesList.php?action=view&id= " . $Company->getID() . "'   > View </a></td> ";   //check href
                 $str .= " <td class=\"text-right\"><a class=\"btn\" href='companiesList.php?action=edit&id= " . $Company->getID() . "'  > Edit </a></td> ";   //check href
@@ -64,7 +64,7 @@ class CompaniesView extends View
                 $str .= ' <td>  ' . $Company->getName() . '  </td> ';
                 $str .= " <td> <a href =\"mailto:" . $Company->getEmail() . "\">" . $Company->getEmail() .  " </a> </td> ";
                 $str .= ' <td>  ' . $Company->getPhoneNumber() . '  </td> ';
-                $str .= ' <td> <a href ="https://' . $Company->getURL() . ' "target="_blank">' . $Company->getURL() . ' </a> </td> ';
+                $str .= ' <td> <a href ="http://' . $Company->getURL() . ' "target="blank">' . $Company->getURL() . ' </a> </td> ';
                 $str .= ' <td>  ' . $Company->getAddress() . '  </td> ';
                 $str .= " <td class=\"text-right\"><a class=\"btn\" href='shipping.php?action=view&id= " . $Company->getID() . "'   > View </a></td> ";   //check href
                 $str .= " <td class=\"text-right\"><a class=\"btn\" href='shipping.php?action=edit&id= " . $Company->getID() . "'  > Edit </a></td> ";   //check href

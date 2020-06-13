@@ -24,7 +24,7 @@ require_once(__ROOT__ . "model/model.php");
     function __construct($id, $compAdd="" ,$compTel="", $compMobile="" ,$compFax="", $email="",
                         $website="" ,$compName="", $facName="" ,$facAdd="", $facTel="" ,
                         $facMobile="", $facFax="")
-    {
+     {
         $this->id = $id;
         $this->dbh = $this->connect();
     
@@ -47,11 +47,11 @@ require_once(__ROOT__ . "model/model.php");
           $this->facMobile = $facMobile;
           $this->facFax = $facFax;
         }
-    }
+     }
 
 
     function readContact($id)
-    {
+     {
         $sql = "SELECT * FROM contact WHERE id=" . $id;
         $dbh = $this->connect();
         $result = $dbh->query($sql);
@@ -87,7 +87,7 @@ require_once(__ROOT__ . "model/model.php");
             $this->facMobile = "";
             $this->facFax = "";
         }
-    }
+     }
 
     function getID()
     {
@@ -102,7 +102,7 @@ require_once(__ROOT__ . "model/model.php");
     {
       return $this->compAdd;
     }
-    function getCompAdd($)
+    function setCompAdd($compAdd)
     {
       return $this->compAdd = $compAdd;
     }
@@ -208,7 +208,7 @@ require_once(__ROOT__ . "model/model.php");
       return $this->facFax = $facFax;
     }
 
-    }
+
 
 
     function insertContact()

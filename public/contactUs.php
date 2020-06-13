@@ -6,9 +6,9 @@ if (!isset($_SESSION))
 }
 
 define('__ROOT__', "../app/");
-require_once(__ROOT__ . "model/about_model.php");
-require_once(__ROOT__ . "controller/about_controller.php");
-require_once(__ROOT__ . "view/about_view.php");
+require_once(__ROOT__ . "model/contact_model.php");
+require_once(__ROOT__ . "controller/contact_controller.php");
+require_once(__ROOT__ . "view/contact_view.php");
 
 $id = 1;
 $model = new Contact($id);
@@ -138,53 +138,20 @@ $view = new ContactView($controller, $model);
 
 
 
-            <div class="content"  id="contact" >  <!--- style="display: None" -->
-                <div class="row">
-                    <div class="col-md-15">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-category"></h5>
-                                <a class="btn" href="dashboard.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </a>
-                                <h4 class="card-title">El Hamd Trading Company</h4>
-                            </div>
-                            <div class="card-body">
-                              <div class="table-responsive">
-                                <table class="table">
-                                  <tr>
-                                      <th> Address </th>
-                                      <td> Sheraton, Cairo, Egypt </td>
-                                      <td> </td>
-                                  </tr>
+          <div class="content"  id="contact" >  <!--- style="display: None" -->
+              <div class="row">
+                <div class="col-md-15">
 
-                                  <tr>
-                                      <th> Phone Numbers </th>
-                                      <td> (002)02-22681203 <br>
-                                           (002)0100-2150014 </td>
-                                      <td>  </td>
-                                  </tr>
 
-                                  <tr>
-                                  <th> Fax </th>
-                                  <td> (002)02-22680688 </td> 
-                                  <td></td>
-                                  </tr>
 
-                                  <tr>
-                                  <th> Email Address </th>
-                                  <td> info@elhamdgroup.net </td> 
-                                  <td></td>
-                                  </tr>
+                      <div class="card">
 
-                                  <tr>
-                                  <th> Website </th>
-                                  <td> <a href="http://www.elhamdgroup.net/"> </td>
-                                  <td></td>
-                                  </tr>          
-                                </table>
-                            
-                           </div>
-                        </div>
-                    </div>
+                      <?php
+                                echo $view->output();
+                            ?>
+
+                      </div>
+
 
 
 
@@ -209,9 +176,14 @@ $view = new ContactView($controller, $model);
                                   </tr>
 
                                   <tr>
-                                      <th> Numbers </th>
-                                      <td> (+20)0553203614 <br>
-                                           (002)0100-2150014 </td>
+                                      <th> Phone Number </th>
+                                      <td> (002)0100-2150014 </td> 
+                                      <td>  </td>
+                                  </tr>
+
+                                  <tr>
+                                      <th> Telephone </th>
+                                      <td> (002)02-22681203 </td>
                                       <td>  </td>
                                   </tr>
                                
@@ -225,6 +197,10 @@ $view = new ContactView($controller, $model);
                               </div>    
                            </div>
                         </div>
+
+
+
+
                     </div>
                 </div>
             </div>

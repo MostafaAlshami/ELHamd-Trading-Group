@@ -149,7 +149,7 @@ $view = new ContactView($controller, $model);
 
                       <?php
                                 echo $view->output();
-                            ?>
+                      ?>
 
                       </div>
 
@@ -159,45 +159,12 @@ $view = new ContactView($controller, $model);
 
                    
                         <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-category"></h5>
 
-                                <h4 class="card-title">El Hamd Trading Facility</h4>
-                            </div>
-                            <div class="card-body">
-                              <div class="table-responsive">
-                                <table class="table">
+                      <?php
+                                echo $view->output2();
+                      ?>
 
-                                  <tr>
-                                      <th> Address </th>
-                                      <td> 199 Al Salhia food industrial,<br>
-                                            new industrial second zone 
-                                             - Al Sharqia - Egypt </td>
-                                      <td></td>      
-                                  </tr>
-
-                                  <tr>
-                                      <th> Phone Number </th>
-                                      <td> (002)0100-2150014 </td> 
-                                      <td>  </td>
-                                  </tr>
-
-                                  <tr>
-                                      <th> Telephone </th>
-                                      <td> (002)02-22681203 </td>
-                                      <td>  </td>
-                                  </tr>
-                               
-                                  <tr>
-                                  <th> Fax </th>
-                                  <td> (+20)0553203612 </td> 
-                                  <td></td>
-                                  </tr>
-
-                                </table>
-                              </div>    
-                           </div>
-                        </div>
+                      </div>
 
 
 

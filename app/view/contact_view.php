@@ -62,28 +62,27 @@ class ContactView extends View
     $str = "";   
 
     $str .= ' <div class="card-header"> <h5 class="card-category"></h5> '; 
-    $str .= ' <a class="btn" href="dashboard.php"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </a> ';
     $str .= ' <h4 class="card-title"> ' . $this->model->getFacName() . ' </h4> </div> ';
     $str .= ' <div class="card-body"> <div class="table-responsive"> ';
     $str .= ' <table class="table"> ';
     $str .= ' <tr> ';
     $str .= ' <th> Address </th> ';
-    $str .= ' <td> ' . $this->model->getFacAdd() . ' </td>  <td></td> ';
+    $str .= ' <td> ' . $this->model->getFacAdd() . ' </td>';
     $str .= ' </tr> ';
 
     $str .= '   <tr> ';
     $str .= '       <th> Phone Number </th> ';
-    $str .= '       <td> ' . $this->model->getFacMobile() . ' </td>  <td></td> ';      
+    $str .= '       <td> ' . $this->model->getFacMobile() . ' </td>  ';      
     $str .= '   </tr> ';
 
     $str .= '   <tr> ';
     $str .= '       <th> Telephone </th> ';
-    $str .= '        <td> ' . $this->model->getFacTel() . ' </td> <td></td> ';      
+    $str .= '        <td> ' . $this->model->getFacTel() . ' </td> ';      
     $str .= '   </tr> ';
 
     $str .= '  <tr> ';
     $str .= '  <th> Fax </th> ';
-    $str .= '   <td> ' . $this->model->getFacFax() . ' </td> <td></td> ';
+    $str .= '   <td> ' . $this->model->getFacFax() . ' </td> ';
     $str .= '  </tr> ';
      
 

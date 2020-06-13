@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2020 at 02:00 AM
+-- Generation Time: Jun 13, 2020 at 05:13 AM
 -- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.32
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -578,13 +578,6 @@ ALTER TABLE `shipment`
 --
 ALTER TABLE `shlinebooking`
   ADD CONSTRAINT `shlinebooking_ibfk_1` FOREIGN KEY (`shippingLine_id`) REFERENCES `company` (`company_id`);
-
---
--- Constraints for table `storage`
---
-ALTER TABLE `storage`
-  ADD CONSTRAINT `product_id_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`ID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_name_fk` FOREIGN KEY (`productname`) REFERENCES `product` (`name`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

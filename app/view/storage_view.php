@@ -139,11 +139,9 @@ class ViewStorage extends View{
                 $SID = $Storage->getSID();
                 $productName = $Storage->getProduct_name();
                 $current = $Storage->getcurrentq();
-
+                
                 $str .= "<div class='table-responsive'>";
                 $str .= "<table class='table'>";
-                $str .= "<form action='Create_PDF.php' method='post'>";
-
                 $str .= "<thead class='text-primary'>";
                 $str .= "<th>Product ID</th>";
                 $str .= "<th><input required  name='prid' id='" . $SID . "_product_id' type='text' class='form-control' value='" . $Storage->getproduct_id() . "' ></th>";
@@ -152,6 +150,15 @@ class ViewStorage extends View{
                 $str .= "<th>Quantity</th>";
                 $str .= "<th><input required   name='prq' id='" . $SID . "_currentq' type='number' class='form-control' value='". $current ."'></th>";
                 $str .= "<th></th><th></th>";
+                $str .= "<form action='Create_PDF.php' method='post'>";
+                $str .= "<input type='hidden' name='prid' id='" . $SID . "_product_id'  value='" . $Storage->getproduct_id() . "'>";
+                $str .= "<input type='hidden' name='prname' id='" . $SID . "_product_name'  value='" . $productName . "'>";
+                $str .= "<input type='hidden' name='prq' id='" . $SID . "_currentq'  value='". $current ."'>";
+                $str .= "<input type='hidden' name='prd' id='" . $SID . "_prd'  value='". $Storage->getdate() ."'>";
+                $str .= "<input type='hidden' name='prqin' id='" . $SID . "_inq'  value='". $Storage->getInq() ."'>";
+                $str .= "<input type='hidden' name='prqout' id='" . $SID . "_outq'  value='". $Storage->getOutq() ."'>";
+                $str .= "<td><input type=submit value=Report class='btn' ></td>";
+                $str .= "</form>";
                 $str .= "</thead>";
               
                 $str .= "<tbody>";
@@ -169,10 +176,10 @@ class ViewStorage extends View{
                 $str .= "<td><button id='" . $SID . "_submit' class='btn' onclick='UpdateStorage(" . $SID . ")'> Modify </button> </td>
                         <td id='" . $SID . "_error_message' colspan='7'><button id='" . $SID . "_submit' class='btn' onclick='DeleteStorage(" . $SID . ")'> Delete </button></td>
                         <td id='" . $SID . "_error_message' colspan='7'></td>";
-                $str .= "<td><input type=submit value=Report class='btn' ></td>";
+                
                 $str .= "</tr>";
 
-                $str .= "</form>";
+               
                 $str .= "</tbody>";
                 $str .= "</table>";
                 $str .= "</div>";

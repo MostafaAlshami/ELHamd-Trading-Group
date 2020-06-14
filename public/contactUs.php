@@ -95,7 +95,7 @@ $view = new ContactView($controller, $model);
             </li>
 
               <li class="nav-item">
-              <a  class="nav-link" href="faqs.php"><i class="now-ui-icons files_box"></i>
+              <a  class="nav-link" href="../qanda/faqs.php"><i class="now-ui-icons files_box"></i>
                 <p>FAQs</p>
               </a>
             </li>

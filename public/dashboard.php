@@ -45,10 +45,10 @@
     <div class="sidebar" data-color="orange">
       <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
       <div class="logo">
-        <a href="#" class="simple-text logo-mini">
+        <a href="dashboard.php" class="simple-text logo-mini">
           HT
         </a>
-        <a href="#" class="simple-text logo-normal">
+        <a href="dashboard.php" class="simple-text logo-normal">
           ELHamd Trading
         </a>
       </div>
@@ -119,7 +119,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="dashboard.php">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>

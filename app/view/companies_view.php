@@ -76,7 +76,7 @@ class CompaniesView extends View
 
         $str .= ' </tbody> ';
         $str .= ' </table> ';
-        $str .= ' <a class="btn"  href=\'shipping.php?action=add&id= " "\' > Add Company </a> '; //ADD COMPANY ACTION HERE
+        $str .= ' <a class="btn"  href=\'shipping.php?action=add&id= " "\' > Add Shipping Company </a> '; //ADD COMPANY ACTION HERE
         $str .= ' </div> ';
 
         return $str;

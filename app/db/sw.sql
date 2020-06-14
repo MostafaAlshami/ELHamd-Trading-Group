@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2020 at 06:22 PM
+-- Generation Time: Jun 14, 2020 at 03:45 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -124,7 +124,8 @@ INSERT INTO `company` (`company_id`, `company_name`, `email`, `curl`, `phoneNumb
 (2, 'Abu-Auf', 'abuauf@hotmail.com', 'www.abuauf.com', '0226053031', 'New Cairo, Cairo-Egypt', 'trading'),
 (3, 'MSC', 'EG195-msc.egypt@msc.com', 'www.msc.com', '20 3 488 4000', 'Alexandria Old Port, Alexandri', 'shipping'),
 (4, 'CRM', 'crm@gmail.vom', 'www.crm.com', '01776767845', 'Cairo-Egypt', 'shipping'),
-(5, 'Beansco', 'beansco@gmail.com', 'www.beansc.com', '01776767845', 'Cairo-Egypt', 'trading');
+(5, 'Beansco', 'beansco@gmail.com', 'www.beansc.com', '01776767845', 'Cairo-Egypt', 'trading'),
+(6, 'sera', 'sera@gmail.com', 'www.sera.net', '01002150014', 'Sheraton, Cairo-Egypt', 'trading');
 
 -- --------------------------------------------------------
 
@@ -194,7 +195,7 @@ CREATE TABLE `employee` (
   `Last_Name` varchar(24) NOT NULL,
   `email` varchar(32) NOT NULL,
   `address` varchar(24) NOT NULL,
-  `Dep` varchar(30) NOT NULL,
+  `Dep` varchar(30) NOT NULL DEFAULT 'Marketing',
   `mobile` varchar(24) NOT NULL,
   `DOB` date NOT NULL,
   `degree` varchar(24) NOT NULL,
@@ -209,9 +210,11 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`ID`, `First_Name`, `Last_Name`, `email`, `address`, `Dep`, `mobile`, `DOB`, `degree`, `emp_date`, `salary`, `comp_id`, `national_id`) VALUES
-(126, 'Omar', 'Attia', 'omar.attia98@gmail.com', 'Tagamoa Khames', 'Management', '01024564788', '1998-11-15', 'Thanwya', '2019-02-02', 8000, 11835, ''),
+(126, 'Omar', 'Attia', 'omar.attia98@gmail.com', 'Tagamoa Khames', 'Management', '01024564788', '1998-11-15', 'Thanwya', '2019-02-02', 6000, 11835, ''),
 (130, 'Mostafa', 'Ashraf', 'mostafaElshami@gmail.com', 'Madinat Nasr', 'Marketing', '01023456788', '2000-02-02', 'CSc', '2000-02-02', 6000, 11930, '12345676464555'),
-(132, 'Aya ', 'Fathy', 'iayafathy@gmail.com', 'Second District, Obour c', '', '01116764459', '1999-06-27', 'Csc', '2020-02-04', 6000, 332, '12345676464555');
+(132, 'Aya ', 'Fathy', 'iayafathy@gmail.com', 'Second District, Obour c', 'Marketing', '01116764459', '1999-06-27', 'Csc', '2020-02-04', 6000, 332, '5565265695'),
+(133, 'Khaled', 'Hamdy', 'khamdy@outlook.com', 'obour', 'Marketing', '01118885646', '1976-03-04', 'Business', '2010-02-10', 6000, 77, ''),
+(134, 'Omar', 'Ahmed', 'omar@gmail.com', 'Sheraton, Cairo-Egypt', 'Marketing', '01223839977', '1994-10-07', 'Business', '2020-06-01', 6000, 55, '5856256562828');
 
 -- --------------------------------------------------------
 
@@ -266,10 +269,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ID`, `name`, `description`, `pic`, `origin`) VALUES
-(20, 'Hazelnuts', 'bondo2', 'https://image.shutterstock.com/image-vector/vector-realistic-illustration-hazelnut-peeled-260nw-1167149488.jpg', 'India'),
-(30, 'Cashew', 'cajew', 'https://image.shutterstock.com/image-photo/roasted-cashew-nuts-green-leaves-260nw-1239793840.jpg', 'Sudan'),
-(40, 'Potato', 'btates', 'https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/02/raw-potatoes-potato-1296x728-header.jpg?w=1155&h=1528', 'Egypt'),
-(45, 'Peanuts', 'fosdo2', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/peanuts-royalty-free-image-616003590-1532549624.jpg', 'Russia');
+(20, 'Hazelnuts', 'Deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.', 'https://image.shutterstock.com/image-vector/vector-realistic-illustration-hazelnut-peeled-260nw-1167149488.jpg', 'India'),
+(30, 'Cashew', 'The cashew tree is a tropical evergreen tree that produces the cashew seed and the cashew apple. ', 'https://image.shutterstock.com/image-photo/roasted-cashew-nuts-green-leaves-260nw-1239793840.jpg', 'India'),
+(40, 'Potato', 'The potato is a root vegetable native to the Americas.', 'https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/02/raw-potatoes-potato-1296x728-header.jpg?w=1155&h=1528', 'Italy'),
+(45, 'Peanuts', 'Known as the groundnut, goober, or monkey nut, classified as Arachis hypogaea.', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/peanuts-royalty-free-image-616003590-1532549624.jpg', 'Brazil');
 
 -- --------------------------------------------------------
 
@@ -347,7 +350,7 @@ CREATE TABLE `storage` (
 --
 
 INSERT INTO `storage` (`ID`, `productname`, `product_id`, `currentq`, `date`, `inq`, `outq`) VALUES
-(1, 'Peanuts', 45, 200, '2020-05-05', 300, 400),
+(1, 'Peanuts', 45, 50, '2020-05-05', 300, 400),
 (2, 'Hazelnuts', 20, 400, '2020-05-05', 100, 10),
 (3, 'Cashew', 30, 1000, '2020-05-05', 800, 50),
 (4, 'Potato', 4, 500, '2020-05-05', 0, 450),
@@ -373,7 +376,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`ID`, `username`, `password`, `type`, `emp_ID`) VALUES
 (126, 'omar', '$2y$10$Tz3320XG.dZmKlaFhdNcae3qPvA63UtA0FnKuXN6taoH8TG87eMBS', 0, 126),
-(130, 'Mostafa', '$2y$10$4Z4tRSAwPwdWIMhYcBiGu.SQYKuaVu5yZFC.EgsQlkLFPasOsVxlG', 0, 130);
+(130, 'Mostafa', '$2y$10$bcaSOVCjfHqaM.J5MOsheudHGREkjTLQKQuSRllXxhxrirCfOt3Vq', 0, 130);
 
 --
 -- Indexes for dumped tables
@@ -517,7 +520,7 @@ ALTER TABLE `commodity`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `company_id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -529,7 +532,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `product`

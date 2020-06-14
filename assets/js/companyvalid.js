@@ -3,8 +3,8 @@ function validateaddcompany() {
     var address = document.getElementById("address").value;
     var email = document.getElementById("email").value;
     var phone = document.getElementById("phone").value;
-    var URL = document.getElementById("URL").value;
-    var type = document.getElementById("type").value;
+    //var URL = document.getElementById("URL").value;
+    //var type = document.getElementById("type").value;
 
 
     if(companyname == "" )
@@ -42,7 +42,7 @@ function validateaddcompany() {
           return false;
   
     }
-
+    /*
     if(URL == "" )
      {
           alert("URL cannot be empty");
@@ -51,15 +51,16 @@ function validateaddcompany() {
           return false;
   
     }
-
-    if(type == "" )
+    
+    if(Type == "" )
      {
-          alert("URL cannot be empty");
+          alert("Type be empty");
           
           document.getElementById("type").style.borderColor = "red";
           return false;
   
     }
+    */
 
 
 }
@@ -107,7 +108,8 @@ function validateaeditcomp() {
           return false;
   
     }
-
+    
+    /*
     if(URL == "" )
      {
           alert("URL cannot be empty");
@@ -115,7 +117,7 @@ function validateaeditcomp() {
           document.getElementById("URL2").style.borderColor = "red";
           return false;
   
-    }
+    }*/
 
     // if(type == "" )
     //  {

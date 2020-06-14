@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+
 require_once(__ROOT__ . "model/model.php");
 require_once(__ROOT__ . "model/company_model.php");
 
@@ -11,9 +11,10 @@ class Companies extends Model
     function __construct()
     {
         $this->fillArray();
-        $this->fillArray2();
+        //$this->fillArray2();
     }
 
+   /*
     function fillArray2()
     {
         $this->companies = array();
@@ -32,6 +33,9 @@ class Companies extends Model
             ));
         }
     }
+    */
+
+    
     function fillArray()
     {
         $this->companies = array();

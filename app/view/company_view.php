@@ -128,6 +128,10 @@ class CompanyView extends View
         $str .= " <td> URL </td>  <td></td> <td></td> ";
         $str .= ' <td> <input type="text" class="form-control" name ="url" id="URL2" value="' . $this->model->getURL() . '"> </td> </tr> ';
 
+        $str .= " <tr>";
+        $str .= " <td> Type </td>  <td></td> <td></td> ";
+        $str .= ' <td> <input type="hidden" class="form-control" name ="url" id="type" value="' . $this->model->getType() . '"> </td> </tr> ';
+
         $str .= " <tr> ";
         $str .= " <td></td> ";
         $str .= ' <td> <button type="submit" class="btn" name ="save" onclick="return validateaeditcomp()"> Save </button> </td> ';  //SAVE ACTION

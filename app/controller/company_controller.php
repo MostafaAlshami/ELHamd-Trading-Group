@@ -20,8 +20,8 @@ class CompanyController extends Controller
   public function editComp()
   {
     $company_id = $_GET['id'];
-    // $type =$_POST['type'];
-    $type = "test";
+    $type =$_POST['type'];
+    //$type = "test";
     $company_name = $_POST['company_name'];
     $email = $_POST['email'];
     $url = $_POST['url'];

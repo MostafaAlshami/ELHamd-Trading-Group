@@ -160,6 +160,7 @@ class Company extends Model
     }
   }
 
+ /*
   function searchCompany($company_name)
   {
     $sql = "SELECT * FROM company WHERE company_name = $company_name";
@@ -184,6 +185,7 @@ class Company extends Model
       $this->address = "";
     }
   }
+  */
 }
 
 ?>

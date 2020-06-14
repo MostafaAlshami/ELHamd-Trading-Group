@@ -219,10 +219,7 @@
 
                 <div class="row">
 
-                  <img src="../public/Products/BFAVP.jpg" style="width:50%">
-                  <img src="../public/Products/fit.jpeg" style="width:50%">
-                  <img src="../public/products/unnamed.jpg" style="width:50%">
-                  <img src="../public/Products/80242-Org-Tumeric-560x325.jpg" style="width:50%">
+                  <img src="Products/herbs.jpg" style="width:90%">
 
 
                 </div>

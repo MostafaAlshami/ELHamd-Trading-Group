@@ -81,6 +81,8 @@ class CompaniesView extends View
 
         return $str;
     }
+
+    /*
     public function searchOutput()
     {
         $str = "";
@@ -116,4 +118,5 @@ class CompaniesView extends View
 
         return $str;
     }
+    */
 }

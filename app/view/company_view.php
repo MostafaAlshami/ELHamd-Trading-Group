@@ -130,7 +130,7 @@ class CompanyView extends View
 
         $str .= " <tr>";
         $str .= " <td> Type </td>  <td></td> <td></td> ";
-        $str .= ' <td> <input type="hidden" class="form-control" name ="url" id="type" value="' . $this->model->getType() . '"> </td> </tr> ';
+        $str .= ' <td> <input type="hidden" class="form-control" name ="type" id="type" value="' . $this->model->getType() . '"> </td> </tr> ';
 
         $str .= " <tr> ";
         $str .= " <td></td> ";
